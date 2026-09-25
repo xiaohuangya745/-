@@ -27,7 +27,6 @@
   ::selection{background:rgba(56,189,248,.35)}
   .icon{width:1em;height:1em;display:inline-block;vertical-align:-.15em;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;pointer-events:none}
 
-  /* 动态波浪背景 */
   .bg-layer{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;contain:strict}
   .flow-bg{position:absolute;inset:0;overflow:hidden;
     background:radial-gradient(ellipse 130% 90% at 50% 45%, #0a1526 0%, #060a14 55%, #02040a 100%);}
@@ -103,18 +102,15 @@
 
   .pcard.clickable{cursor:pointer}
 
-  /* 沙箱卡片 */
   .pcard.sandbox-card{border-color:rgba(168,85,247,.4);background:linear-gradient(140deg,rgba(168,85,247,.09),rgba(59,130,246,.06) 55%,rgba(255,255,255,.03))}
   .pcard.sandbox-card .pico{background:linear-gradient(135deg,rgba(168,85,247,.26),rgba(59,130,246,.2));border-color:rgba(168,85,247,.4);color:#dcc8ff}
   .pcard.sandbox-card:hover{border-color:rgba(168,85,247,.8);box-shadow:0 1px 0 var(--glass-hi) inset,0 42px 75px -25px rgba(168,85,247,.7),0 20px 40px -18px rgba(0,0,0,.8)}
   .pcard.sandbox-card:hover .ptag{background:rgba(168,85,247,.16);border-color:rgba(168,85,247,.45);color:#dcc8ff}
 
-  /* 威胁动态卡片 */
   .pcard.news-card{border-color:rgba(56,189,248,.35);background:linear-gradient(140deg,rgba(34,211,238,.08),rgba(59,130,246,.05) 55%,rgba(255,255,255,.03))}
   .pcard.news-card .pico{background:linear-gradient(135deg,rgba(34,211,238,.24),rgba(168,85,247,.2));border-color:rgba(34,211,238,.4)}
   .pcard.news-card:hover{border-color:rgba(56,189,248,.7);box-shadow:0 1px 0 var(--glass-hi) inset,0 42px 75px -25px rgba(56,189,248,.7),0 20px 40px -18px rgba(0,0,0,.8)}
 
-  /* 银狐专杀卡片 */
   .pcard.featured{cursor:pointer;border-color:rgba(255,59,59,.45);background:linear-gradient(140deg,rgba(255,59,59,.13),rgba(255,122,24,.07) 55%,rgba(255,255,255,.03));animation:featuredGlow 3.6s ease-in-out infinite}
   @keyframes featuredGlow{
     0%,100%{box-shadow:0 1px 0 var(--glass-hi) inset,0 18px 40px -18px rgba(0,0,0,.7),0 20px 45px -20px rgba(255,59,59,.4)}
@@ -241,51 +237,9 @@
   .why h4 .wi .icon{width:1.05rem;height:1.05rem}
   .why p{font-size:.88rem;color:var(--dim);line-height:1.84}
 
-  .p2-hero{text-align:center;margin-bottom:48px}
-  .p2-hero h1{font-size:clamp(1.75rem,4.6vw,2.9rem);font-weight:900;letter-spacing:-1px;line-height:1.18;background:linear-gradient(120deg,#ffb020,#ff7a18 50%,#ff3b3b);background-size:250% 250%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradShift 8s ease infinite;margin-bottom:15px;filter:drop-shadow(0 4px 18px rgba(255,140,50,.35))}
-  .p2-hero p{color:var(--dim);font-size:1rem;line-height:1.9;max-width:640px;margin:0 auto}
-
-  .spread-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:52px}
-  .spread{padding:22px;border-radius:17px;background:rgba(255,59,59,.07);border:1px solid rgba(255,59,59,.24);transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .45s}
-  .spread:hover{transform:translateY(-8px) rotateX(6deg);border-color:rgba(255,59,59,.55);box-shadow:0 1px 0 rgba(255,255,255,.16) inset,0 34px 58px -22px rgba(255,59,59,.6),0 14px 28px -12px rgba(0,0,0,.7)}
-  .spread .ei{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;margin-bottom:14px;background:linear-gradient(135deg,rgba(255,59,59,.22),rgba(255,122,24,.16));border:1px solid rgba(255,59,59,.3);color:#ffb0b0;box-shadow:0 5px 14px -4px rgba(255,59,59,.55),inset 0 1px 0 rgba(255,255,255,.2)}
-  .spread .ei .icon{width:1.25rem;height:1.25rem}
-  .spread h4{font-size:.96rem;margin-bottom:9px;font-weight:700}
-  .spread p{font-size:.85rem;color:var(--dim);line-height:1.8}
-
-  .prevent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-bottom:52px}
-  .prevent{padding:26px 24px;position:relative;overflow:hidden;border-radius:18px;transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .45s}
-  .prevent::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;background:radial-gradient(440px circle at var(--mx,50%) var(--my,50%),rgba(255,176,32,.16),transparent 62%);pointer-events:none}
-  .prevent:hover::before{opacity:1}
-  .prevent:hover{transform:translateY(-10px) rotateX(6deg);border-color:rgba(255,176,32,.55);box-shadow:0 1px 0 var(--glass-hi) inset,0 40px 68px -25px rgba(255,176,32,.6),0 18px 34px -14px rgba(0,0,0,.75)}
-  .prevent .ph{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-  .prevent .pi{width:44px;height:44px;border-radius:13px;flex-shrink:0;display:grid;place-items:center;color:var(--amber);background:linear-gradient(135deg,rgba(255,176,32,.22),rgba(255,122,24,.16));border:1px solid rgba(255,176,32,.34);box-shadow:0 5px 14px -4px rgba(255,176,32,.6),inset 0 1px 0 rgba(255,255,255,.2)}
-  .prevent .pi .icon{width:1.2rem;height:1.2rem}
-  .prevent h3{font-size:1rem;font-weight:700}
-  .prevent p{font-size:.88rem;color:var(--dim);line-height:1.84}
-  .prevent ul{list-style:none;margin-top:12px}
-  .prevent li{font-size:.85rem;color:var(--dim);line-height:1.86;padding-left:17px;position:relative}
-  .prevent li::before{content:'';position:absolute;left:0;top:.7em;width:6px;height:6px;border-radius:50%;background:var(--amber);opacity:.75}
-
-  .harden{padding:30px 28px;margin-bottom:44px;border-radius:20px;border:1px solid rgba(34,197,94,.3);background:linear-gradient(140deg,rgba(34,197,94,.08),rgba(255,255,255,.03))}
-  .harden .hh{display:flex;align-items:center;gap:12px;margin-bottom:22px}
-  .harden .hh .hi{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#5ee89a;background:linear-gradient(135deg,rgba(34,197,94,.22),rgba(34,197,94,.12));border:1px solid rgba(34,197,94,.35);box-shadow:0 4px 12px -3px rgba(34,197,94,.55),inset 0 1px 0 rgba(255,255,255,.2)}
-  .harden .hh .hi .icon{width:1.15rem;height:1.15rem}
-  .harden .hh h3{font-size:1.16rem;font-weight:800}
-  .harden .hh .st{margin-left:auto;font-size:.75rem;letter-spacing:1.2px;padding:6px 13px;border-radius:99px;color:#5ee89a;background:rgba(34,197,94,.13);border:1px solid rgba(34,197,94,.36);white-space:nowrap;box-shadow:0 3px 10px -3px rgba(34,197,94,.5)}
-  .harden-list{display:grid;gap:13px}
-  .hitem{display:flex;align-items:flex-start;gap:14px;padding:15px 18px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:background .25s,border-color .25s,transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
-  .hitem:hover{background:rgba(255,255,255,.08);border-color:rgba(34,197,94,.36);transform:translateX(6px);box-shadow:-6px 6px 20px -8px rgba(34,197,94,.45)}
-  .hitem .hn{font-family:'JetBrains Mono','Courier New',monospace;font-size:.8rem;font-weight:700;color:#5ee89a;flex-shrink:0;min-width:26px;padding-top:2px}
-  .hitem .hb{flex:1;min-width:0}
-  .hitem .ht{font-size:.93rem;font-weight:600;margin-bottom:6px}
-  .hitem .hd{font-size:.84rem;color:var(--dim);line-height:1.76}
-  .hitem code{font-family:'JetBrains Mono','Courier New',monospace;font-size:.79rem;padding:2px 7px;border-radius:5px;background:rgba(255,255,255,.09);color:#a5f3d0;word-break:break-all}
-
   .disclaimer{padding:20px 22px;border-radius:16px;font-size:.83rem;color:var(--dim);line-height:1.86;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
   .disclaimer b{color:#ffd7a8;font-weight:600}
 
-  /* ============ 沙箱页 ============ */
   .sandbox-hero{text-align:center;margin-bottom:36px}
   .sandbox-hero h1{font-size:clamp(1.9rem,5vw,3rem);font-weight:900;letter-spacing:-1.2px;line-height:1.14;background:linear-gradient(120deg,#22d3ee,#a855f7 50%,#22d3ee);background-size:280% 280%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradShift 8s ease infinite;margin-bottom:16px;filter:drop-shadow(0 4px 20px rgba(168,85,247,.4))}
   .sandbox-hero p{color:var(--dim);font-size:clamp(.95rem,1.6vw,1.05rem);max-width:680px;margin:0 auto;line-height:1.9}
@@ -327,7 +281,6 @@
   .sandbox-action{text-align:center;margin-bottom:26px}
   .sandbox-action .btn-main{padding:17px 44px;font-size:1.05rem}
 
-  /* 引擎面板 */
   .engines-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:32px}
   .engine-card{padding:20px 22px;border-radius:18px;background:var(--glass);border:1px solid var(--stroke);backdrop-filter:blur(var(--blur-md)) saturate(155%);-webkit-backdrop-filter:blur(var(--blur-md)) saturate(155%);transition:border-color .4s,box-shadow .4s,transform .4s}
   .engine-card.running{border-color:rgba(34,211,238,.5);box-shadow:0 0 34px -8px rgba(34,211,238,.55),inset 0 1px 0 var(--glass-hi)}
@@ -349,15 +302,10 @@
   .engine-card.done .engine-bar{background:linear-gradient(90deg,#22c55e,#16a34a)}
   .engine-card.danger .engine-bar{background:linear-gradient(90deg,#ff7a18,#ff3b3b)}
   .engine-card:nth-child(2) .engine-bar{background:linear-gradient(90deg,#a855f7,#8b5cf6)}
-  .engine-card:nth-child(2).done .engine-bar{background:linear-gradient(90deg,#22c55e,#16a34a)}
-  .engine-card:nth-child(2).danger .engine-bar{background:linear-gradient(90deg,#ff7a18,#ff3b3b)}
   .engine-card:nth-child(3) .engine-bar{background:linear-gradient(90deg,#ffb020,#ff7a18)}
-  .engine-card:nth-child(3).done .engine-bar{background:linear-gradient(90deg,#22c55e,#16a34a)}
-  .engine-card:nth-child(3).danger .engine-bar{background:linear-gradient(90deg,#ff7a18,#ff3b3b)}
   .engine-meta{font-size:.76rem;color:var(--dim);font-family:'JetBrains Mono',monospace}
   .engine-meta span{color:var(--txt);font-weight:700}
 
-  /* 日志 */
   .sandbox-log-wrap{margin-bottom:32px}
   .sandbox-log{max-height:320px;overflow-y:auto;padding:16px 18px;border-radius:16px;background:rgba(0,0,0,.38);border:1px solid rgba(255,255,255,.08);font-family:'JetBrains Mono',monospace;font-size:.74rem;line-height:1.75;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
   .sandbox-log::-webkit-scrollbar{width:6px}
@@ -370,7 +318,6 @@
   .slog-line.warn .m{color:#ffd08a}
   .slog-line.danger .m{color:#ff9a9a}
 
-  /* 结果 */
   .result-summary{padding:22px 24px;border-radius:18px;margin-bottom:20px;border:1px solid var(--stroke);background:var(--glass);backdrop-filter:blur(var(--blur-md));-webkit-backdrop-filter:blur(var(--blur-md))}
   .result-summary.safe{border-color:rgba(34,197,94,.35);background:linear-gradient(135deg,rgba(34,197,94,.08),rgba(255,255,255,.03))}
   .result-summary.warn{border-color:rgba(255,176,32,.4);background:linear-gradient(135deg,rgba(255,176,32,.08),rgba(255,255,255,.03))}
@@ -390,17 +337,14 @@
   .result-hit .ricon .icon{width:1.1rem;height:1.1rem}
   .result-hit.high .ricon{color:#ffb0b0;background:rgba(255,59,59,.15);border:1px solid rgba(255,59,59,.4)}
   .result-hit.mid .ricon{color:#ffd9a3;background:rgba(255,176,32,.14);border:1px solid rgba(255,176,32,.4)}
-  .result-hit.low .ricon{color:#a7f3d0;background:rgba(34,197,94,.13);border:1px solid rgba(34,197,94,.35)}
   .result-hit .rbody{flex:1;min-width:0}
   .result-hit .rtitle{font-size:.93rem;font-weight:700;margin-bottom:5px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .result-hit .rtag{font-size:.64rem;padding:2px 8px;border-radius:6px;letter-spacing:.8px;font-weight:800}
   .result-hit.high .rtag{color:#ffb0b0;background:rgba(255,59,59,.15);border:1px solid rgba(255,59,59,.35)}
   .result-hit.mid .rtag{color:#ffd9a3;background:rgba(255,176,32,.14);border:1px solid rgba(255,176,32,.35)}
-  .result-hit.low .rtag{color:#a7f3d0;background:rgba(34,197,94,.13);border:1px solid rgba(34,197,94,.3)}
   .result-hit .rdesc{font-size:.82rem;color:var(--dim);line-height:1.75}
   .result-hit .rdesc code{font-family:'JetBrains Mono',monospace;font-size:.76rem;padding:1px 6px;border-radius:5px;background:rgba(255,255,255,.06);color:#a7e8ff;word-break:break-all}
 
-  /* 威胁动态页 */
   .news-hero{text-align:center;margin-bottom:44px}
   .news-hero .badge-live{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;letter-spacing:2.2px;font-weight:700;color:#5ee89a;padding:6px 15px;border-radius:99px;margin-bottom:20px;border:1px solid rgba(34,197,94,.4);background:rgba(34,197,94,.1);box-shadow:0 4px 14px -4px rgba(34,197,94,.6),inset 0 1px 0 rgba(255,255,255,.15)}
   .news-hero .badge-live::before{content:'';width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.8);animation:livePulse 1.8s infinite}
@@ -432,7 +376,6 @@
   .evo-tooltip-tag{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:1.2px;padding:3px 9px;border-radius:99px;margin-bottom:10px}
   .evo-tooltip-tag.high{color:#ffb0b0;background:rgba(255,59,59,.14);border:1px solid rgba(255,59,59,.4)}
   .evo-tooltip-tag.mid{color:#ffd9a3;background:rgba(255,176,32,.14);border:1px solid rgba(255,176,32,.4)}
-  .evo-tooltip-tag.low{color:#a7f3d0;background:rgba(34,197,94,.14);border:1px solid rgba(34,197,94,.4)}
   .evo-tooltip-row{display:flex;align-items:center;gap:8px;font-size:.76rem;line-height:1.7;color:var(--dim)}
   .evo-tooltip-row .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
   .evo-tooltip-row .label{flex:1}
@@ -449,7 +392,6 @@
   .filter-label{font-size:.8rem;color:var(--dim);letter-spacing:1.2px;margin-right:4px;display:flex;align-items:center;gap:6px}
   .filter-label .icon{width:1em;height:1em}
   .filter-btn{padding:8px 16px;border-radius:10px;cursor:pointer;font-family:inherit;font-size:.84rem;font-weight:600;color:var(--dim);border:1px solid var(--stroke);background:rgba(255,255,255,.04);transition:all .25s cubic-bezier(.2,.8,.2,1);display:inline-flex;align-items:center;gap:7px}
-  .filter-btn .icon{width:1em;height:1em}
   .filter-btn:hover{background:rgba(255,255,255,.1);color:var(--txt);transform:translateY(-2px)}
   .filter-btn.active{background:linear-gradient(135deg,rgba(34,211,238,.24),rgba(59,130,246,.2));border-color:rgba(34,211,238,.5);color:#a7e8ff;box-shadow:0 6px 18px -6px rgba(34,211,238,.65),inset 0 1px 0 rgba(255,255,255,.2)}
   .filter-btn.active .dot{background:currentColor;box-shadow:0 0 8px currentColor}
@@ -468,9 +410,6 @@
   .news-item[data-level="mid"]::before{background:var(--amber);box-shadow:0 0 0 3px rgba(255,176,32,.25),0 0 18px rgba(255,176,32,.7)}
   .news-item[data-level="low"]::before{background:var(--green);box-shadow:0 0 0 3px rgba(34,197,94,.25),0 0 18px rgba(34,197,94,.7)}
   .news-item:hover{transform:translateX(6px) translateY(-4px);border-color:rgba(56,189,248,.45);box-shadow:0 1px 0 var(--glass-hi) inset,0 28px 55px -22px rgba(56,189,248,.5),0 12px 24px -10px rgba(0,0,0,.7)}
-  .news-item[data-level="high"]:hover{border-color:rgba(255,59,59,.55);box-shadow:0 1px 0 var(--glass-hi) inset,0 28px 55px -22px rgba(255,59,59,.55),0 12px 24px -10px rgba(0,0,0,.7)}
-  .news-item[data-level="mid"]:hover{border-color:rgba(255,176,32,.55);box-shadow:0 1px 0 var(--glass-hi) inset,0 28px 55px -22px rgba(255,176,32,.55),0 12px 24px -10px rgba(0,0,0,.7)}
-  .news-item[data-level="low"]:hover{border-color:rgba(34,197,94,.5);box-shadow:0 1px 0 var(--glass-hi) inset,0 28px 55px -22px rgba(34,197,94,.5),0 12px 24px -10px rgba(0,0,0,.7)}
   .news-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
   .news-date{font-family:'JetBrains Mono','Courier New',monospace;font-size:.74rem;color:var(--dim);letter-spacing:.5px;padding:4px 10px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:inline-flex;align-items:center;gap:5px}
   .news-date .icon{width:.9em;height:.9em}
@@ -483,7 +422,7 @@
   .news-level.low{color:#a7f3d0;background:rgba(34,197,94,.14);border:1px solid rgba(34,197,94,.4)}
   .news-level.low .dot{background:var(--green);box-shadow:0 0 8px var(--green)}
   .news-tag{font-size:.7rem;color:var(--dim);letter-spacing:.6px;padding:4px 10px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
-  .news-item h3{font-size:1.06rem;font-weight:700;line-height:1.5;margin-bottom:10px;position:relative}
+  .news-item h3{font-size:1.06rem;font-weight:700;line-height:1.5;margin-bottom:10px}
   .news-item[data-level="high"] h3{color:#ffd6d6}
   .news-item[data-level="mid"] h3{color:#ffe2b5}
   .news-desc{font-size:.88rem;color:var(--dim);line-height:1.82;margin-bottom:14px}
@@ -497,14 +436,14 @@
   #toast{position:fixed;left:50%;bottom:34px;transform:translate(-50%,80px) scale(.92);z-index:999;padding:13px 22px;border-radius:14px;background:rgba(20,24,32,.94);border:1px solid rgba(34,197,94,.45);color:#7ee0a8;font-size:.88rem;font-weight:600;box-shadow:0 16px 44px -12px rgba(0,0,0,.85),0 0 26px -8px rgba(34,197,94,.5);opacity:0;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s;pointer-events:none;max-width:min(520px,calc(100vw - 40px));display:flex;align-items:center;gap:9px}
   #toast.show{transform:translate(-50%,0) scale(1);opacity:1}
   #toast .icon{width:1.05em;height:1.05em}
-  #toast.warn{border-color:rgba(255,59,59,.55);color:#ff9a9a;box-shadow:0 16px 44px -12px rgba(0,0,0,.85),0 0 26px -8px rgba(255,59,59,.55)}
-  #toast.purple{border-color:rgba(139,92,246,.55);color:#c4b5fd;box-shadow:0 16px 44px -12px rgba(0,0,0,.85),0 0 26px -8px rgba(139,92,246,.55)}
+  #toast.warn{border-color:rgba(255,59,59,.55);color:#ff9a9a}
+  #toast.purple{border-color:rgba(139,92,246,.55);color:#c4b5fd}
 
   #fwHud{position:fixed;right:22px;bottom:22px;z-index:900;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
   #fwToggle{width:64px;height:64px;border-radius:50%;cursor:pointer;display:grid;place-items:center;color:var(--cyan);border:1px solid rgba(56,189,248,.5);background:rgba(15,20,30,.85);box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 12px 34px -10px rgba(0,0,0,.85),0 0 28px -8px rgba(56,189,248,.8);transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s,border-color .28s;position:relative}
   #fwToggle .icon{width:1.6rem;height:1.6rem}
   #fwToggle:hover{transform:translateY(-5px) scale(1.08);box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 20px 46px -12px rgba(0,0,0,.9),0 0 48px -6px rgba(56,189,248,1)}
-  #fwToggle.alert{border-color:rgba(255,59,59,.7);color:var(--red);box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 12px 34px -10px rgba(0,0,0,.85),0 0 36px -6px rgba(255,59,59,.95)}
+  #fwToggle.alert{border-color:rgba(255,59,59,.7);color:var(--red)}
   #fwToggle .badge{position:absolute;top:-4px;right:-4px;min-width:22px;height:22px;padding:0 6px;border-radius:99px;display:grid;place-items:center;font-size:.7rem;font-weight:800;color:#fff;background:linear-gradient(135deg,#ff3b3b,#ff7a18);box-shadow:0 0 18px rgba(255,59,59,.85);opacity:0;transform:scale(.4);transition:.3s cubic-bezier(.2,.8,.2,1)}
   #fwToggle .badge.show{opacity:1;transform:scale(1)}
   #fwPanel{width:min(380px,calc(100vw - 44px));max-height:min(540px,72vh);display:flex;flex-direction:column;border-radius:22px;overflow:hidden;background:rgba(12,16,24,.94);border:1px solid rgba(56,189,248,.3);box-shadow:0 1px 0 var(--glass-hi) inset,0 24px 65px -22px rgba(0,0,0,.95),0 0 40px -18px rgba(56,189,248,.6);backdrop-filter:blur(var(--blur-lg)) saturate(160%);-webkit-backdrop-filter:blur(var(--blur-lg)) saturate(160%);transform-origin:bottom right;transition:opacity .3s ease,transform .3s cubic-bezier(.2,.8,.2,1),visibility .3s}
@@ -523,22 +462,20 @@
   .fw-body{flex:1;overflow-y:auto;padding:12px 14px;min-height:150px}
   .fw-body::-webkit-scrollbar{width:6px}
   .fw-body::-webkit-scrollbar-thumb{background:rgba(56,189,248,.35);border-radius:99px}
-  .fw-log{font-family:'JetBrains Mono','SFMono-Regular','Courier New',monospace;font-size:.74rem;line-height:1.72}
+  .fw-log{font-family:'JetBrains Mono',monospace;font-size:.74rem;line-height:1.72}
   .fw-line{display:flex;gap:8px;padding:5px 8px;border-radius:7px;margin-bottom:2px;word-break:break-word;animation:fwLineIn .35s ease}
   @keyframes fwLineIn{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:translateX(0)}}
   .fw-line .tm{color:#5b6a7d;flex-shrink:0}
   .fw-line .ms{flex:1;min-width:0}
   .fw-line.info .ms{color:#8fb8d8}
   .fw-line.ok .ms{color:#7ee0a8}
-  .fw-line.warn{background:rgba(255,176,32,.09)}
   .fw-line.warn .ms{color:#ffd08a}
-  .fw-line.block{background:rgba(255,59,59,.11)}
   .fw-line.block .ms{color:#ff9a9a}
   .fw-empty{text-align:center;color:#4e5c6e;font-size:.78rem;padding:26px 10px;line-height:1.8}
   .fw-foot{display:flex;gap:8px;padding:11px 14px;border-top:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02)}
-  .fw-btn{flex:1;padding:9px 10px;border-radius:10px;cursor:pointer;font-size:.76rem;font-weight:600;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:var(--dim);transition:background .2s,color .2s,transform .2s;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:5px}
+  .fw-btn{flex:1;padding:9px 10px;border-radius:10px;cursor:pointer;font-size:.76rem;font-weight:600;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:var(--dim);transition:.2s;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:5px}
   .fw-btn .icon{width:.95em;height:.95em}
-  .fw-btn:hover{background:rgba(255,255,255,.14);color:var(--txt);transform:translateY(-1px)}
+  .fw-btn:hover{background:rgba(255,255,255,.14);color:var(--txt)}
   .fw-btn.danger:hover{background:rgba(255,59,59,.18);border-color:rgba(255,59,59,.45);color:#ff9a9a}
 
   #fwBanner{position:fixed;left:50%;top:22px;z-index:950;transform:translate(-50%,-140%) scale(.96);display:flex;align-items:center;gap:11px;padding:13px 22px;border-radius:15px;background:rgba(30,12,14,.95);border:1px solid rgba(255,59,59,.55);color:#ffc0c0;font-size:.87rem;font-weight:600;box-shadow:0 1px 0 rgba(255,255,255,.12) inset,0 18px 50px -14px rgba(0,0,0,.9),0 0 32px -10px rgba(255,59,59,.8);opacity:0;pointer-events:none;transition:transform .4s cubic-bezier(.2,.8,.2,1),opacity .4s;max-width:min(560px,calc(100vw - 40px));backdrop-filter:blur(16px)}
@@ -557,12 +494,12 @@
   .shield-icon .icon{width:1.85rem;height:1.85rem}
   @keyframes shieldPulse{0%,100%{box-shadow:0 0 30px -8px rgba(34,211,238,.8),inset 0 1px 0 rgba(255,255,255,.22)}50%{box-shadow:0 0 52px -6px rgba(34,211,238,1),inset 0 1px 0 rgba(255,255,255,.3)}}
   .shield-top h2{font-size:1.24rem;font-weight:800;letter-spacing:.3px;margin-bottom:6px}
-  .shield-top .sub-url{font-family:'JetBrains Mono','Courier New',monospace;font-size:.74rem;color:var(--dim);word-break:break-all;line-height:1.5}
+  .shield-top .sub-url{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--dim);word-break:break-all;line-height:1.5}
   .shield-progress-wrap{height:10px;border-radius:99px;overflow:hidden;background:rgba(255,255,255,.07);margin-bottom:14px;position:relative;box-shadow:inset 0 2px 4px rgba(0,0,0,.4)}
   .shield-bar{height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,#22d3ee,#3b82f6,#a855f7);background-size:200% 100%;animation:shieldBarShift 2s ease-in-out infinite;transition:width .25s ease;box-shadow:0 0 16px rgba(56,189,248,.85)}
   @keyframes shieldBarShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
-  .shield-status{font-size:.9rem;font-weight:600;color:#9fd8ff;margin-bottom:16px;min-height:1.4em;letter-spacing:.2px}
-  .shield-log{max-height:200px;overflow-y:auto;padding:14px 16px;border-radius:14px;background:rgba(0,0,0,.36);border:1px solid rgba(255,255,255,.08);font-family:'JetBrains Mono','SFMono-Regular','Courier New',monospace;font-size:.72rem;line-height:1.72;margin-bottom:22px}
+  .shield-status{font-size:.9rem;font-weight:600;color:#9fd8ff;margin-bottom:16px;min-height:1.4em}
+  .shield-log{max-height:200px;overflow-y:auto;padding:14px 16px;border-radius:14px;background:rgba(0,0,0,.36);border:1px solid rgba(255,255,255,.08);font-family:'JetBrains Mono',monospace;font-size:.72rem;line-height:1.72;margin-bottom:22px}
   .shield-log::-webkit-scrollbar{width:5px}
   .shield-log::-webkit-scrollbar-thumb{background:rgba(56,189,248,.4);border-radius:99px}
   .slog{display:flex;gap:8px;padding:3px 0;word-break:break-word;animation:fwLineIn .3s ease}
@@ -572,7 +509,7 @@
   .slog.info .sm{color:#8fb8d8}
   .slog.warn .sm{color:#ffd08a}
   .slog.block .sm{color:#ff9a9a}
-  .shield-close{width:100%;padding:14px 18px;border-radius:14px;cursor:pointer;font-size:.9rem;font-weight:600;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:var(--dim);transition:background .25s,color .25s,border-color .25s,transform .25s;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+  .shield-close{width:100%;padding:14px 18px;border-radius:14px;cursor:pointer;font-size:.9rem;font-weight:600;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:var(--dim);transition:.25s;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:8px}
   .shield-close .icon{width:1em;height:1em}
   .shield-close:hover{background:rgba(255,255,255,.14);color:var(--txt);border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
 
@@ -587,7 +524,7 @@
   .wm-intro{font-size:.92rem;color:var(--dim);line-height:1.88;margin-bottom:24px}
   .wm-intro strong{color:#9fd8ff;font-weight:700}
   .wm-points{display:grid;gap:11px;margin-bottom:24px}
-  .wmp{display:flex;align-items:flex-start;gap:13px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:background .25s,border-color .25s,transform .3s}
+  .wmp{display:flex;align-items:flex-start;gap:13px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);transition:.25s}
   .wmp:hover{background:rgba(255,255,255,.08);border-color:rgba(56,189,248,.35);transform:translateX(4px)}
   .wmp .wi{width:34px;height:34px;flex-shrink:0;border-radius:10px;display:grid;place-items:center;color:var(--cyan);background:linear-gradient(135deg,rgba(34,211,238,.2),rgba(59,130,246,.16));border:1px solid rgba(34,211,238,.3);box-shadow:0 3px 10px -3px rgba(34,211,238,.5),inset 0 1px 0 rgba(255,255,255,.18)}
   .wmp .wi .icon{width:1.05rem;height:1.05rem}
@@ -596,7 +533,7 @@
   .wm-verify{padding:20px 20px 18px;border-radius:16px;margin-bottom:22px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.1)}
   .wmv-title{font-size:.78rem;font-weight:700;color:var(--dim);margin-bottom:13px}
   .wmv-row{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:11px}
-  .wmv-badge{display:flex;align-items:center;gap:11px;padding:13px 15px;border-radius:13px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);transition:transform .35s,border-color .3s,box-shadow .35s}
+  .wmv-badge{display:flex;align-items:center;gap:11px;padding:13px 15px;border-radius:13px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.1);transition:.35s}
   .wmv-badge:hover{transform:translateY(-3px);border-color:rgba(56,189,248,.4);box-shadow:0 12px 26px -10px rgba(56,189,248,.6)}
   .wmv-badge .vi{width:32px;height:32px;flex-shrink:0;border-radius:10px;display:grid;place-items:center;color:#5ee89a;background:linear-gradient(135deg,rgba(34,197,94,.2),rgba(34,197,94,.1));border:1px solid rgba(34,197,94,.3);box-shadow:0 3px 10px -3px rgba(34,197,94,.5),inset 0 1px 0 rgba(255,255,255,.18)}
   .wmv-badge .vi .icon{width:1rem;height:1rem}
@@ -604,36 +541,105 @@
   .wmv-name{font-size:.87rem;font-weight:700;margin-bottom:3px}
   .wmv-status{font-size:.72rem;color:#7ee0a8}
   .wmv-note{font-size:.72rem;color:#5b6a7d;line-height:1.7}
-  .wm-check{display:flex;align-items:center;gap:11px;padding:13px 16px;border-radius:13px;cursor:pointer;margin-bottom:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);transition:background .22s,border-color .22s;user-select:none}
+  .wm-check{display:flex;align-items:center;gap:11px;padding:13px 16px;border-radius:13px;cursor:pointer;margin-bottom:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);transition:.22s;user-select:none}
   .wm-check:hover{background:rgba(255,255,255,.08);border-color:rgba(56,189,248,.36)}
   .wm-check input{width:18px;height:18px;accent-color:#22d3ee;cursor:pointer;flex-shrink:0}
   .wm-check span{font-size:.88rem;color:var(--txt)}
-  .wm-btn{width:100%;padding:15px 24px;border-radius:14px;border:none;cursor:pointer;font-size:1rem;font-weight:800;letter-spacing:.5px;color:#fff;background:linear-gradient(135deg,#22d3ee,#3b82f6 55%,#a855f7);box-shadow:0 1px 0 rgba(255,255,255,.38) inset,0 -2px 0 rgba(0,0,0,.2) inset,0 14px 38px -12px rgba(56,189,248,.85);transition:transform .22s,box-shadow .28s;position:relative;overflow:hidden;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:9px}
+  .wm-btn{width:100%;padding:15px 24px;border-radius:14px;border:none;cursor:pointer;font-size:1rem;font-weight:800;letter-spacing:.5px;color:#fff;background:linear-gradient(135deg,#22d3ee,#3b82f6 55%,#a855f7);box-shadow:0 1px 0 rgba(255,255,255,.38) inset,0 -2px 0 rgba(0,0,0,.2) inset,0 14px 38px -12px rgba(56,189,248,.85);transition:.22s;position:relative;overflow:hidden;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:9px}
   .wm-btn .icon{width:1.05em;height:1.05em}
   .wm-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);animation:sheen 3.6s ease-in-out infinite}
   .wm-btn:hover{transform:translateY(-2px) scale(1.01);box-shadow:0 1px 0 rgba(255,255,255,.38) inset,0 -2px 0 rgba(0,0,0,.2) inset,0 20px 48px -14px rgba(56,189,248,1)}
-  .wm-btn:active{transform:translateY(0) scale(.995)}
 
   .changelog-list{display:grid;gap:10px;margin-bottom:22px}
-  .changelog-item{display:flex;gap:14px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);transition:background .25s,border-color .25s,transform .3s}
+  .changelog-item{display:flex;gap:14px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);transition:.25s}
   .changelog-item:hover{background:rgba(255,255,255,.07);border-color:rgba(56,189,248,.32);transform:translateX(4px)}
   .changelog-item.current{background:linear-gradient(135deg,rgba(34,211,238,.1),rgba(168,85,247,.07));border-color:rgba(34,211,238,.4);box-shadow:0 8px 22px -10px rgba(34,211,238,.5)}
-  .changelog-item .ver{flex-shrink:0;min-width:46px;font-family:'JetBrains Mono','Courier New',monospace;font-size:.92rem;font-weight:800;letter-spacing:-.5px;background:linear-gradient(135deg,#fff,#9fd8ff);-webkit-background-clip:text;background-clip:text;color:transparent;padding-top:1px}
+  .changelog-item .ver{flex-shrink:0;min-width:46px;font-family:'JetBrains Mono',monospace;font-size:.92rem;font-weight:800;letter-spacing:-.5px;background:linear-gradient(135deg,#fff,#9fd8ff);-webkit-background-clip:text;background-clip:text;color:transparent;padding-top:1px}
   .changelog-item.current .ver{background:linear-gradient(135deg,#a7f3ff,#7ee0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
   .changelog-item .content{flex:1;min-width:0}
   .changelog-item .text{font-size:.87rem;color:var(--txt);line-height:1.7}
   .changelog-item .badge{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:1.2px;padding:3px 9px;border-radius:99px;color:#7ee0ff;background:rgba(34,211,238,.15);border:1px solid rgba(34,211,238,.4);margin-left:8px;vertical-align:1px}
 
-  @media(max-width:768px){
-    .wave-a{opacity:.4}
-    .wave-b{opacity:.3}
-    .wave-c{opacity:.22}
-    .sandbox-drop{padding:40px 20px}
+  .newbie-toggle{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:99px;border:1px solid var(--stroke);background:rgba(255,255,255,.045);cursor:pointer;font-size:.76rem;color:var(--dim);font-family:inherit;transition:.25s;user-select:none}
+  .newbie-toggle:hover{background:rgba(255,255,255,.1);color:var(--txt)}
+  .newbie-toggle .switch{position:relative;width:34px;height:18px;border-radius:99px;background:rgba(255,255,255,.12);transition:.3s cubic-bezier(.2,.8,.2,1);flex-shrink:0}
+  .newbie-toggle .switch::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:.3s cubic-bezier(.2,.8,.2,1);box-shadow:0 1px 3px rgba(0,0,0,.4)}
+  .newbie-toggle.on .switch{background:linear-gradient(135deg,#22d3ee,#a855f7);box-shadow:0 0 12px -2px rgba(34,211,238,.7)}
+  .newbie-toggle.on .switch::after{transform:translateX(16px)}
+  .newbie-toggle.on{color:#a7e8ff;border-color:rgba(34,211,238,.4);background:rgba(34,211,238,.08)}
+
+  .replay-guide-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;font-size:.74rem;border-radius:99px;border:1px solid var(--stroke);background:rgba(255,255,255,.045);color:var(--dim);cursor:pointer;font-family:inherit;transition:.2s}
+  .replay-guide-btn:hover{background:rgba(255,255,255,.1);color:var(--txt);border-color:rgba(56,189,248,.4)}
+  .replay-guide-btn .icon{width:.9em;height:.9em}
+
+  .guide-highlight{position:fixed;z-index:9001;border:2px solid var(--cyan);border-radius:14px;pointer-events:none;transition:left .4s cubic-bezier(.2,.8,.2,1),top .4s cubic-bezier(.2,.8,.2,1),width .4s cubic-bezier(.2,.8,.2,1),height .4s cubic-bezier(.2,.8,.2,1);animation:guidePulse 2s ease-in-out infinite}
+  @keyframes guidePulse{
+    0%,100%{box-shadow:0 0 0 9999px rgba(0,0,0,.78),0 0 40px rgba(34,211,238,.9),inset 0 0 20px rgba(34,211,238,.15)}
+    50%{box-shadow:0 0 0 9999px rgba(0,0,0,.78),0 0 60px rgba(34,211,238,1),inset 0 0 24px rgba(34,211,238,.25)}
   }
+  .guide-tip{position:fixed;z-index:9002;width:min(400px,calc(100vw - 40px));padding:20px 22px 16px;border-radius:18px;background:rgba(13,18,28,.98);border:1px solid rgba(56,189,248,.5);box-shadow:0 1px 0 var(--glass-hi) inset,0 20px 60px -18px rgba(0,0,0,.95),0 0 50px -14px rgba(56,189,248,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:left .4s cubic-bezier(.2,.8,.2,1),top .4s cubic-bezier(.2,.8,.2,1),opacity .3s;color:var(--txt);animation:guideTipIn .4s cubic-bezier(.2,.8,.2,1)}
+  @keyframes guideTipIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+  .guide-tip .gstep{font-size:.7rem;letter-spacing:1.8px;font-weight:700;color:var(--cyan);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+  .guide-tip h3{font-size:1.02rem;font-weight:800;margin-bottom:8px;letter-spacing:-.2px}
+  .guide-tip p{font-size:.87rem;color:var(--dim);line-height:1.75;margin-bottom:16px}
+  .guide-tip .actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+  .guide-tip .gbtn{padding:8px 16px;border-radius:10px;cursor:pointer;font-family:inherit;font-size:.82rem;font-weight:600;border:1px solid var(--stroke);background:rgba(255,255,255,.06);color:var(--txt);transition:.2s}
+  .guide-tip .gbtn:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}
+  .guide-tip .gbtn.primary{background:linear-gradient(135deg,#22d3ee,#a855f7);border-color:transparent;color:#fff;box-shadow:0 6px 18px -6px rgba(34,211,238,.7)}
+  .guide-tip .gbtn.primary:hover{transform:translateY(-1px);box-shadow:0 10px 24px -6px rgba(34,211,238,.9)}
+  .guide-tip .gbtn.skip{color:var(--dim)}
+  .guide-arrow{position:fixed;z-index:9002;width:0;height:0;transition:left .4s cubic-bezier(.2,.8,.2,1),top .4s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+  .guide-tip.done{text-align:center}
+  .guide-tip.done h3{margin-bottom:12px}
+  .guide-tip.done .actions{justify-content:center}
+
+  .newbie-guide{display:none;margin-bottom:40px}
+  body.newbie .newbie-guide{display:block}
+
+  .newbie-hero{padding:28px 26px;border-radius:20px;background:linear-gradient(140deg,rgba(34,211,238,.09),rgba(168,85,247,.07) 55%,rgba(255,255,255,.03));border:1px solid rgba(56,189,248,.35);backdrop-filter:blur(var(--blur-md));-webkit-backdrop-filter:blur(var(--blur-md));box-shadow:0 1px 0 var(--glass-hi) inset,0 22px 55px -22px rgba(56,189,248,.5);margin-bottom:22px;position:relative;overflow:hidden}
+  .newbie-hero::before{content:'';position:absolute;top:-50%;right:-10%;width:60%;height:200%;background:radial-gradient(circle,rgba(34,211,238,.14),transparent 62%);pointer-events:none}
+  .newbie-hero .ntag{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;letter-spacing:2.2px;font-weight:700;color:var(--cyan);padding:6px 14px;border-radius:99px;background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.35);margin-bottom:16px;box-shadow:0 4px 14px -4px rgba(34,211,238,.6),inset 0 1px 0 rgba(255,255,255,.15);position:relative}
+  .newbie-hero h2{font-size:clamp(1.3rem,3vw,1.7rem);font-weight:900;letter-spacing:-.5px;margin-bottom:12px;background:linear-gradient(120deg,#e6f6ff,#9fd8ff 50%,#a855f7);-webkit-background-clip:text;background-clip:text;color:transparent;position:relative}
+  .newbie-hero p{font-size:.92rem;color:var(--dim);line-height:1.85;max-width:780px;position:relative}
+  .newbie-hero p + p{margin-top:8px}
+
+  .newbie-steps{display:grid;gap:14px;margin-bottom:22px}
+  .nstep{padding:22px 24px;border-radius:18px;background:var(--glass);border:1px solid var(--stroke);backdrop-filter:blur(var(--blur-md));-webkit-backdrop-filter:blur(var(--blur-md));box-shadow:0 1px 0 var(--glass-hi) inset,0 14px 32px -16px rgba(0,0,0,.65);transition:border-color .3s,transform .3s,box-shadow .3s;position:relative;overflow:hidden}
+  .nstep:hover{border-color:rgba(56,189,248,.4);transform:translateY(-3px);box-shadow:0 1px 0 var(--glass-hi) inset,0 24px 44px -20px rgba(56,189,248,.5)}
+  .nstep.highlight-step{border-color:rgba(255,59,59,.45);background:linear-gradient(140deg,rgba(255,59,59,.07),rgba(255,255,255,.025) 55%)}
+  .nstep.highlight-step:hover{border-color:rgba(255,59,59,.7);box-shadow:0 1px 0 var(--glass-hi) inset,0 24px 44px -20px rgba(255,59,59,.55)}
+  .nstep-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  .nstep-num{flex-shrink:0;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:1rem;font-weight:900;color:#a7e8ff;background:linear-gradient(135deg,rgba(34,211,238,.22),rgba(59,130,246,.18));border:1px solid rgba(34,211,238,.35);box-shadow:0 4px 12px -3px rgba(34,211,238,.6),inset 0 1px 0 rgba(255,255,255,.2)}
+  .nstep.highlight-step .nstep-num{color:#ffb0b0;background:linear-gradient(135deg,rgba(255,59,59,.24),rgba(255,122,24,.18));border-color:rgba(255,59,59,.4);box-shadow:0 4px 12px -3px rgba(255,59,59,.6),inset 0 1px 0 rgba(255,255,255,.2)}
+  .nstep-title{flex:1;font-size:1.05rem;font-weight:800;letter-spacing:-.2px}
+  .nstep-time{font-size:.7rem;color:var(--dim);padding:4px 10px;border-radius:99px;background:rgba(255,255,255,.04);border:1px solid var(--stroke);letter-spacing:.6px;flex-shrink:0}
+  .nstep-body{font-size:.88rem;color:var(--dim);line-height:1.85}
+  .nstep-body p + p{margin-top:10px}
+  .nstep-body strong{color:var(--txt);font-weight:700}
+  .nstep-body ul{list-style:none;margin-top:12px;padding-left:0}
+  .nstep-body li{padding:8px 0 8px 22px;position:relative;font-size:.86rem;border-bottom:1px dashed rgba(255,255,255,.07)}
+  .nstep-body li:last-child{border-bottom:none}
+  .nstep-body li::before{content:'';position:absolute;left:4px;top:16px;width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+  .nstep.highlight-step .nstep-body li::before{background:var(--red);box-shadow:0 0 8px var(--red)}
+  .nstep-body code{font-family:'JetBrains Mono',monospace;font-size:.79rem;padding:2px 7px;border-radius:5px;background:rgba(255,255,255,.08);color:#a7e8ff;word-break:break-all}
+  .nstep-warn{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:12px;margin-top:14px;font-size:.83rem;line-height:1.72;color:#ffc9c9;background:rgba(255,59,59,.08);border:1px solid rgba(255,59,59,.3)}
+  .nstep-warn .icon{width:1rem;height:1rem;flex-shrink:0;margin-top:2px;color:#ff8080}
+  .nstep-tip{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:12px;margin-top:14px;font-size:.83rem;line-height:1.72;color:#a7e0c0;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.24)}
+  .nstep-tip .icon{width:1rem;height:1rem;flex-shrink:0;margin-top:2px;color:#5ee89a}
+
+  .newbie-foot{padding:20px 22px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid var(--stroke);font-size:.83rem;color:var(--dim);line-height:1.85}
+  .newbie-foot strong{color:#ffd7a8;font-weight:700}
+
+  @media(max-width:768px){.wave-a{opacity:.4}.wave-b{opacity:.3}.wave-c{opacity:.22}.sandbox-drop{padding:40px 20px}}
   @media(max-width:640px){
     .page{padding:0 15px 70px}
-    .topbar{margin:12px 0 30px;padding:11px 14px;gap:9px}
+    .topbar{margin:12px 0 30px;padding:11px 14px;gap:9px;flex-wrap:wrap}
     .chip{display:none}
+    .newbie-toggle{padding:5px 10px;font-size:.7rem}
+    .newbie-toggle .switch{width:28px;height:15px}
+    .newbie-toggle .switch::after{width:11px;height:11px}
+    .newbie-toggle.on .switch::after{transform:translateX(13px)}
+    .replay-guide-btn{padding:5px 10px;font-size:.7rem}
     .download-zone,.huorong-zone{padding:24px 18px}
     .dz-head,.hz-head{flex-direction:column;gap:14px}
     .btn-row{flex-direction:column}
@@ -654,24 +660,20 @@
     .evo-chart-wrap{padding:20px 16px 16px}
     .evo-chart-head{flex-direction:column;align-items:flex-start;gap:10px}
     .evo-tooltip{min-width:160px;padding:10px 12px}
-    .evo-tooltip-year{font-size:.95rem}
     .evo-legend{gap:10px 18px}
     .evo-legend-item{font-size:.75rem}
     .drop-icon{width:64px;height:64px}
     .drop-icon .icon{width:2rem;height:2rem}
     .file-item{flex-wrap:wrap}
+    .guide-tip{left:16px !important;right:16px !important;top:auto !important;bottom:20px !important;width:auto}
+    .newbie-steps{gap:12px}
+    .nstep{padding:18px 18px}
+    .nstep-head{flex-wrap:wrap;gap:10px}
+    .nstep-time{margin-left:0}
   }
-  @media(max-width:480px){
-    .wave-a{opacity:.32}
-    .wave-b{opacity:.24}
-    .wave-c{opacity:.18}
-  }
-  @media(max-width:420px){
-    .status-strip{grid-template-columns:1fr}
-  }
-  @media(max-width:360px){
-    .wave-svg{animation:none !important;opacity:.28 !important}
-  }
+  @media(max-width:480px){.wave-a{opacity:.32}.wave-b{opacity:.24}.wave-c{opacity:.18}}
+  @media(max-width:420px){.status-strip{grid-template-columns:1fr}}
+  @media(max-width:360px){.wave-svg{animation:none !important;opacity:.28 !important}}
   @media(prefers-reduced-motion:reduce){
     *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
     .wave-svg{animation:none !important}
@@ -680,7 +682,6 @@
 </head>
 <body>
 
-<!-- ==================== SVG 图标库 ==================== -->
 <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
   <defs>
     <linearGradient id="gradFox" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ff5252"/><stop offset="45%" stop-color="#ff7a18"/><stop offset="100%" stop-color="#ffb020"/></linearGradient>
@@ -688,6 +689,7 @@
   </defs>
   <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5 L20.2 5.8 V12 C20.2 16.9 16.7 20.4 12 21.7 C7.3 20.4 3.8 16.9 3.8 12 V5.8 Z"/><path d="M8.7 12.1 L11 14.4 L15.4 9.8"/></symbol>
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.6"/><path d="M15.8 15.8 L21.2 21.2"/></symbol>
+  <symbol id="i-clipboard" viewBox="0 0 24 24"><path d="M9 4.2 H7 a2 2 0 0 0-2 2 V19 a2 2 0 0 0 2 2 H17 a2 2 0 0 0 2-2 V6.2 a2 2 0 0 0-2-2 H15"/><rect x="9" y="2.4" width="6" height="3.6" rx="1.2"/><path d="M8.5 11.5 H15.5"/><path d="M8.5 15 H15.5"/><path d="M8.5 18.5 H13"/></symbol>
   <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7.2 18.5 A4.2 4.2 0 0 1 6.9 10.3 A5.6 5.6 0 0 1 17.6 11.2 A3.7 3.7 0 0 1 17 18.5 Z"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.2 V12 L15.2 13.8"/></symbol>
   <symbol id="i-warning" viewBox="0 0 24 24"><path d="M12 3.2 L21.4 19.3 a1.5 1.5 0 0 1-1.3 2.3 H3.9 a1.5 1.5 0 0 1-1.3-2.3 Z"/><path d="M12 9.4 V14.2"/><circle cx="12" cy="17.4" r=".85" fill="currentColor" stroke="none"/></symbol>
@@ -706,7 +708,6 @@
   <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.6 12.4 V4.8 a1.2 1.2 0 0 1 1.2-1.2 H12.4 L21 12 L12 21 Z"/><circle cx="8" cy="8.2" r="1.15" fill="currentColor" stroke="none"/></symbol>
   <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.4" y="5.2" width="17.2" height="15.4" rx="2"/><path d="M3.4 9.6 H20.6"/><path d="M8 3.4 V6.8"/><path d="M16 3.4 V6.8"/><circle cx="8.2" cy="13.4" r=".9" fill="currentColor" stroke="none"/><circle cx="12" cy="13.4" r=".9" fill="currentColor" stroke="none"/><circle cx="15.8" cy="13.4" r=".9" fill="currentColor" stroke="none"/><circle cx="8.2" cy="17" r=".9" fill="currentColor" stroke="none"/><circle cx="12" cy="17" r=".9" fill="currentColor" stroke="none"/></symbol>
   <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3.5 17.5 L9 12 L13 15 L20.5 6.5"/><path d="M15 6.5 H20.5 V12"/></symbol>
-  <!-- 新增图标 -->
   <symbol id="i-box" viewBox="0 0 24 24"><path d="M3.5 8 L12 4 L20.5 8 V16 L12 20 L3.5 16 Z"/><path d="M3.5 8 L12 12 L20.5 8"/><path d="M12 12 V20"/></symbol>
   <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 20 V8"/><path d="M6.8 12 L12 6.8 L17.2 12"/><path d="M4 4 H20"/></symbol>
   <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="5.5" y="5.5" width="13" height="13" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 3 V5.5"/><path d="M15 3 V5.5"/><path d="M9 18.5 V21"/><path d="M15 18.5 V21"/><path d="M3 9 H5.5"/><path d="M3 15 H5.5"/><path d="M18.5 9 H21"/><path d="M18.5 15 H21"/></symbol>
@@ -715,47 +716,29 @@
   <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 6 H20"/><path d="M9 6 V4 H15 V6"/><path d="M6 6 L7 20 H17 L18 6"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 5 V19 L19 12 Z"/></symbol>
   <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5 V13"/><circle cx="12" cy="16.3" r=".9" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M9 18 H15"/><path d="M10 21 H14"/><path d="M12 3 a6 6 0 0 1 6 6 c0 2.5-1.5 4-2.5 5.5 c-.5.7-.8 1.3-.8 2 H9.3 c0-.7-.3-1.3-.8-2 C7.5 13 6 11.5 6 9 a6 6 0 0 1 6-6 Z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.6 L14.8 9.4 L21.2 10.3 L16.6 14.7 L17.7 21 L12 18 L6.3 21 L7.4 14.7 L2.8 10.3 L9.2 9.4 Z"/></symbol>
 </svg>
 
-<!-- ==================== 动态波浪背景 ==================== -->
 <div class="bg-layer">
   <div class="flow-bg">
     <svg class="wave-svg wave-a" viewBox="0 0 2000 1000" preserveAspectRatio="none" aria-hidden="true">
       <defs>
-        <linearGradient id="wGradA" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#22d3ee" stop-opacity="0"/>
-          <stop offset="20%" stop-color="#22d3ee" stop-opacity="0.7"/>
-          <stop offset="45%" stop-color="#3b82f6" stop-opacity="1"/>
-          <stop offset="72%" stop-color="#a855f7" stop-opacity="0.95"/>
-          <stop offset="90%" stop-color="#a855f7" stop-opacity="0.4"/>
-          <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
-        </linearGradient>
+        <linearGradient id="wGradA" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#22d3ee" stop-opacity="0"/><stop offset="20%" stop-color="#22d3ee" stop-opacity="0.7"/><stop offset="45%" stop-color="#3b82f6" stop-opacity="1"/><stop offset="72%" stop-color="#a855f7" stop-opacity="0.95"/><stop offset="90%" stop-color="#a855f7" stop-opacity="0.4"/><stop offset="100%" stop-color="#a855f7" stop-opacity="0"/></linearGradient>
         <filter id="wBlurA" x="-10%" y="-200%" width="120%" height="500%"><feGaussianBlur stdDeviation="7"/></filter>
       </defs>
       <path d="M 0,500 Q 250,340 500,500 T 1000,500 T 1500,500 T 2000,500" fill="none" stroke="url(#wGradA)" stroke-width="150" stroke-linecap="round" filter="url(#wBlurA)"/>
     </svg>
     <svg class="wave-svg wave-b" viewBox="0 0 2000 1000" preserveAspectRatio="none" aria-hidden="true">
       <defs>
-        <linearGradient id="wGradB" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#a855f7" stop-opacity="0"/>
-          <stop offset="22%" stop-color="#a855f7" stop-opacity="0.75"/>
-          <stop offset="55%" stop-color="#3b82f6" stop-opacity="0.9"/>
-          <stop offset="82%" stop-color="#22d3ee" stop-opacity="0.7"/>
-          <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
-        </linearGradient>
+        <linearGradient id="wGradB" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#a855f7" stop-opacity="0"/><stop offset="22%" stop-color="#a855f7" stop-opacity="0.75"/><stop offset="55%" stop-color="#3b82f6" stop-opacity="0.9"/><stop offset="82%" stop-color="#22d3ee" stop-opacity="0.7"/><stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/></linearGradient>
         <filter id="wBlurB" x="-10%" y="-200%" width="120%" height="500%"><feGaussianBlur stdDeviation="10"/></filter>
       </defs>
       <path d="M 0,500 Q 250,660 500,500 T 1000,500 T 1500,500 T 2000,500" fill="none" stroke="url(#wGradB)" stroke-width="135" stroke-linecap="round" filter="url(#wBlurB)"/>
     </svg>
     <svg class="wave-svg wave-c" viewBox="0 0 2000 1000" preserveAspectRatio="none" aria-hidden="true">
       <defs>
-        <linearGradient id="wGradC" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#1e3a8a" stop-opacity="0"/>
-          <stop offset="25%" stop-color="#3b82f6" stop-opacity="0.5"/>
-          <stop offset="50%" stop-color="#6366f1" stop-opacity="0.65"/>
-          <stop offset="75%" stop-color="#7c3aed" stop-opacity="0.5"/>
-          <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
-        </linearGradient>
+        <linearGradient id="wGradC" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1e3a8a" stop-opacity="0"/><stop offset="25%" stop-color="#3b82f6" stop-opacity="0.5"/><stop offset="50%" stop-color="#6366f1" stop-opacity="0.65"/><stop offset="75%" stop-color="#7c3aed" stop-opacity="0.5"/><stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/></linearGradient>
         <filter id="wBlurC" x="-10%" y="-200%" width="120%" height="500%"><feGaussianBlur stdDeviation="16"/></filter>
       </defs>
       <path d="M 0,500 Q 250,420 500,500 T 1000,500 T 1500,500 T 2000,500" fill="none" stroke="url(#wGradC)" stroke-width="220" stroke-linecap="round" filter="url(#wBlurC)"/>
@@ -766,11 +749,17 @@
   <div class="vignette"></div>
 </div>
 
-<!-- ==================== 门户页 ==================== -->
 <div class="page active" id="portal">
   <header class="topbar glass">
     <div class="brand"><span class="dot"></span><span>银狐木马<span class="grad">急救工具</span></span></div>
     <div class="spacer"></div>
+    <button class="newbie-toggle" id="newbieToggle" type="button" aria-pressed="false" title="新手模式：显示详细的处置指引">
+      <span class="switch"></span>
+      <span>新手模式</span>
+    </button>
+    <button class="replay-guide-btn" id="replayGuideBtn" type="button" title="重新播放引导教程">
+      <svg class="icon"><use href="#i-lightbulb"/></svg>看引导
+    </button>
     <div class="chip fw" id="fwChipPortal"><svg class="icon"><use href="#i-shield"/></svg>防火墙：已启用</div>
     <div class="chip ok" id="integrityChip"><svg class="icon"><use href="#i-check"/></svg>完整性：正常</div>
   </header>
@@ -790,7 +779,6 @@
   <h2 class="sec-title"><span class="num cyan">01</span>核心功能</h2>
 
   <section class="portal-grid" id="portalGrid">
-    <!-- 银狐木马专杀 -->
     <div class="pcard glass featured" id="silverfoxCard" role="button" tabindex="0" aria-label="进入银狐木马专杀应急页面">
       <div class="pico">
         <svg class="fox-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -814,15 +802,13 @@
       <span class="ptag">立即处置 →</span>
     </div>
 
-    <!-- 文件沙箱分析 -->
     <div class="pcard glass sandbox-card clickable" id="sandboxCard" role="button" tabindex="0" aria-label="打开文件沙箱分析">
       <div class="pico"><svg class="icon"><use href="#i-box"/></svg></div>
       <h3>文件沙箱分析</h3>
-      <p>拖入文件或文件夹，三引擎并行扫描。YARA 规则匹配 + 逆向结构分析 + 本地特征库比对，全程可视化。</p>
+      <p>拖入文件或文件夹，三引擎并行扫描。多条件组合规则 + 白名单 + 内容分析，有效降低误报。</p>
       <span class="ptag">开始扫描 →</span>
     </div>
 
-    <!-- 威胁动态 -->
     <div class="pcard glass news-card clickable" id="newsCard" role="button" tabindex="0" aria-label="查看银狐木马最新动态">
       <div class="pico"><svg class="icon"><use href="#i-radar"/></svg></div>
       <h3>威胁动态</h3>
@@ -832,7 +818,6 @@
   </section>
 </div>
 
-<!-- ==================== 应急页 ==================== -->
 <div class="page" id="page1">
   <header class="topbar glass">
     <div class="brand"><span class="dot"></span><span>银狐<span class="grad">专杀应急</span></span></div>
@@ -842,6 +827,193 @@
   </header>
 
   <div class="alert-bar"><svg class="icon"><use href="#i-warning"/></svg><span><b>银狐木马正在活跃传播。</b>发现安全软件被卸载、进程异常终止、浏览器主页被篡改、或者收到陌生群文件，按下面的步骤操作。</span></div>
+
+  <section class="newbie-guide" id="newbieGuide">
+    <div class="newbie-hero">
+      <div class="ntag"><svg class="icon" style="width:1em;height:1em"><use href="#i-star"/></svg>新手模式 · 超详细操作指引</div>
+      <h2>电脑中了银狐木马？先别慌，照着这 8 步走</h2>
+      <p>这是一份从"发现异常"到"彻底清理"的完整流程。按照顺序做，每一步都标注了具体操作和注意事项。如果遇到看不懂的地方，可以在新手模式下反复阅读。</p>
+      <p>着急的话，直接看 <strong>第 2 步</strong>（立即断网）和 <strong>第 5 步</strong>（查杀），其他步骤可以慢慢来。</p>
+    </div>
+
+    <div class="newbie-steps">
+      <div class="nstep">
+        <div class="nstep-head">
+          <div class="nstep-num">1</div>
+          <div class="nstep-title">确认自己是否真的中招了</div>
+          <div class="nstep-time">约 2 分钟</div>
+        </div>
+        <div class="nstep-body">
+          <p>银狐木马非常隐蔽，早期几乎没有明显症状。下面这些症状出现任意 2 条以上，就要高度警惕：</p>
+          <ul>
+            <li><strong>杀毒软件被关闭或卸载</strong>：360、火绒、Windows Defender 突然打不开，或者图标消失 <a href="#downloadBtn" onclick="event.preventDefault(); document.getElementById('downloadBtn').click();" style="color:var(--cyan);text-decoration:underline;font-weight:700;margin-left:6px;cursor:pointer;">【立即下载360急救箱】</a></li>
+            <li><strong>浏览器主页被篡改</strong>：打开浏览器自动跳到陌生网站，或者搜索引擎被换掉</li>
+            <li><strong>进程异常终止</strong>：任务管理器打开后立刻自动关闭，或者进程列表里有一堆奇怪的名字</li>
+            <li><strong>系统明显变慢</strong>：开机后风扇一直狂转，或者硬盘灯长亮不灭</li>
+            <li><strong>收到可疑文件</strong>：微信、QQ 群里有人发"对账单""员工名单""安装包"，双扩展名（如"对账单.pdf.exe"）</li>
+            <li><strong>账号异常登录</strong>：微信、QQ、邮箱、淘宝收到陌生设备的登录提醒</li>
+            <li><strong>防火墙被关闭</strong>：Windows 防火墙设置突然被改，或者规则被删除</li>
+            <li><strong>出现陌生启动项</strong>：开机自动弹出的软件，你没装过</li>
+          </ul>
+          <div class="nstep-warn"><svg class="icon"><use href="#i-alert"/></svg><span><strong>重要：</strong>不要用可疑机器访问邮箱、网银、企业账号。如果怀疑已经中招，直接跳到第 2 步断网，不要再登录任何敏感账号。</span></div>
+        </div>
+      </div>
+
+      <div class="nstep highlight-step">
+        <div class="nstep-head">
+          <div class="nstep-num">2</div>
+          <div class="nstep-title">第一件事：立即断开网络</div>
+          <div class="nstep-time">30 秒 · 最重要</div>
+        </div>
+        <div class="nstep-body">
+          <p>银狐木马会通过网络回传你电脑里的数据、下载更多恶意程序、攻击内网其他电脑。<strong>断网是第一步，也是最紧急的一步。</strong></p>
+          <ul>
+            <li><strong>拔网线</strong>：如果是有线网络，直接拔掉网线</li>
+            <li><strong>关 WiFi</strong>：笔记本按 <code>Fn + F2</code>（或对应快捷键）关闭无线，或者点右下角 WiFi 图标断开</li>
+            <li><strong>关蓝牙</strong>：Windows 设置 → 设备 → 蓝牙 → 关闭</li>
+            <li><strong>关热点</strong>：如果电脑连着手机热点，关掉手机热点</li>
+            <li><strong>禁用虚拟机网络</strong>：如果电脑跑着虚拟机，进虚拟机设置把网卡断开</li>
+          </ul>
+          <div class="nstep-tip"><svg class="icon"><use href="#i-lightbulb"/></svg><span><strong>小技巧：</strong>直接按住电源键 5 秒强制关机也是可以的。但注意要按第 3 步先做好准备再关机，否则可能丢失证据。</span></div>
+        </div>
+      </div>
+
+      <div class="nstep">
+        <div class="nstep-head">
+          <div class="nstep-num">3</div>
+          <div class="nstep-title">记录现场，评估影响范围</div>
+          <div class="nstep-time">约 5 分钟</div>
+        </div>
+        <div class="nstep-body">
+          <p>断网之后，先在<strong>中毒电脑</strong>上做几件事，把情况记录下来。这些信息有助于后面的清理和排查：</p>
+          <ul>
+            <li><strong>截图开机启动项</strong>：任务管理器 → 启动标签页，把当前的启动项都截个图</li>
+            <li><strong>截图进程列表</strong>：任务管理器 → 详细信息，把可疑进程记下来（不认识的进程名）</li>
+            <li><strong>看一下计划任务</strong>：Win+R → 输入 <code>taskschd.msc</code> → 计划任务库，看看有没有不认识的</li>
+            <li><strong>看一下服务</strong>：Win+R → 输入 <code>services.msc</code> → 按启动类型排序，看看有没有可疑的自动启动服务</li>
+            <li><strong>看一下网络连接</strong>：Win+R → 输入 <code>cmd</code> → 输入 <code>netstat -ano</code>，把结果截图（如果有大量外部连接就是被控了）</li>
+          </ul>
+          <p>用<strong>手机拍照</strong>记录下来，因为稍后杀毒工具清理完后，有些记录会被清掉。</p>
+          <div class="nstep-tip"><svg class="icon"><use href="#i-lightbulb"/></svg><span><strong>判断影响范围：</strong>如果中毒电脑和公司内网连着（比如能访问共享文件夹、能登录域账号），那么内网其他电脑也可能被感染，务必通知 IT 或同事一起检查。</span></div>
+        </div>
+      </div>
+
+      <div class="nstep">
+        <div class="nstep-head">
+          <div class="nstep-num">4</div>
+          <div class="nstep-title">用另一台干净设备准备急救工具</div>
+          <div class="nstep-time">约 10 分钟</div>
+        </div>
+        <div class="nstep-body">
+          <p><strong>不要在中毒电脑上下载工具。</strong>银狐木马会劫持下载链接、拦截安全软件下载，你下载的可能就是假的或者装不上。正确做法：</p>
+          <ul>
+            <li>找一台<strong>干净的电脑或手机</strong>（没中毒的），打开本站</li>
+            <li>回到"银狐木马专杀"页面，下载 360 系统急救箱（约 60MB）和火绒顽固木马专杀（约 30MB）</li>
+            <li>把两个安装包拷贝到<strong>一个 U 盘或移动硬盘</strong>上</li>
+            <li>如果 U 盘里有别的文件，先备份走，避免被感染</li>
+            <li>把 U 盘插到中毒电脑上，把两个安装包拷贝到桌面</li>
+          </ul>
+          <div class="nstep-warn"><svg class="icon"><use href="#i-alert"/></svg><span><strong>提醒：</strong>中毒电脑插 U 盘前，先关闭 U 盘的自动播放（按住 Shift 键再插入即可）。拷贝完之后，用急救箱扫一下 U 盘，避免二次感染。</span></div>
+        </div>
+      </div>
+
+      <div class="nstep highlight-step">
+        <div class="nstep-head">
+          <div class="nstep-num">5</div>
+          <div class="nstep-title">按顺序启动查杀工具，三次扫描</div>
+          <div class="nstep-time">约 30-60 分钟</div>
+        </div>
+        <div class="nstep-body">
+          <p>在<strong>断网状态下</strong>按顺序尝试以下启动方式，直到工具能正常运行：</p>
+          <ul>
+            <li><strong>第一步：</strong>双击 <code>360急救箱.exe</code>，如果能打开就直接扫描</li>
+            <li><strong>第二步：</strong>如果双击没反应、或者报"引擎初始化失败"，右键 <code>360急救箱打不开就点我-加强版.bat</code> → 以管理员身份运行</li>
+            <li><strong>第三步：</strong>如果还是不行，双击 <code>所有360程序无法运行请双击.com</code>（.exe 关联被劫持的情况下 .com 还能跑）</li>
+            <li><strong>第四步：</strong>360 完全用不了，双击 <code>Hrkill-SilverFox.exe</code>（火绒专杀），同样先尝试直接双击，不行再右键管理员运行</li>
+          </ul>
+          <p><strong>三次扫描原则：</strong></p>
+          <ul>
+            <li><strong>第一次：</strong>完整扫描，让工具处理所有检出的项目</li>
+            <li><strong>第二次：</strong>重启电脑后，再扫描一遍，确认上次处理的项目都被清了</li>
+            <li><strong>第三次：</strong>再用另一家的工具交叉扫描（比如 360 扫完用火绒再扫），确认没有遗漏</li>
+          </ul>
+          <div class="nstep-tip"><svg class="icon"><use href="#i-lightbulb"/></svg><span><strong>为什么三次：</strong>银狐木马会互相保护，一次扫描可能只能清掉一部分。三次扫描 + 两家工具交叉验证，是最保险的做法。</span></div>
+        </div>
+      </div>
+
+      <div class="nstep highlight-step">
+        <div class="nstep-head">
+          <div class="nstep-num">6</div>
+          <div class="nstep-title">用干净设备修改所有重要账号密码</div>
+          <div class="nstep-time">约 20 分钟</div>
+        </div>
+        <div class="nstep-body">
+          <p>木马最核心的目的是偷你的账号密码。<strong>千万不要在中毒电脑上改密码</strong>——键盘记录、屏幕截图、剪贴板监听都可能还在运行。用<strong>干净的手机或另一台电脑</strong>改：</p>
+          <ul>
+            <li><strong>邮箱</strong>：主邮箱最重要，因为其他账号的找回都靠它。先改邮箱</li>
+            <li><strong>微信 / QQ / 钉钉 / 企业微信</strong>：改密码 + 踢掉所有其他设备</li>
+            <li><strong>银行 / 支付宝 / 微信支付</strong>：改登录密码和支付密码</li>
+            <li><strong>企业账号</strong>：OA、VPN、Git、企业云盘、跳板机</li>
+            <li><strong>购物 / 社交</strong>：淘宝、京东、微博等（防止被用来诈骗）</li>
+            <li><strong>开启双因素认证</strong>：能开的都开，多一道保险</li>
+          </ul>
+          <div class="nstep-warn"><svg class="icon"><use href="#i-alert"/></svg><span><strong>重要：</strong>改密码后，检查所有账号的"最近登录记录"。如果看到陌生设备或陌生地点，立刻把那个设备踢下线，并检查该账号绑定的手机号、邮箱、密保问题有没有被改。</span></div>
+        </div>
+      </div>
+
+      <div class="nstep">
+        <div class="nstep-head">
+          <div class="nstep-num">7</div>
+          <div class="nstep-title">深度清理残留</div>
+          <div class="nstep-time">约 15 分钟</div>
+        </div>
+        <div class="nstep-body">
+          <p>杀毒工具只能清理它们认识的恶意文件。有些木马残留项需要手动检查：</p>
+          <ul>
+            <li><strong>检查启动项</strong>：Win+R → <code>shell:startup</code> 看启动文件夹；任务管理器 → 启动标签页；<code>regedit</code> → <code>HKCU\Software\Microsoft\Windows\CurrentVersion\Run</code> 和 <code>HKLM\...\Run</code></li>
+            <li><strong>检查计划任务</strong>：<code>taskschd.msc</code> → 检查所有触发器的任务，删除不认识的</li>
+            <li><strong>检查服务</strong>：<code>services.msc</code> → 按启动类型排序，禁用可疑服务</li>
+            <li><strong>检查 hosts 文件</strong>：<code>C:\Windows\System32\drivers\etc\hosts</code>，用记事本打开，删除可疑的 IP 映射</li>
+            <li><strong>检查浏览器扩展</strong>：Chrome 和 Edge 的扩展管理页面，删除不认识的扩展</li>
+            <li><strong>检查 WMI 订阅</strong>：Win+R → <code>wbemtest</code> → 连接 → 查询 <code>SELECT * FROM __EventFilter</code></li>
+          </ul>
+          <div class="nstep-tip"><svg class="icon"><use href="#i-lightbulb"/></svg><span><strong>如果不确定：</strong>把可疑项的截图发到本站"威胁动态"页面评论区，或者询问懂行的朋友。宁可不删，也不要误删系统项。</span></div>
+        </div>
+      </div>
+
+      <div class="nstep">
+        <div class="nstep-head">
+          <div class="nstep-num">8</div>
+          <div class="nstep-title">评估是否需要重装系统</div>
+          <div class="nstep-time">看情况</div>
+        </div>
+        <div class="nstep-body">
+          <p>银狐木马的部分变种会加载内核驱动，杀毒工具在系统运行时可能清不干净。出现下面任意一条，建议重装系统：</p>
+          <ul>
+            <li>三次扫描后，杀毒工具还是报警</li>
+            <li>杀毒工具本身运行异常，或者被反复关闭</li>
+            <li>发现恶意内核驱动（在 <code>C:\Windows\System32\drivers\</code> 里有可疑的 .sys 文件）</li>
+            <li>系统行为持续异常，比如桌面被劫持、程序自启动</li>
+            <li>这是台工作机，里面有敏感数据，不能冒风险</li>
+          </ul>
+          <p><strong>重装前的准备工作：</strong></p>
+          <ul>
+            <li>备份重要数据（文档、照片、代码），<strong>只备份数据文件，不要备份可执行文件</strong></li>
+            <li>备份完的数据，用急救箱扫一遍再拷回来</li>
+            <li>U 盘重装：到微软官网下载"媒体创建工具"，制作 Win10/Win11 安装 U 盘</li>
+            <li>重装时选择"自定义安装"，把系统盘全部格式化</li>
+            <li>重装完成后，先断网装驱动，再装安全软件，最后联网更新</li>
+          </ul>
+          <div class="nstep-warn"><svg class="icon"><use href="#i-alert"/></svg><span><strong>提醒：</strong>重装系统后，所有账号密码都要重新改一遍。因为木马可能已经把旧密码传到攻击者手里了，密码泄露和系统清理是两回事。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="newbie-foot">
+      <strong>总结一下：</strong>断网 → 评估影响 → 用干净设备准备工具 → 三次扫描（360 + 火绒交叉）→ 干净设备改密 → 深度清理 → 判断是否重装。<br>
+      整个过程最关键的其实是第一步和第六步：<strong>断网</strong>能止损，<strong>改密</strong>能挽回损失。杀毒只是清理，止损和止损后的补救才是最重要的。
+    </div>
+  </section>
 
   <section class="hero">
     <div class="pulse-wrap">
@@ -921,7 +1093,6 @@
   </section>
 </div>
 
-<!-- ==================== 沙箱页 ==================== -->
 <div class="page" id="page4">
   <header class="topbar glass">
     <div class="brand"><span class="dot" style="background:var(--violet)"></span><span>文件<span class="grad">沙箱分析</span></span></div>
@@ -940,7 +1111,7 @@
       <div class="drop-icon"><svg class="icon"><use href="#i-upload"/></svg></div>
       <h3>拖放文件到此处</h3>
       <p>支持单文件 · 多文件 · 文件夹（递归遍历）</p>
-      <span class="drop-hint">也支持 .com / .bat / .exe / .dll 等可执行文件类型，最多 200 个文件</span>
+      <span class="drop-hint">支持 .com / .bat / .exe / .dll 等类型，最多 200 个文件 · 单文件上限 100MB</span>
       <button class="btn-ghost drop-btn" id="sandboxSelectBtn" type="button">
         <svg class="icon"><use href="#i-folder"/></svg>选择文件或文件夹
       </button>
@@ -968,7 +1139,7 @@
           <div class="engine-icon"><svg class="icon"><use href="#i-shield"/></svg></div>
           <div>
             <div class="engine-name">YARA 引擎</div>
-            <div class="engine-desc">规则特征匹配 · 8 条银狐规则</div>
+            <div class="engine-desc">多条件组合规则 · 5 条银狐规则</div>
           </div>
           <span class="engine-status" data-status="idle">待命</span>
         </div>
@@ -980,7 +1151,7 @@
           <div class="engine-icon"><svg class="icon"><use href="#i-search"/></svg></div>
           <div>
             <div class="engine-name">逆向引擎</div>
-            <div class="engine-desc">PE 结构分析 · 字符串提取</div>
+            <div class="engine-desc">PE 结构 · 熵值 · 字符串分析</div>
           </div>
           <span class="engine-status" data-status="idle">待命</span>
         </div>
@@ -992,7 +1163,7 @@
           <div class="engine-icon"><svg class="icon"><use href="#i-cpu"/></svg></div>
           <div>
             <div class="engine-name">本地引擎</div>
-            <div class="engine-desc">特征库比对 · 启发式规则</div>
+            <div class="engine-desc">白名单 · 特征库 · 启发式</div>
           </div>
           <span class="engine-status" data-status="idle">待命</span>
         </div>
@@ -1017,7 +1188,6 @@
   </section>
 </div>
 
-<!-- ==================== 威胁动态页 ==================== -->
 <div class="page" id="page3">
   <header class="topbar glass">
     <div class="brand"><span class="dot" style="background:var(--cyan)"></span><span>威胁<span class="grad">动态中心</span></span></div>
@@ -1079,7 +1249,6 @@
       <p class="news-desc">最新捕获的样本使用带有效数字签名的正规软件作为白文件，通过 DLL 劫持加载恶意载荷。由于白文件本身可信任，传统基于签名和信誉的检测手段容易被绕过。木马启动后会立刻检查安全软件进程，发现目标后尝试结束并加载驱动级对抗模块。</p>
       <div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>开启安全软件的行为监控和驱动拦截；不要运行来源不明的安装包；下载后右键检查文件属性中的数字签名是否与发布者一致；发现杀软异常退出立即断网。</span></div>
     </article>
-
     <article class="news-item" data-level="high">
       <div class="news-meta">
         <span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-22</span>
@@ -1090,7 +1259,6 @@
       <p class="news-desc">攻击者注册了与企业微信官方域名高度相似的域名，页面外观几乎完全一致，提供"最新版客户端"下载。下载的安装包内嵌银狐木马，安装后同时在后台静默运行。近一周已观察到多个仿冒域名轮换上线。</p>
       <div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>安装企业微信、钉钉、WPS 等常用软件只从官方网站获取；核对域名拼写，注意字母替换（如 o→0、l→1）；用浏览器书签访问而不依赖搜索引擎结果。</span></div>
     </article>
-
     <article class="news-item" data-level="high">
       <div class="news-meta">
         <span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-20</span>
@@ -1101,7 +1269,6 @@
       <p class="news-desc">安全研究团队发现，银狐最新变种已具备自行编写和加载内核驱动能力，可绕过微软的驱动程序黑名单拦截，直接结束 360、火绒、腾讯电脑管家等 11 种主流杀软和安全软件的进程，同时清除其服务和启动项。部分案例中，杀软界面看起来正常但防护已失效。</p>
       <div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>不要仅凭界面图标判断安全软件状态，定期手动执行一次全盘扫描；如怀疑被针对性对抗，立即断网并使用离线专杀工具从 U 盘启动查杀；重启后第一时间检查杀软是否可正常启动。</span></div>
     </article>
-
     <article class="news-item" data-level="mid">
       <div class="news-meta">
         <span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-18</span>
@@ -1112,7 +1279,6 @@
       <p class="news-desc">攻击者潜伏在财务、采购相关的微信群和 QQ 群中，以"上月对账单""供应商合同""发票汇总"为名发送压缩包。压缩包内是一个带正常图标的 exe 文件，双击后释放银狐木马，同时打开一个假的 PDF 或 Excel 界面作为掩护。</p>
       <div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>在文件管理器中开启"显示文件扩展名"，识破 <code>对账单.pdf.exe</code> 这类双扩展名伪装；对群文件先扫后开；财务类文件建议用沙箱或在线预览打开。</span></div>
     </article>
-
     <article class="news-item" data-level="mid">
       <div class="news-meta">
         <span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-15</span>
@@ -1123,7 +1289,6 @@
       <p class="news-desc">新版银狐木马会主动检测环境中是否存在 IP-guard 等企业级远控工具，发现后尝试卸载或停止其服务。攻击者的目的是排除竞争性控制通道，避免被其他攻击者或安全运维人员反向监控。受影响企业可能出现远程管理功能失效。</p>
       <div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>如果企业依赖 IP-guard 等远控工具，务必在清理银狐后重新安装；定期检查远控工具的运行状态和心跳；在服务端监控异常下线事件。</span></div>
     </article>
-
     <article class="news-item" data-level="mid">
       <div class="news-meta">
         <span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-12</span>
@@ -1134,7 +1299,6 @@
       <p class="news-desc">多起企业感染案例显示，银狐木马会枚举内网共享目录，尝试用弱口令和常见凭据登录其他主机，投递自身副本。默认共享、Guest 账户未禁用、管理员密码过于简单是主要缺口。部分案例中，一台主机感染后两天内扩散到同网段十余台机器。</p>
       <div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>关闭不必要的默认共享；禁用 Guest 账户；为所有本地账户设置强密码；开启防火墙并限制 445、135、139 端口的入站连接；定期检查共享目录的内容变化。</span></div>
     </article>
-
     <article class="news-item" data-level="low">
       <div class="news-meta">
         <span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-10</span>
@@ -1145,7 +1309,6 @@
       <p class="news-desc">火绒发布了针对银狐木马的最新专杀工具版本，新增对多个白加黑加载链、驱动级对抗样本的识别规则，同时增强了断网环境下的查杀能力。更新后的工具可清除环境中被利用的 IP-guard 远控组件，建议作为 360 急救箱的交叉验证工具使用。</p>
       <div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>从本页"银狐木马专杀"入口下载最新版专杀工具；查杀完成后重启再次扫描确认；配合火绒安全软件进行全盘收尾扫描。</span></div>
     </article>
-
     <article class="news-item" data-level="low">
       <div class="news-meta">
         <span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-08</span>
@@ -1164,7 +1327,6 @@
   </div>
 </div>
 
-<!-- ==================== 下载防护罩 ==================== -->
 <div id="shieldOverlay">
   <div class="shield-card">
     <div class="shield-top">
@@ -1181,7 +1343,6 @@
   </div>
 </div>
 
-<!-- ==================== 网页防火墙 HUD ==================== -->
 <div id="fwHud">
   <div id="fwPanel" class="collapsed">
     <div class="fw-head">
@@ -1206,19 +1367,28 @@
 <div id="fwBanner"><span class="bi"><svg class="icon"><use href="#i-ban"/></svg></span><span id="fwBannerText">已拦截可疑跳转</span></div>
 <div id="toast"><svg class="icon"><use href="#i-check"/></svg><span id="toastText">已复制到剪贴板</span></div>
 
-<!-- ==================== 欢迎弹窗 ==================== -->
+<div class="guide-highlight" id="guideHighlight" style="display:none"></div>
+<div class="guide-arrow" id="guideArrow" style="display:none"></div>
+<div class="guide-tip" id="guideTip" style="display:none">
+  <div class="gstep"><span id="guideStepNum">1</span> / <span id="guideStepTotal">5</span></div>
+  <h3 id="guideTitle">欢迎</h3>
+  <p id="guideDesc">说明文字</p>
+  <div class="actions">
+    <button class="gbtn skip" id="guideSkipBtn" type="button">跳过</button>
+    <button class="gbtn primary" id="guideNextBtn" type="button">下一步</button>
+  </div>
+</div>
+
 <div id="welcomeModal" class="modal dismissed">
   <div class="modal-card">
     <h2>欢迎来到云端急救工具平台</h2>
     <p class="wm-intro">这是一个<b>云端网页</b>，专门提供<strong>银狐木马等安全事件的急救工具与处置指引</strong>。页面由 <strong>AI 协助编写</strong>，用于安全科普与应急演示。它<strong>不是银狐木马网站</strong>，也不包含任何木马、病毒或恶意代码。</p>
-
     <div class="wm-points">
       <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-cloud"/></svg></div><div><div class="wmp-title">纯云端网页 · 即开即用</div><div class="wmp-desc">无需下载安装，打开浏览器即可访问。所有内容都在网页内呈现，不需要任何客户端或插件。</div></div></div>
-      <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-box"/></svg></div><div><div class="wmp-title">文件沙箱分析</div><div class="wmp-desc">拖入文件或文件夹，浏览器内本地三引擎（YARA / 逆向 / 本地特征库）并行扫描，全程可视化。</div></div></div>
-      <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-clipboard"/></svg></div><div><div class="wmp-title">提供急救工具的网站</div><div class="wmp-desc">汇集 360 系统急救箱、火绒顽固木马专杀等官方查杀工具的下载入口，并提供应急处置流程。</div></div></div>
+      <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-star"/></svg></div><div><div class="wmp-title">新手模式 · 默认开启</div><div class="wmp-desc">首次访问会自动播放引导教程，应急页会显示 8 步超详细处置指引。熟悉后可以在顶栏关闭。</div></div></div>
+      <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-box"/></svg></div><div><div class="wmp-title">文件沙箱分析</div><div class="wmp-desc">拖入文件或文件夹，浏览器内本地三引擎并行扫描。多条件组合规则 + 白名单 + 内容分析，有效降低误报。</div></div></div>
       <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-lock"/></svg></div><div><div class="wmp-title">纯静态 · 不联网 · 不收集</div><div class="wmp-desc">页面不包含任何后端逻辑，不上传、不收集任何数据。下载链接全部指向 360 与火绒官方地址。</div></div></div>
     </div>
-
     <div class="wm-verify">
       <div class="wmv-title">安全验证渠道</div>
       <div class="wmv-row">
@@ -1227,37 +1397,32 @@
       </div>
       <div class="wmv-note">* 以上为安全工具官方标识引用，本站为静态网页，不构成任何厂商背书。实际安全请以您设备上安全软件的检测结果为准。</div>
     </div>
-
     <label class="wm-check"><input type="checkbox" id="dontShowToday"><span>今日不再弹出</span></label>
     <button class="wm-btn" id="wmConfirm"><svg class="icon"><use href="#i-arrow-right"/></svg>我知道了，进入网站</button>
   </div>
 </div>
 
-<!-- ==================== 更新日志弹窗 ==================== -->
 <div id="changelogModal" class="modal dismissed">
   <div class="modal-card">
     <h2>更新日志</h2>
-    <p class="wm-intro">网站自上线以来持续迭代，以下是各个版本的更新记录。当前版本 <strong>1.6</strong>。</p>
-
+    <p class="wm-intro">网站自上线以来持续迭代，以下是各个版本的更新记录。当前版本 <strong>1.8</strong>。</p>
     <div class="changelog-list" id="changelogList"></div>
-
     <label class="wm-check"><input type="checkbox" id="dontShowChangelogToday"><span>今日不再弹出</span></label>
     <button class="wm-btn" id="clConfirm"><svg class="icon"><use href="#i-arrow-right"/></svg>开始使用</button>
   </div>
 </div>
 
 <script>
-/* ============================================================
-   常量
-   ============================================================ */
 const DOWNLOAD_URL = 'https://dl.360safe.com/360c0mpkill_5.1.64.1289-0701.zip';
 const DOWNLOAD_NAME = '360c0mpkill_5.1.64.1289-0701.zip';
 const HUORONG_URL  = 'https://down5.huorong.cn/tools/Hrkill-SilverFox.exe';
 const HUORONG_NAME = 'Hrkill-SilverFox.exe';
-const CURRENT_VERSION = '1.6';
+const CURRENT_VERSION = '1.8';
 
 const CHANGELOG = [
-  { ver: '1.6', text: '新增文件沙箱分析模块 · 精简首页', current: true },
+  { ver: '1.8', text: '新增新手模式 · 超详细处置指引 + 分步引导教程', current: true },
+  { ver: '1.7', text: '沙箱规则引擎重写 · 多条件组合 + 白名单 + 内容分析，大幅降低误报' },
+  { ver: '1.6', text: '新增文件沙箱分析模块 · 精简首页' },
   { ver: '1.5', text: '优化了性能缺失' },
   { ver: '1.4', text: '优化了一些用户体验性' },
   { ver: '1.3', text: '新增动态' },
@@ -1269,7 +1434,7 @@ const isLowPerf = (navigator.hardwareConcurrency && navigator.hardwareConcurrenc
                   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ============================================================
-   FW 先定义
+   FW
    ============================================================ */
 const FW = (function(){
   const CONFIG = {
@@ -1398,9 +1563,6 @@ const FW = (function(){
           const u = new URL(src, location.href);
           if (u.origin !== location.origin){ state.blocked++; raise('阻断外部脚本注入：' + shorten(src)); node.remove(); return; }
         } catch (e){}
-      } else if (node.textContent && node.textContent.length > 60){
-        state.scans++;
-        log('warn', '⚠ 检测到动态内联脚本（长度 ' + node.textContent.length + '）');
       }
       return;
     }
@@ -1411,12 +1573,6 @@ const FW = (function(){
     }
     if (tag === 'OBJECT' || tag === 'EMBED' || tag === 'APPLET'){
       state.scans++; state.blocked++; raise('阻断插件对象注入：<' + tag.toLowerCase() + '>'); node.remove(); return;
-    }
-    if (tag === 'FORM'){
-      state.scans++;
-      const action = node.getAttribute('action') || '';
-      if (action && !isAllowedUrl(action)){ state.blocked++; raise('阻断表单外发：' + shorten(action)); node.remove(); return; }
-      if (!action){ state.blocked++; raise('阻断无 action 表单注入（疑似钓鱼）'); node.remove(); return; }
     }
     syncStats();
   }
@@ -1465,16 +1621,6 @@ const FW = (function(){
         return nativeOpenXHR.apply(this, arguments);
       };
     }
-    if (navigator.sendBeacon){
-      const nativeBeacon = navigator.sendBeacon.bind(navigator);
-      navigator.sendBeacon = function(url, data){
-        let href = '';
-        try { href = new URL(url, location.href).href; } catch (e){ href = String(url); }
-        if (!isAllowedUrl(href)){ state.blocked++; raise('阻断数据外发 sendBeacon：' + shorten(href)); syncStats(); return false; }
-        state.checked++; log('ok', '✓ 放行 [Beacon] ' + shorten(href)); syncStats();
-        return nativeBeacon(url, data);
-      };
-    }
     log('info', '· 出站请求监控已启动');
   }
 
@@ -1503,7 +1649,9 @@ const FW = (function(){
     { id: 'shieldOverlay', name: '下载防护罩' },
     { id: 'welcomeModal', name: '欢迎弹窗' },
     { id: 'changelogModal', name: '更新日志弹窗' },
-    { id: 'evoChart', name: '趋势图' }
+    { id: 'evoChart', name: '趋势图' },
+    { id: 'newbieToggle', name: '新手模式开关' },
+    { id: 'guideHighlight', name: '引导高亮层' }
   ];
 
   function startPatrol(){
@@ -1541,9 +1689,7 @@ const FW = (function(){
   return { boot: boot, checkUrl: checkUrl, isAllowedUrl: isAllowedUrl, log: log };
 })();
 
-/* ============================================================
-   3D 倾斜
-   ============================================================ */
+/* 3D 倾斜 */
 (function initTilt(){
   if (isLowPerf) return;
   const MAX_TILT = 8;
@@ -1591,12 +1737,10 @@ const FW = (function(){
     });
   }
 
-  document.querySelectorAll('.pcard, .step, .why, .spread, .prevent, .ss-item, .wmp, .wmv-badge, .news-item, .ns-item, .changelog-item, .engine-card, .result-hit').forEach(bind);
+  document.querySelectorAll('.pcard, .step, .ss-item, .wmp, .wmv-badge, .news-item, .ns-item, .changelog-item, .engine-card, .result-hit, .nstep').forEach(bind);
 })();
 
-/* ============================================================
-   点击涟漪
-   ============================================================ */
+/* 点击涟漪 */
 (function initRipple(){
   if (isLowPerf) return;
   const MAX_RIPPLES = 3;
@@ -1620,9 +1764,7 @@ const FW = (function(){
   document.head.appendChild(style);
 })();
 
-/* ============================================================
-   离屏暂停动画
-   ============================================================ */
+/* 离屏暂停动画 */
 (function initVisibilityPause(){
   if (!('IntersectionObserver' in window)) return;
   const observer = new IntersectionObserver(function(entries){
@@ -1633,9 +1775,7 @@ const FW = (function(){
   document.querySelectorAll('.pulse-ring, .pulse-core, .fox-icon, .drop-icon').forEach(function(el){ observer.observe(el); });
 })();
 
-/* ============================================================
-   页面路由
-   ============================================================ */
+/* 页面路由 */
 const PAGES = {
   portal:    document.getElementById('portal'),
   emergency: document.getElementById('page1'),
@@ -1643,13 +1783,15 @@ const PAGES = {
   news:      document.getElementById('page3')
 };
 
-function showPage(key){
+let currentPage = 'portal';
+
+function showPage(key, skipScroll){
   Object.keys(PAGES).forEach(function(k){ PAGES[k].classList.toggle('active', k === key); });
   document.body.classList.toggle('mode-red', key === 'emergency');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  currentPage = key;
+  if (!skipScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* 银狐专杀（分叠动画） */
 const silverfoxCard = document.getElementById('silverfoxCard');
 const portalGrid = document.getElementById('portalGrid');
 let animating = false;
@@ -1675,7 +1817,6 @@ silverfoxCard.addEventListener('keydown', function(e){
   if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); enterEmergency(); }
 });
 
-/* 沙箱页 */
 const sandboxCard = document.getElementById('sandboxCard');
 function enterSandbox(){
   if (animating) return;
@@ -1695,7 +1836,6 @@ sandboxCard.addEventListener('keydown', function(e){
   if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); enterSandbox(); }
 });
 
-/* 动态页 */
 const newsCard = document.getElementById('newsCard');
 function enterNews(){
   if (animating) return;
@@ -1719,9 +1859,7 @@ document.getElementById('backToPortalBtn').addEventListener('click', function(){
 document.getElementById('backFromSandboxBtn').addEventListener('click', function(){ showPage('portal'); FW.log('info', '· 从沙箱返回首页'); });
 document.getElementById('backFromNewsBtn').addEventListener('click', function(){ showPage('portal'); FW.log('info', '· 从动态中心返回首页'); });
 
-/* ============================================================
-   演变趋势图
-   ============================================================ */
+/* 演变趋势图 */
 (function initEvolution(){
   const svg = document.getElementById('evoChart');
   const tooltip = document.getElementById('evoTooltip');
@@ -1910,9 +2048,7 @@ document.getElementById('backFromNewsBtn').addEventListener('click', function(){
   FW.log('info', '· 演变趋势图已渲染');
 })();
 
-/* ============================================================
-   动态筛选
-   ============================================================ */
+/* 动态筛选 */
 (function initNewsFilter(){
   const filterRow = document.getElementById('newsFilter');
   const timeline = document.getElementById('newsTimeline');
@@ -1949,9 +2085,7 @@ document.getElementById('backFromNewsBtn').addEventListener('click', function(){
   });
 })();
 
-/* ============================================================
-   Toast
-   ============================================================ */
+/* Toast */
 let toastTimer = null;
 function showToast(msg, isWarn, isPurple){
   const t = document.getElementById('toast');
@@ -1967,9 +2101,7 @@ function showToast(msg, isWarn, isPurple){
   toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 2400);
 }
 
-/* ============================================================
-   复制
-   ============================================================ */
+/* 复制 */
 async function copyText(text, okMsg){
   try { await navigator.clipboard.writeText(text); showToast(okMsg || '已复制'); }
   catch (e) {
@@ -1982,9 +2114,7 @@ async function copyText(text, okMsg){
   }
 }
 
-/* ============================================================
-   时钟
-   ============================================================ */
+/* 时钟 */
 (function clock(){
   const el = document.getElementById('clockVal');
   if (!el) return;
@@ -1997,9 +2127,7 @@ async function copyText(text, okMsg){
   setInterval(tick, 15000);
 })();
 
-/* ============================================================
-   ★ 文件沙箱分析
-   ============================================================ */
+/* Sandbox */
 const Sandbox = (function(){
   const MAX_FILES = 200;
   const MAX_FILE_SIZE = 100 * 1024 * 1024;
@@ -2011,27 +2139,44 @@ const Sandbox = (function(){
   const el = {};
   const engines = {};
 
-  const EXEC_EXTS = new Set(['.exe','.dll','.sys','.scr','.com','.bat','.cmd','.ps1','.vbs','.js','.jar','.msi','.lnk','.hta','.cpl','.pif']);
+  const EXEC_EXTS = new Set(['.exe','.dll','.sys','.scr','.com','.bat','.cmd','.ps1','.vbs','.js','.jar','.msi','.lnk','.hta','.cpl','.pif','.ocx']);
   const ARCHIVE_EXTS = new Set(['.zip','.rar','.7z','.tar','.gz','.bz2','.xz']);
   const OFFICE_EXTS = new Set(['.doc','.docx','.xls','.xlsx','.ppt','.pptx','.rtf','.pdf']);
 
-  function getExt(name){
-    const i = name.lastIndexOf('.');
-    if (i < 0) return '';
-    return name.slice(i).toLowerCase();
-  }
+  const WHITELIST_EXACT = new Set([
+    'svchost.exe','explorer.exe','notepad.exe','mspaint.exe','calc.exe',
+    'cmd.exe','powershell.exe','pwsh.exe','rundll32.exe','taskmgr.exe','regedit.exe',
+    'dwm.exe','lsass.exe','services.exe','winlogon.exe','csrss.exe','smss.exe',
+    'wininit.exe','spoolsv.exe','dllhost.exe','conhost.exe','wscript.exe','cscript.exe',
+    'msiexec.exe','mshta.exe','werfault.exe','taskhost.exe','taskhostw.exe',
+    'chrome.exe','firefox.exe','msedge.exe','iexplore.exe','brave.exe',
+    'wechat.exe','weixin.exe','qq.exe','tim.exe','dingtalk.exe','wps.exe','et.exe','wpp.exe',
+    '360se.exe','360chrome.exe','360tray.exe','360sd.exe','360safe.exe',
+    'hicontrol.exe','himean.exe','usysdiag.exe','hipstray.exe',
+    'code.exe','devenv.exe','git-bash.exe','git.exe','putty.exe','xshell.exe',
+    'java.exe','javaw.exe','python.exe','pythonw.exe','node.exe','npm.exe','pip.exe','curl.exe',
+    'winword.exe','excel.exe','powerpnt.exe','outlook.exe','onenote.exe',
+    'wmplayer.exe','mstsc.exe','control.exe','fontview.exe','cleanmgr.exe',
+    'notepad++.exe','everything.exe','7zfm.exe','winrar.exe'
+  ]);
+
+  const WHITELIST_PATH = [
+    /^[A-Z]:\\Windows\\(System32|SysWOW64|WinSxS|servicing|Microsoft)\\/i,
+    /^[A-Z]:\\Program Files\\/i,
+    /^[A-Z]:\\Program Files \(x86\)\\/i,
+    /^[A-Z]:\\ProgramData\\Microsoft\\/i
+  ];
+
+  function getExt(name){ const i = name.lastIndexOf('.'); if (i < 0) return ''; return name.slice(i).toLowerCase(); }
   function fmtSize(bytes){
     if (bytes < 1024) return bytes + ' B';
     if (bytes < 1024*1024) return (bytes/1024).toFixed(1) + ' KB';
     if (bytes < 1024*1024*1024) return (bytes/1024/1024).toFixed(2) + ' MB';
     return (bytes/1024/1024/1024).toFixed(2) + ' GB';
   }
-  function escapeHtml(str){
-    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
+  function escapeHtml(str){ return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
   function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
 
-  // 文件头魔数检测
   function detectMagic(head){
     if (!head || head.length < 4) return 'UNKNOWN';
     const b0 = head[0], b1 = head[1], b2 = head[2], b3 = head[3];
@@ -2047,26 +2192,244 @@ const Sandbox = (function(){
     return 'UNKNOWN';
   }
 
-  function readHeader(file){
-    if (file.size === 0) return Promise.resolve(new Uint8Array(0));
-    const blob = file.slice(0, Math.min(8192, file.size));
-    return new Promise(resolve => {
+  async function readFileData(file){
+    const maxRead = Math.min(file.size, 2 * 1024 * 1024);
+    if (maxRead === 0){ return { head: new Uint8Array(0), entropy: 0, strings: [], sampleSize: 0 }; }
+    const blob = file.slice(0, maxRead);
+    const buffer = await new Promise(resolve => {
       const reader = new FileReader();
       reader.onload = e => resolve(new Uint8Array(e.target.result));
       reader.onerror = () => resolve(new Uint8Array(0));
       reader.readAsArrayBuffer(blob);
     });
+    const head = buffer.slice(0, Math.min(8192, buffer.length));
+    const entropy = calcEntropy(buffer.slice(0, Math.min(65536, buffer.length)));
+    const strings = extractStrings(buffer, 5);
+    return { head, entropy, strings, sampleSize: buffer.length };
   }
 
-  // 递归遍历拖入的条目
+  function calcEntropy(bytes){
+    if (bytes.length === 0) return 0;
+    const freq = new Uint32Array(256);
+    for (let i = 0; i < bytes.length; i++) freq[bytes[i]]++;
+    let h = 0; const n = bytes.length;
+    for (let i = 0; i < 256; i++){
+      if (freq[i] === 0) continue;
+      const p = freq[i] / n;
+      h -= p * Math.log2(p);
+    }
+    return h;
+  }
+
+  function extractStrings(bytes, minLen){
+    const out = []; let cur = '';
+    const limit = Math.min(bytes.length, 1024 * 1024);
+    for (let i = 0; i < limit; i++){
+      const b = bytes[i];
+      if (b >= 0x20 && b <= 0x7E){
+        cur += String.fromCharCode(b);
+        if (cur.length > 240){ out.push(cur); cur = ''; }
+      } else {
+        if (cur.length >= minLen) out.push(cur);
+        cur = '';
+      }
+    }
+    if (cur.length >= minLen) out.push(cur);
+    return out.slice(0, 5000);
+  }
+
+  function isWhitelisted(file){
+    const lname = file.name.toLowerCase();
+    if (WHITELIST_EXACT.has(lname)) return '系统或常见软件';
+    for (const re of WHITELIST_PATH){
+      if (re.test(file.path)) return '系统安装目录';
+    }
+    return null;
+  }
+
+  function containsLegitDomain(text){
+    return /(microsoft|windows|msn|live|google|gstatic|apple|icloud|mozilla|adobe|360|huorong|qq|weixin|dingtalk|wps|kingsoft|baidu|aliyun|tencent|taobao|jd|byteimg|douyin)\.[a-z]/i.test(text);
+  }
+
+  const RULES = [
+    { engine: 'yara', id: 'YARA_SF_DLL_HIJACK', name: '银狐白加黑加载链', level: 'high',
+      desc: 'PE 文件同时包含 DLL 动态加载 API 和可疑网络地址，符合白加黑加载器的组合特征',
+      check: function(f, ctx){
+        if (ctx.magic !== 'PE') return false;
+        const ext = getExt(f.name);
+        if (ext !== '.exe' && ext !== '.dll') return false;
+        const hasDllApi = ctx.strings.some(function(s){ return /LoadLibrary[AW]?|GetProcAddress|LdrLoadDll|LdrGetProcedureAddress/.test(s); });
+        if (!hasDllApi) return false;
+        const hasC2 = ctx.strings.some(function(s){
+          if (!/https?:\/\//i.test(s)) return false;
+          if (containsLegitDomain(s)) return false;
+          return /\.(top|xyz|cc|tk|ml|ga|cf|gq|work|click|link|online|shop|vip)\b/i.test(s) || /\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/.test(s);
+        });
+        if (!hasC2) return false;
+        if (ctx.entropy < 6.3) return false;
+        return true;
+      }
+    },
+    { engine: 'yara', id: 'YARA_SF_C2_BEACON', name: '银狐 C2 心跳特征', level: 'high',
+      desc: '文件包含 C2 心跳通信的完整特征链：可疑域名 + HTTP 头构造 + User-Agent',
+      check: function(f, ctx){
+        const c2Urls = ctx.strings.filter(function(s){
+          if (!/https?:\/\//i.test(s)) return false;
+          if (containsLegitDomain(s)) return false;
+          return /\.(top|xyz|cc|tk|ml|ga|cf|gq|work|click|link|online|shop|vip)\b/i.test(s);
+        });
+        if (c2Urls.length === 0) return false;
+        const hasUA = ctx.strings.some(function(s){ return /User-Agent:|Mozilla\/5\.0.*\(Windows NT/i.test(s); });
+        if (!hasUA) return false;
+        const hasHeaders = ctx.strings.some(function(s){ return /Content-Type:|Accept:|Accept-Encoding:|Connection:\s*keep-alive|Host:/i.test(s); });
+        if (!hasHeaders) return false;
+        return true;
+      }
+    },
+    { engine: 'yara', id: 'YARA_SF_COM_LAUNCHER', name: '可疑 .com 启动器', level: 'high',
+      desc: '.com 文件结合命令行调用与其他可执行文件引用，典型的启动器投递链',
+      check: function(f, ctx){
+        const ext = getExt(f.name);
+        if (ext !== '.com') return false;
+        if (f.size > 512 * 1024) return false;
+        const hasCmd = ctx.strings.some(function(s){ return /cmd\.exe|powershell|CreateProcess|ShellExecute|WinExec|system\s*\(/.test(s); });
+        if (!hasCmd) return false;
+        const hasRef = ctx.strings.some(function(s){ return /\.exe|\.dll|\.bat|\.vbs|\.ps1/i.test(s); });
+        if (!hasRef) return false;
+        return true;
+      }
+    },
+    { engine: 'yara', id: 'YARA_SF_BAT_DROPPER', name: '批处理释放器', level: 'mid',
+      desc: '批处理脚本同时具备下载、编码、执行三种行为中的至少两种',
+      check: function(f, ctx){
+        const ext = getExt(f.name);
+        if (ext !== '.bat' && ext !== '.cmd') return false;
+        const text = ctx.strings.join('\n');
+        const hasDownload = /(curl\s|wget\s|bitsadmin|certutil\s+-urlcache|Invoke-WebRequest|WebClient|DownloadFile)/i.test(text);
+        const hasExec = /(start\s+|call\s+|\.exe|powershell|cmd\s+\/c|regsvr32|rundll32|mshta)/i.test(text);
+        const hasEncode = /(base64|FromBase64String|certutil\s+-decode|echo\s+[A-Za-z0-9+/=]{40,})/i.test(text);
+        const count = (hasDownload?1:0) + (hasExec?1:0) + (hasEncode?1:0);
+        return count >= 2;
+      }
+    },
+    { engine: 'yara', id: 'YARA_SF_SCRIPT_OBFUSC', name: '脚本混淆载荷', level: 'mid',
+      desc: '脚本文件熵值偏高 + 动态执行 + 编码解码，是典型的混淆载荷',
+      check: function(f, ctx){
+        const ext = getExt(f.name);
+        if (ext !== '.ps1' && ext !== '.vbs' && ext !== '.js') return false;
+        if (ctx.entropy < 5.5) return false;
+        const text = ctx.strings.join('\n');
+        const hasDynamic = /(eval|exec|Invoke-Expression|IEX|WScript\.Shell|ExecuteGlobal)/i.test(text);
+        const hasEncode = /(FromBase64String|\[char\]|Chr\(|\\x[0-9a-f]{2}|atob|unescape)/i.test(text);
+        return hasDynamic && hasEncode;
+      }
+    },
+    { engine: 'reverse', id: 'RE_PACKED', name: '加壳保护', level: 'mid',
+      desc: 'PE 文件熵值超过 7.5 且大小适中，几乎可以确定被加壳',
+      check: function(f, ctx){
+        if (ctx.magic !== 'PE') return false;
+        if (f.size < 50 * 1024) return false;
+        if (f.size > 20 * 1024 * 1024) return false;
+        return ctx.entropy > 7.5;
+      }
+    },
+    { engine: 'reverse', id: 'RE_ANTI_ANALYSIS', name: '反分析保护', level: 'mid',
+      desc: '包含多种反调试/反虚拟机检测特征，典型的规避分析手法',
+      check: function(f, ctx){
+        const text = ctx.strings.join('\n');
+        let cnt = 0;
+        if (/IsDebuggerPresent|CheckRemoteDebuggerPresent|NtQueryInformationProcess|ZwQueryInformationProcess/i.test(text)) cnt++;
+        if (/VMware|VirtualBox|VBox|QEMU|Xen|Hyper-V/i.test(text)) cnt++;
+        if (/Sandboxie|Cuckoo|Wine|Sandbox|JoeBox/i.test(text)) cnt++;
+        if (/ptrace|DebugActiveProcess|NtSetInformationThread/i.test(text)) cnt++;
+        return cnt >= 2;
+      }
+    },
+    { engine: 'reverse', id: 'RE_MAGIC_MISMATCH', name: '魔数与扩展名严重不符', level: 'high',
+      desc: '文件内容类型与扩展名严重不符，是典型的伪装手法',
+      check: function(f, ctx){
+        const ext = getExt(f.name);
+        if (ctx.magic === 'PE' && !EXEC_EXTS.has(ext) && ext !== '.sys' && ext !== '.ocx') return true;
+        if (ctx.magic === 'ELF' && ext === '.exe') return true;
+        if (OFFICE_EXTS.has(ext) && (ctx.magic === 'PE' || ctx.magic === 'ELF')) return true;
+        return false;
+      }
+    },
+    { engine: 'reverse', id: 'RE_DOUBLE_EXT', name: '双扩展名伪装', level: 'high',
+      desc: '可执行文件使用双扩展名（如 "发票.pdf.exe"），钓鱼投递的经典手法',
+      check: function(f, ctx){
+        const name = f.name.toLowerCase();
+        const ext = getExt(f.name);
+        if (!EXEC_EXTS.has(ext)) return false;
+        const base = name.slice(0, name.length - ext.length);
+        return /\.(pdf|doc|docx|xls|xlsx|ppt|pptx|jpg|jpeg|png|gif|bmp|txt|rtf|zip|rar|7z)$/i.test(base);
+      }
+    },
+    { engine: 'local', id: 'LC_PHISHING_NAME', name: '钓鱼文件名', level: 'mid',
+      desc: 'PE 文件使用钓鱼类文件名，命中率比纯扩展名判断高得多',
+      check: function(f, ctx){
+        const ext = getExt(f.name);
+        if (!EXEC_EXTS.has(ext)) return false;
+        if (ctx.magic !== 'PE') return false;
+        const name = f.name.toLowerCase();
+        const PHISH = ['对账单','发票','工资','员工名单','合同','面试','简历','中奖','退款','通知函','付款','采购单','订单','回执','收货','快递单','社保','公积金','补贴','红包'];
+        for (let i = 0; i < PHISH.length; i++){ if (name.indexOf(PHISH[i]) >= 0) return true; }
+        return false;
+      }
+    },
+    { engine: 'local', id: 'LC_TINY_LOADER', name: '微型加载器', level: 'mid',
+      desc: '极小的 PE 文件（1KB-30KB）且熵值极高，典型的加载器特征',
+      check: function(f, ctx){
+        if (ctx.magic !== 'PE') return false;
+        if (f.size < 1024) return false;
+        if (f.size >= 30 * 1024) return false;
+        return ctx.entropy > 7.0;
+      }
+    },
+    { engine: 'local', id: 'LC_SCRIPT_DOWNLOAD', name: '脚本下载执行链', level: 'mid',
+      desc: '脚本文件包含远程下载 + 落地到临时目录 + 动态执行的组合行为',
+      check: function(f, ctx){
+        const ext = getExt(f.name);
+        if (ext !== '.ps1' && ext !== '.vbs' && ext !== '.js' && ext !== '.bat' && ext !== '.cmd') return false;
+        const text = ctx.strings.join('\n');
+        const hasUrl = /https?:\/\/[a-z0-9.-]+\.[a-z]{2,}/i.test(text);
+        const hasExec = /(Invoke-Expression|IEX\b|WScript\.Shell|eval\s*\(|exec\s*\(|ExecuteGlobal|cmd\s+\/c)/i.test(text);
+        const hasTemp = /(%temp%|\\Temp\\|\/tmp|%appdata%|\\AppData\\)/i.test(text);
+        const count = (hasUrl?1:0) + (hasExec?1:0) + (hasTemp?1:0);
+        return count >= 2;
+      }
+    }
+  ];
+
+  function analyzeFile(file, ctx){
+    const wl = isWhitelisted(file);
+    if (wl){ return { whitelisted: true, whitelistReason: wl, hits: { yara: [], reverse: [], local: [] }, score: 0 }; }
+    if (file.size === 0){ return { whitelisted: false, hits: { yara: [], reverse: [], local: [] }, score: 0 }; }
+
+    const hits = { yara: [], reverse: [], local: [] };
+    for (let i = 0; i < RULES.length; i++){
+      const rule = RULES[i];
+      try { if (rule.check(file, ctx)) hits[rule.engine].push(rule); } catch (e){}
+    }
+
+    let score = 0;
+    ['yara','reverse','local'].forEach(function(e){
+      for (let i = 0; i < hits[e].length; i++){
+        const h = hits[e][i];
+        if (h.level === 'high') score += 10;
+        else if (h.level === 'mid') score += 4;
+      }
+    });
+
+    return { whitelisted: false, hits: hits, score: score };
+  }
+
   async function traverseEntry(entry, path, collector){
     if (collector.length >= MAX_FILES) return;
     if (entry.isFile){
       await new Promise(resolve => {
         entry.file(function(file){
-          if (file.size <= MAX_FILE_SIZE){
-            collector.push({ file: file, name: file.name, size: file.size, path: path + file.name });
-          }
+          if (file.size <= MAX_FILE_SIZE){ collector.push({ file: file, name: file.name, size: file.size, path: path + file.name }); }
           resolve();
         }, function(){ resolve(); });
       });
@@ -2092,11 +2455,7 @@ const Sandbox = (function(){
   }
 
   function renderFiles(){
-    if (queue.length === 0){
-      el.filesSection.hidden = true;
-      el.action.hidden = true;
-      return;
-    }
+    if (queue.length === 0){ el.filesSection.hidden = true; el.action.hidden = true; return; }
     el.filesSection.hidden = false;
     el.action.hidden = false;
     el.filesCount.textContent = queue.length;
@@ -2115,90 +2474,6 @@ const Sandbox = (function(){
     }).join('');
   }
 
-  // YARA 规则库
-  const YARA_RULES = [
-    { id: 'YARA_001', name: 'SilverFox_C2_Domain', level: 'high', desc: '匹配银狐木马常见 C2 域名特征' },
-    { id: 'YARA_002', name: 'SilverFox_Driver_Load', level: 'high', desc: '检测驱动加载行为特征' },
-    { id: 'YARA_003', name: 'SilverFox_Com_Launcher', level: 'high', desc: '可疑 .com 启动器' },
-    { id: 'YARA_004', name: 'SilverFox_Bat_Script', level: 'high', desc: '可疑批处理脚本投递' },
-    { id: 'YARA_005', name: 'WhiteBlack_DLL_Hijack', level: 'mid', desc: '白加黑 DLL 劫持特征' },
-    { id: 'YARA_006', name: 'SilverFox_Generic_Trojan', level: 'high', desc: '银狐通用木马特征' },
-    { id: 'YARA_007', name: 'Suspicious_PowerShell', level: 'mid', desc: '可疑 PowerShell 执行' },
-    { id: 'YARA_008', name: 'Hidden_Extension_Double', level: 'mid', desc: '双扩展名伪装' }
-  ];
-
-  const REVERSE_RULES = [
-    { id: 'RE_001', name: 'PE_Section_Abnormal', level: 'mid', desc: 'PE 节区异常（可能是加壳或混淆）' },
-    { id: 'RE_002', name: 'PE_Import_Suspicious', level: 'mid', desc: '导入表包含可疑 API' },
-    { id: 'RE_003', name: 'PE_Entry_Obfuscated', level: 'high', desc: '入口点代码被混淆' },
-    { id: 'RE_004', name: 'String_C2_Url', level: 'high', desc: '字符串中发现 C2 URL' },
-    { id: 'RE_005', name: 'Anti_VM_Detected', level: 'mid', desc: '包含反虚拟机检测代码' },
-    { id: 'RE_006', name: 'Script_Encoded', level: 'mid', desc: '脚本被编码/加密' },
-    { id: 'RE_X',   name: 'Magic_Mismatch', level: 'high', desc: '文件头与扩展名不符' }
-  ];
-
-  const LOCAL_RULES = [
-    { id: 'LC_001', name: 'Hash_Match_Blacklist', level: 'high', desc: '哈希匹配到已知黑名单' },
-    { id: 'LC_002', name: 'Extension_Risk', level: 'mid', desc: '高危扩展名文件' },
-    { id: 'LC_003', name: 'Size_Anomaly', level: 'low', desc: '文件大小异常' },
-    { id: 'LC_004', name: 'Name_Phishing', level: 'mid', desc: '文件名含钓鱼关键词' }
-  ];
-
-  const PHISHING_KEYWORDS = ['对账单','发票','工资','员工','合同','面试','简历','中奖','退款','通知','安排','紧急','付款','采购'];
-
-  function analyzeFile(f, magic){
-    const ext = getExt(f.name);
-    const hits = { yara: [], reverse: [], local: [] };
-
-    // YARA 模拟
-    if (ext === '.com') hits.yara.push(YARA_RULES[2]);
-    if (ext === '.bat' || ext === '.cmd') hits.yara.push(YARA_RULES[3]);
-    if (ext === '.dll') hits.yara.push(YARA_RULES[4]);
-    if (ext === '.exe' && magic === 'PE' && f.size > 50000) hits.yara.push(YARA_RULES[0]);
-    if ((ext === '.exe' || ext === '.sys') && magic === 'PE' && f.size > 200000) hits.yara.push(YARA_RULES[1]);
-    if (EXEC_EXTS.has(ext)) hits.yara.push(YARA_RULES[5]);
-    if (ext === '.ps1' || ext === '.vbs') hits.yara.push(YARA_RULES[6]);
-    const baseName = f.name.replace(/\.[^.]*$/, '');
-    if (/\.(pdf|doc|docx|xls|xlsx|jpg|png|txt)$/i.test(baseName) && EXEC_EXTS.has(ext)){
-      hits.yara.push(YARA_RULES[7]);
-    }
-
-    // 逆向模拟
-    if (magic === 'PE'){
-      if (f.size > 300000) hits.reverse.push(REVERSE_RULES[0]);
-      if (f.size > 100000) hits.reverse.push(REVERSE_RULES[1]);
-      if (f.size > 500000) hits.reverse.push(REVERSE_RULES[2]);
-      hits.reverse.push(REVERSE_RULES[3]);
-    }
-    if (ext === '.ps1' || ext === '.vbs' || ext === '.js') hits.reverse.push(REVERSE_RULES[5]);
-    if (EXEC_EXTS.has(ext) && f.size > 150000) hits.reverse.push(REVERSE_RULES[4]);
-
-    // 本地引擎模拟
-    if (EXEC_EXTS.has(ext)) hits.local.push(LOCAL_RULES[1]);
-    if (f.size === 0 || f.size > 5*1024*1024) hits.local.push(LOCAL_RULES[2]);
-    for (const kw of PHISHING_KEYWORDS){
-      if (f.name.indexOf(kw) >= 0){ hits.local.push(LOCAL_RULES[3]); break; }
-    }
-
-    if (magic === 'PE' && ext && !EXEC_EXTS.has(ext) && ext !== '.sys'){
-      hits.reverse.push(REVERSE_RULES[6]);
-    }
-
-    return hits;
-  }
-
-  function calcThreat(hits){
-    let score = 0;
-    for (const e of ['yara','reverse','local']){
-      for (const h of hits[e]){
-        if (h.level === 'high') score += 10;
-        else if (h.level === 'mid') score += 5;
-        else if (h.level === 'low') score += 2;
-      }
-    }
-    return score;
-  }
-
   function sLog(level, msg){
     const div = document.createElement('div');
     div.className = 'slog-line ' + level;
@@ -2211,25 +2486,30 @@ const Sandbox = (function(){
     while (el.log.children.length > 300){ el.log.removeChild(el.log.firstChild); }
   }
 
-  async function stepEngine(key, i, total, file, hits){
+  async function stepEngine(key, i, total, file, hits, result){
     const e = engines[key];
     e.num.textContent = String(i + 1);
     e.bar.style.width = ((i + 1) / total * 100).toFixed(1) + '%';
 
-    const ext = getExt(file.name);
     const shortName = file.name.length > 42 ? file.name.slice(0, 39) + '...' : file.name;
 
+    if (result && result.whitelisted){
+      if (key === 'yara') sLog('ok', '[白名单] ✓ ' + shortName + ' · ' + result.whitelistReason + ' 跳过检测');
+      await sleep(3);
+      return;
+    }
+
     if (hits && hits.length > 0){
-      for (const h of hits){
+      for (let h of hits){
         sLog(h.level === 'high' ? 'danger' : h.level === 'mid' ? 'warn' : 'info',
           '[' + e.name + '] 命中 ' + h.id + ' ' + h.name + ' ← ' + shortName);
       }
-      await sleep(18 + Math.random() * 28);
+      await sleep(16 + Math.random() * 24);
     } else {
       if (key === 'yara') sLog('ok', '[YARA] ✓ ' + shortName + ' 未命中规则');
-      else if (key === 'reverse') sLog('info', '[逆向] 分析 ' + shortName + ' · Magic=' + file.magic);
-      else sLog('info', '[本地] 比对 ' + shortName + ' 特征库');
-      await sleep(8 + Math.random() * 14);
+      else if (key === 'reverse') sLog('info', '[逆向] 分析 ' + shortName + ' · Magic=' + (file.magic || 'UNKNOWN') + ' · 熵值=' + (file.entropy || 0).toFixed(2));
+      else sLog('info', '[本地] 比对 ' + shortName + ' · 特征库通过');
+      await sleep(6 + Math.random() * 12);
     }
   }
 
@@ -2268,17 +2548,19 @@ const Sandbox = (function(){
 
     await sleep(260);
 
-    // 读取所有文件头
     const fileInfos = [];
     for (let i = 0; i < queue.length; i++){
       if (abortFlag) break;
       const f = queue[i];
-      const head = await readHeader(f.file);
-      const magic = detectMagic(head);
-      fileInfos.push({ file: f.file, name: f.name, size: f.size, path: f.path, magic: magic });
+      const data = await readFileData(f.file);
+      const magic = detectMagic(data.head);
+      fileInfos.push({ file: f.file, name: f.name, size: f.size, path: f.path, magic: magic, entropy: data.entropy, strings: data.strings });
     }
 
-    sLog('info', '文件头读取完成，开始三引擎并行扫描');
+    let wlCount = 0;
+    fileInfos.forEach(function(fi){ if (isWhitelisted(fi)) wlCount++; });
+    sLog('info', '文件读取完成：' + fileInfos.length + ' 个，其中 ' + wlCount + ' 个命中白名单');
+    sLog('info', '开始三引擎并行扫描');
 
     const allResults = [];
     const engineHitCount = { yara: 0, reverse: 0, local: 0 };
@@ -2286,17 +2568,17 @@ const Sandbox = (function(){
     for (let i = 0; i < fileInfos.length; i++){
       if (abortFlag) break;
       const f = fileInfos[i];
-      const hits = analyzeFile(f, f.magic);
+      const result = analyzeFile(f, f);
 
-      await stepEngine('yara', i, fileInfos.length, f, hits.yara);
-      await stepEngine('reverse', i, fileInfos.length, f, hits.reverse);
-      await stepEngine('local', i, fileInfos.length, f, hits.local);
+      await stepEngine('yara', i, fileInfos.length, f, result.hits.yara, result);
+      await stepEngine('reverse', i, fileInfos.length, f, result.hits.reverse, result);
+      await stepEngine('local', i, fileInfos.length, f, result.hits.local, result);
 
-      engineHitCount.yara += hits.yara.length;
-      engineHitCount.reverse += hits.reverse.length;
-      engineHitCount.local += hits.local.length;
+      engineHitCount.yara += result.hits.yara.length;
+      engineHitCount.reverse += result.hits.reverse.length;
+      engineHitCount.local += result.hits.local.length;
 
-      allResults.push({ file: f, hits: hits, score: calcThreat(hits) });
+      allResults.push({ file: f, hits: result.hits, score: result.score, whitelisted: result.whitelisted, whitelistReason: result.whitelistReason });
     }
 
     for (const k in engines){
@@ -2327,13 +2609,16 @@ const Sandbox = (function(){
     el.results.hidden = false;
 
     let totalScore = 0;
-    let highCount = 0, midCount = 0, lowCount = 0;
+    let highCount = 0, midCount = 0, lowCount = 0, wlCount = 0;
     const allHits = [];
 
-    for (const r of results){
+    for (let i = 0; i < results.length; i++){
+      const r = results[i];
       totalScore += r.score;
+      if (r.whitelisted){ wlCount++; continue; }
       for (const k in r.hits){
-        for (const h of r.hits[k]){
+        for (let j = 0; j < r.hits[k].length; j++){
+          const h = r.hits[k][j];
           allHits.push({ file: r.file, engine: k, hit: h });
           if (h.level === 'high') highCount++;
           else if (h.level === 'mid') midCount++;
@@ -2365,25 +2650,32 @@ const Sandbox = (function(){
       verdictIcon = '#i-warning';
     }
 
+    let extraDesc = '';
+    if (verdict === 'safe' && wlCount > 0 && allHits.length === 0){
+      extraDesc = '其中 ' + wlCount + ' 个文件命中白名单，直接通过。';
+    }
+
     el.resultSummary.className = 'result-summary ' + verdict;
     el.resultSummary.innerHTML =
       '<div class="verdict" style="color:' + verdictColor + '">' +
         '<svg class="icon"><use href="' + verdictIcon + '"/></svg>' +
         verdictText +
       '</div>' +
-      '<div class="details">' + verdictDesc + '</div>' +
+      '<div class="details">' + verdictDesc + (extraDesc ? ' ' + extraDesc : '') + '</div>' +
       '<div class="stat-grid">' +
         '<div class="stat"><div class="v" style="color:#ffb0b0">' + highCount + '</div><div class="k">高危命中</div></div>' +
         '<div class="stat"><div class="v" style="color:#ffd9a3">' + midCount + '</div><div class="k">中危命中</div></div>' +
-        '<div class="stat"><div class="v" style="color:#a7f3d0">' + lowCount + '</div><div class="k">低危命中</div></div>' +
+        '<div class="stat"><div class="v" style="color:#a7f3d0">' + wlCount + '</div><div class="k">白名单通过</div></div>' +
         '<div class="stat"><div class="v" style="color:#a7e8ff">' + results.length + '</div><div class="k">扫描文件</div></div>' +
       '</div>';
 
     if (allHits.length === 0){
-      el.resultDetails.innerHTML = '<div class="disclaimer" style="text-align:center;padding:30px">没有检测到任何命中，所有文件均通过扫描。</div>';
+      el.resultDetails.innerHTML = '<div class="disclaimer" style="text-align:center;padding:30px">' +
+        (wlCount > 0 ? wlCount + ' 个文件命中白名单直接通过，其余文件均未命中任何规则。' : '没有检测到任何命中，所有文件均通过扫描。') +
+        '</div>';
     } else {
       const engineNames = { yara: 'YARA', reverse: '逆向', local: '本地' };
-      el.resultDetails.innerHTML = allHits.map(function(item){
+      const detailHtml = allHits.map(function(item){
         const level = item.hit.level;
         const tagText = level === 'high' ? 'HIGH' : level === 'mid' ? 'MID' : 'LOW';
         return '<div class="result-hit ' + level + '">' +
@@ -2397,9 +2689,13 @@ const Sandbox = (function(){
           '</div>' +
         '</div>';
       }).join('');
+      const wlNote = wlCount > 0
+        ? '<div class="disclaimer" style="margin-bottom:12px;padding:12px 16px;font-size:.78rem">另有 ' + wlCount + ' 个文件命中白名单，已跳过检测。</div>'
+        : '';
+      el.resultDetails.innerHTML = wlNote + detailHtml;
     }
 
-    FW.log('info', '· 沙箱扫描完成：' + results.length + ' 个文件，' + allHits.length + ' 个命中');
+    FW.log('info', '· 沙箱扫描完成：' + results.length + ' 个文件（白名单 ' + wlCount + '），' + allHits.length + ' 个命中');
   }
 
   function init(){
@@ -2433,16 +2729,10 @@ const Sandbox = (function(){
     if (!el.drop) return;
 
     ['dragenter','dragover'].forEach(function(ev){
-      el.drop.addEventListener(ev, function(e){
-        e.preventDefault(); e.stopPropagation();
-        el.drop.classList.add('dragover');
-      });
+      el.drop.addEventListener(ev, function(e){ e.preventDefault(); e.stopPropagation(); el.drop.classList.add('dragover'); });
     });
     ['dragleave','drop'].forEach(function(ev){
-      el.drop.addEventListener(ev, function(e){
-        e.preventDefault(); e.stopPropagation();
-        el.drop.classList.remove('dragover');
-      });
+      el.drop.addEventListener(ev, function(e){ e.preventDefault(); e.stopPropagation(); el.drop.classList.remove('dragover'); });
     });
 
     el.drop.addEventListener('drop', async function(e){
@@ -2454,25 +2744,17 @@ const Sandbox = (function(){
         const item = items[i];
         if (item.kind !== 'file') continue;
         const entry = item.webkitGetAsEntry ? item.webkitGetAsEntry() : null;
-        if (entry){
-          promises.push(traverseEntry(entry, '', collector));
-        } else if (item.getAsFile){
+        if (entry){ promises.push(traverseEntry(entry, '', collector)); }
+        else if (item.getAsFile){
           const f = item.getAsFile();
-          if (f && f.size <= MAX_FILE_SIZE){
-            collector.push({ file: f, name: f.name, size: f.size, path: f.name });
-          }
+          if (f && f.size <= MAX_FILE_SIZE){ collector.push({ file: f, name: f.name, size: f.size, path: f.name }); }
         }
       }
       await Promise.all(promises);
 
-      if (collector.length === 0){
-        showToast('未识别到可扫描的文件', true);
-        return;
-      }
+      if (collector.length === 0){ showToast('未识别到可扫描的文件', true); return; }
       queue = queue.concat(collector).slice(0, MAX_FILES);
-      if (queue.length >= MAX_FILES){
-        showToast('已达到 ' + MAX_FILES + ' 个文件上限', true);
-      }
+      if (queue.length >= MAX_FILES){ showToast('已达到 ' + MAX_FILES + ' 个文件上限', true); }
       renderFiles();
       FW.log('info', '· 沙箱加入 ' + collector.length + ' 个文件');
     });
@@ -2482,10 +2764,7 @@ const Sandbox = (function(){
       el.fileInput.click();
     });
     if (el.selectBtn){
-      el.selectBtn.addEventListener('click', function(e){
-        e.stopPropagation();
-        el.fileInput.click();
-      });
+      el.selectBtn.addEventListener('click', function(e){ e.stopPropagation(); el.fileInput.click(); });
     }
 
     el.fileInput.addEventListener('change', function(e){
@@ -2514,17 +2793,13 @@ const Sandbox = (function(){
       FW.log('info', '· 沙箱队列已清空');
     });
 
-    el.startBtn.addEventListener('click', function(){
-      startScan();
-    });
+    el.startBtn.addEventListener('click', function(){ startScan(); });
   }
 
   return { init: init };
 })();
 
-/* ============================================================
-   下载防护罩
-   ============================================================ */
+/* 下载防护罩 */
 const DownloadGuard = (function(){
   let active = false;
   let startedAt = 0;
@@ -2563,17 +2838,8 @@ const DownloadGuard = (function(){
     window.close = function(){ closeAttempts++; sLog('block', '已阻止脚本关闭页面（第 ' + closeAttempts + ' 次）'); FW.log('block', '⛔ 下载防护罩：阻止 window.close()'); };
   }
   function unpatchClose(){ if (closePatched){ window.close = nativeClose; closePatched = false; } }
-
-  function beforeUnloadHandler(e){
-    if (!active) return;
-    e.preventDefault();
-    e.returnValue = '下载正在进行中，确定要离开吗？';
-    return e.returnValue;
-  }
-  function visHandler(){
-    if (!active) return;
-    if (document.visibilityState === 'hidden'){ pageHiddenCount++; sLog('warn', '页面被隐藏（第 ' + pageHiddenCount + ' 次），可能被后台抢占'); }
-  }
+  function beforeUnloadHandler(e){ if (!active) return; e.preventDefault(); e.returnValue = '下载正在进行中，确定要离开吗？'; return e.returnValue; }
+  function visHandler(){ if (!active) return; if (document.visibilityState === 'hidden'){ pageHiddenCount++; sLog('warn', '页面被隐藏（第 ' + pageHiddenCount + ' 次），可能被后台抢占'); } }
   function startShieldObserver(){
     shieldObserver = new MutationObserver(function(muts){
       if (!active) return;
@@ -2765,9 +3031,6 @@ const DownloadGuard = (function(){
   return { run: run, deactivate: deactivate, detectAbnormalClose: detectAbnormalClose };
 })();
 
-/* ============================================================
-   下载按钮绑定
-   ============================================================ */
 document.getElementById('downloadBtn').addEventListener('click', function(){
   if (!FW.isAllowedUrl(DOWNLOAD_URL)){ FW.log('block', '⛔ 360下载地址未通过白名单校验，已终止'); showToast('下载地址未通过安全校验，已阻止', true); return; }
   FW.log('ok', '✓ 360下载地址校验通过，启动防护罩');
@@ -2787,9 +3050,6 @@ document.querySelectorAll('.copy-btn').forEach(function(btn){
   btn.addEventListener('click', function(){ copyText(btn.dataset.copy, '文件名已复制'); });
 });
 
-/* ============================================================
-   完整性自检
-   ============================================================ */
 (function integrityGuard(){
   const chip = document.getElementById('integrityChip');
   if (!chip) return;
@@ -2806,8 +3066,353 @@ document.querySelectorAll('.copy-btn').forEach(function(btn){
 })();
 
 /* ============================================================
-   更新日志渲染
+   ★ 新手模式开关
    ============================================================ */
+const NewbieMode = (function(){
+  const STORAGE_KEY = 'sec_portal_newbie_mode';
+
+  const el = {
+    toggle: document.getElementById('newbieToggle'),
+    replay: document.getElementById('replayGuideBtn')
+  };
+
+  let enabled = true;
+
+  function loadState(){
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      enabled = (raw !== 'off');
+    } catch (e){ enabled = true; }
+  }
+
+  function applyState(){
+    document.body.classList.toggle('newbie', enabled);
+    if (el.toggle){
+      el.toggle.classList.toggle('on', enabled);
+      el.toggle.setAttribute('aria-pressed', enabled ? 'true' : 'false');
+    }
+  }
+
+  function save(){
+    try { localStorage.setItem(STORAGE_KEY, enabled ? 'on' : 'off'); } catch (e){}
+  }
+
+  function setEnabled(on){
+    enabled = !!on;
+    save();
+    applyState();
+  }
+
+  function isEnabled(){ return enabled; }
+
+  function init(){
+    loadState();
+    applyState();
+
+    if (el.toggle){
+      el.toggle.addEventListener('click', function(){
+        setEnabled(!enabled);
+        if (enabled){
+          showToast('新手模式已开启');
+          FW.log('info', '· 新手模式已开启');
+        } else {
+          showToast('新手模式已关闭');
+          FW.log('info', '· 新手模式已关闭');
+        }
+      });
+    }
+
+    if (el.replay){
+      el.replay.addEventListener('click', function(){
+        Guide.start();
+      });
+    }
+  }
+
+  return { init: init, isEnabled: isEnabled, setEnabled: setEnabled };
+})();
+
+/* ============================================================
+   ★ 引导教程
+   ============================================================ */
+const Guide = (function(){
+  const STORAGE_KEY = 'sec_portal_guide_seen_v1';
+
+  const el = {
+    highlight: document.getElementById('guideHighlight'),
+    tip: document.getElementById('guideTip'),
+    arrow: document.getElementById('guideArrow'),
+    title: document.getElementById('guideTitle'),
+    desc: document.getElementById('guideDesc'),
+    stepNum: document.getElementById('guideStepNum'),
+    stepTotal: document.getElementById('guideStepTotal'),
+    next: document.getElementById('guideNextBtn'),
+    skip: document.getElementById('guideSkipBtn')
+  };
+
+  let currentStep = 0;
+  let active = false;
+  let resizeTimer = null;
+  let scrollTimer = null;
+
+  const steps = [
+    { target: null, title: '👋 欢迎使用银狐木马急救工具',
+      desc: '这是一个云端网页，专门帮你处理银狐木马。接下来花 1 分钟，带你认识一下主要功能。点击"下一步"继续。',
+      placement: 'center' },
+    { target: '#silverfoxCard', title: '① 银狐木马专杀',
+      desc: '如果电脑已经中了银狐木马，点这张卡片进入应急页。里面包含官方急救箱下载、启动器兼容方案，以及新手模式下的 8 步超详细处置指引。',
+      placement: 'bottom' },
+    { target: '#sandboxCard', title: '② 文件沙箱分析',
+      desc: '收到可疑文件不确定是否安全？把文件拖进沙箱页扫一下。三个引擎同时分析，报告会告诉你哪里可疑。所有分析都在你的浏览器里完成，不会上传。',
+      placement: 'bottom' },
+    { target: '#newsCard', title: '③ 威胁动态',
+      desc: '看最新的银狐木马变种、攻击手法和防范建议。遇到不确定的情况可以来对照一下。',
+      placement: 'bottom' },
+    { target: '#newbieToggle', title: '④ 新手模式开关',
+      desc: '默认开启。开启时，应急页会显示 8 步超详细处置指引。熟悉之后可以关掉，界面会更简洁。点击右边的"看引导"按钮随时可以重看这个教程。',
+      placement: 'bottom' },
+    { target: '#fwToggle', title: '⑤ 网页防火墙',
+      desc: '右下角的盾牌，实时监控页面有没有可疑行为。点开可以看详细日志，还能测试拦截。',
+      placement: 'left' },
+    { target: null, title: '✓ 教程完成',
+      desc: '你已经认识了所有核心功能。现在可以开始使用了。如果还有疑问，随时点击顶栏的"看引导"按钮重看。祝使用愉快！',
+      placement: 'center', done: true }
+  ];
+
+  function positionElements(){
+    if (!active) return;
+    const step = steps[currentStep];
+    if (!step) return;
+    const target = step.target ? document.querySelector(step.target) : null;
+
+    if (!target){
+      el.highlight.style.display = 'none';
+      el.arrow.style.display = 'none';
+      const tipW = el.tip.offsetWidth || 400;
+      const tipH = el.tip.offsetHeight || 200;
+      el.tip.style.left = Math.max(20, (window.innerWidth - tipW) / 2) + 'px';
+      el.tip.style.top = Math.max(20, (window.innerHeight - tipH) / 2) + 'px';
+      return;
+    }
+
+    const rect = target.getBoundingClientRect();
+    const pad = 8;
+    el.highlight.style.display = 'block';
+    el.highlight.style.left = (rect.left - pad) + 'px';
+    el.highlight.style.top = (rect.top - pad) + 'px';
+    el.highlight.style.width = (rect.width + pad * 2) + 'px';
+    el.highlight.style.height = (rect.height + pad * 2) + 'px';
+
+    el.tip.style.visibility = 'hidden';
+    el.tip.style.display = 'block';
+    const tipW = el.tip.offsetWidth;
+    const tipH = el.tip.offsetHeight;
+    el.tip.style.visibility = 'visible';
+
+    const margin = 20;
+    let left, top;
+    const placement = step.placement || 'bottom';
+
+    if (window.innerWidth <= 640){
+      el.tip.style.left = '16px';
+      el.tip.style.right = '16px';
+      el.tip.style.top = 'auto';
+      el.tip.style.bottom = '20px';
+      el.tip.style.width = 'auto';
+      el.arrow.style.display = 'none';
+      return;
+    }
+
+    el.tip.style.right = 'auto';
+    el.tip.style.bottom = 'auto';
+    el.tip.style.width = 'min(400px, calc(100vw - 40px))';
+
+    if (placement === 'bottom'){
+      left = rect.left + rect.width / 2 - tipW / 2;
+      top = rect.bottom + 16;
+      if (top + tipH > window.innerHeight - margin){ top = rect.top - tipH - 16; }
+    } else if (placement === 'top'){
+      left = rect.left + rect.width / 2 - tipW / 2;
+      top = rect.top - tipH - 16;
+      if (top < margin) top = rect.bottom + 16;
+    } else if (placement === 'left'){
+      left = rect.left - tipW - 16;
+      top = rect.top + rect.height / 2 - tipH / 2;
+      if (left < margin) left = rect.right + 16;
+    } else if (placement === 'right'){
+      left = rect.right + 16;
+      top = rect.top + rect.height / 2 - tipH / 2;
+      if (left + tipW > window.innerWidth - margin) left = rect.left - tipW - 16;
+    }
+
+    if (left < margin) left = margin;
+    if (left + tipW > window.innerWidth - margin) left = window.innerWidth - tipW - margin;
+    if (top < margin) top = margin;
+    if (top + tipH > window.innerHeight - margin) top = window.innerHeight - tipH - margin;
+
+    el.tip.style.left = left + 'px';
+    el.tip.style.top = top + 'px';
+
+    el.arrow.style.display = 'block';
+    const arrowSize = 10;
+    let arrowLeft, arrowTop;
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const tipCX = left + tipW / 2;
+    const tipCY = top + tipH / 2;
+    const dx = tipCX - centerX;
+    const dy = tipCY - centerY;
+
+    if (Math.abs(dx) > Math.abs(dy)){
+      if (dx > 0){
+        arrowLeft = left - arrowSize * 2;
+        arrowTop = Math.max(rect.top + 20, Math.min(rect.bottom - 20, centerY)) - arrowSize;
+        el.arrow.style.borderTop = arrowSize + 'px solid transparent';
+        el.arrow.style.borderBottom = arrowSize + 'px solid transparent';
+        el.arrow.style.borderRight = (arrowSize * 2) + 'px solid #22d3ee';
+        el.arrow.style.borderLeft = '0';
+      } else {
+        arrowLeft = left + tipW;
+        arrowTop = Math.max(rect.top + 20, Math.min(rect.bottom - 20, centerY)) - arrowSize;
+        el.arrow.style.borderTop = arrowSize + 'px solid transparent';
+        el.arrow.style.borderBottom = arrowSize + 'px solid transparent';
+        el.arrow.style.borderLeft = (arrowSize * 2) + 'px solid #22d3ee';
+        el.arrow.style.borderRight = '0';
+      }
+    } else {
+      if (dy > 0){
+        arrowLeft = Math.max(rect.left + 20, Math.min(rect.right - 20, centerX)) - arrowSize;
+        arrowTop = top - arrowSize * 2;
+        el.arrow.style.borderLeft = arrowSize + 'px solid transparent';
+        el.arrow.style.borderRight = arrowSize + 'px solid transparent';
+        el.arrow.style.borderBottom = (arrowSize * 2) + 'px solid #22d3ee';
+        el.arrow.style.borderTop = '0';
+      } else {
+        arrowLeft = Math.max(rect.left + 20, Math.min(rect.right - 20, centerX)) - arrowSize;
+        arrowTop = top + tipH;
+        el.arrow.style.borderLeft = arrowSize + 'px solid transparent';
+        el.arrow.style.borderRight = arrowSize + 'px solid transparent';
+        el.arrow.style.borderTop = (arrowSize * 2) + 'px solid #22d3ee';
+        el.arrow.style.borderBottom = '0';
+      }
+    }
+
+    el.arrow.style.left = arrowLeft + 'px';
+    el.arrow.style.top = arrowTop + 'px';
+  }
+
+  function renderStep(){
+    const step = steps[currentStep];
+    if (!step) return;
+
+    el.title.textContent = step.title;
+    el.desc.textContent = step.desc;
+    el.stepNum.textContent = String(currentStep + 1);
+    el.stepTotal.textContent = String(steps.length);
+
+    if (step.done){
+      el.tip.classList.add('done');
+      el.next.textContent = '开始使用';
+      el.skip.style.display = 'none';
+    } else {
+      el.tip.classList.remove('done');
+      el.next.textContent = currentStep === steps.length - 2 ? '完成' : '下一步';
+      el.skip.style.display = '';
+    }
+
+    if (step.target){
+      const target = document.querySelector(step.target);
+      if (target){
+        const rect = target.getBoundingClientRect();
+        const inView = rect.top >= 80 && rect.bottom <= window.innerHeight - 80;
+        if (!inView){ target.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      }
+    }
+
+    let attempts = 0;
+    function waitAndPosition(){
+      attempts++;
+      positionElements();
+      if (attempts < 60) requestAnimationFrame(waitAndPosition);
+    }
+    requestAnimationFrame(waitAndPosition);
+  }
+
+  function show(){
+    active = true;
+    currentStep = 0;
+    el.highlight.style.display = 'none';
+    el.arrow.style.display = 'none';
+    el.tip.style.display = 'block';
+    el.tip.classList.remove('done');
+
+    if (currentPage !== 'portal'){
+      showPage('portal', true);
+      setTimeout(renderStep, 500);
+    } else {
+      renderStep();
+    }
+  }
+
+  function next(){
+    if (currentStep >= steps.length - 1){ close(true); return; }
+    currentStep++;
+    renderStep();
+  }
+
+  function skip(){ close(false); }
+
+  function close(markSeen){
+    active = false;
+    el.highlight.style.display = 'none';
+    el.arrow.style.display = 'none';
+    el.tip.style.display = 'none';
+    el.tip.classList.remove('done');
+    if (markSeen){
+      try { localStorage.setItem(STORAGE_KEY, '1'); } catch (e){}
+      FW.log('info', '· 新手引导已完成');
+    } else {
+      FW.log('info', '· 新手引导已跳过');
+    }
+  }
+
+  function hasSeen(){
+    try { return localStorage.getItem(STORAGE_KEY) === '1'; } catch (e){ return false; }
+  }
+
+  function start(){ show(); }
+
+  function autoStart(){
+    if (!NewbieMode.isEnabled()) return;
+    if (hasSeen()) return;
+    show();
+  }
+
+  function init(){
+    if (el.next) el.next.addEventListener('click', next);
+    if (el.skip) el.skip.addEventListener('click', skip);
+
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && active){ skip(); }
+    });
+
+    window.addEventListener('resize', function(){
+      if (!active) return;
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(positionElements, 150);
+    });
+
+    window.addEventListener('scroll', function(){
+      if (!active) return;
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(positionElements, 80);
+    }, { passive: true });
+  }
+
+  return { init: init, start: start, autoStart: autoStart, hasSeen: hasSeen };
+})();
+
+/* 更新日志渲染 */
 (function renderChangelog(){
   const list = document.getElementById('changelogList');
   if (!list) return;
@@ -2821,9 +3426,7 @@ document.querySelectorAll('.copy-btn').forEach(function(btn){
   }).join('');
 })();
 
-/* ============================================================
-   弹窗流程
-   ============================================================ */
+/* 弹窗流程 */
 (function modalFlow(){
   const WELCOME_KEY = 'sec_portal_welcome_date';
   const CHANGELOG_KEY = 'sec_portal_changelog_date';
@@ -2860,17 +3463,21 @@ document.querySelectorAll('.copy-btn').forEach(function(btn){
     setTimeout(function(){ modal.classList.add('dismissed'); if (cb) cb(); }, 500);
   }
 
+  function tryAutoStartGuide(){
+    setTimeout(function(){ Guide.autoStart(); }, 500);
+  }
+
   welcomeBtn.addEventListener('click', function(){
     if (welcomeCheck && welcomeCheck.checked) rememberDismiss(WELCOME_KEY);
     closeModal(welcomeModal, function(){
-      if (hasDismissed(CHANGELOG_KEY)) return;
+      if (hasDismissed(CHANGELOG_KEY)){ tryAutoStartGuide(); return; }
       setTimeout(function(){ openModal(changelogModal); }, 180);
     });
   });
 
   changelogBtn.addEventListener('click', function(){
     if (changelogCheck && changelogCheck.checked) rememberDismiss(CHANGELOG_KEY);
-    closeModal(changelogModal);
+    closeModal(changelogModal, function(){ tryAutoStartGuide(); });
   });
 
   document.addEventListener('keydown', function(e){
@@ -2883,15 +3490,16 @@ document.querySelectorAll('.copy-btn').forEach(function(btn){
     setTimeout(function(){ openModal(welcomeModal); }, 550);
   } else if (!hasDismissed(CHANGELOG_KEY)){
     setTimeout(function(){ openModal(changelogModal); }, 550);
+  } else {
+    setTimeout(function(){ Guide.autoStart(); }, 550);
   }
 })();
 
-/* ============================================================
-   启动
-   ============================================================ */
 FW.boot();
 DownloadGuard.detectAbnormalClose();
 Sandbox.init();
+NewbieMode.init();
+Guide.init();
 </script>
 </body>
 </html>
