@@ -194,21 +194,6 @@
   .hz-tips li::before{content:'';position:absolute;left:0;top:.7em;width:6px;height:6px;border-radius:50%;background:var(--purple);opacity:.7}
   .hz-tips li + li{margin-top:5px}
 
-  /* ★ 斩狐之刃 v3.0 第三方专杀 · 橙红警示区 */
-  .zhanhu-zone{padding:34px 30px;margin-bottom:52px;position:relative;overflow:hidden;border-radius:22px;border:1px solid rgba(255,122,24,.44);background:linear-gradient(140deg,rgba(255,122,24,.11),rgba(255,59,59,.07) 55%,rgba(255,255,255,.03));box-shadow:0 1px 0 var(--glass-hi) inset,0 22px 55px -22px rgba(255,122,24,.55),0 8px 22px -12px rgba(0,0,0,.5);backdrop-filter:blur(var(--blur-md)) saturate(150%);-webkit-backdrop-filter:blur(var(--blur-md)) saturate(150%)}
-  .zhanhu-zone::before{content:'';position:absolute;top:-60%;right:-20%;width:60%;height:220%;background:radial-gradient(circle,rgba(255,122,24,.22),transparent 62%);pointer-events:none}
-  .zhanhu-zone .dz-icon{color:#ffd0a0;background:linear-gradient(135deg,rgba(255,122,24,.32),rgba(255,59,59,.26));border:1px solid rgba(255,122,24,.48);box-shadow:0 8px 24px -6px rgba(255,122,24,.8),inset 0 1px 0 rgba(255,255,255,.22)}
-  .zhanhu-zone .dz-head h3{color:#ffd0a0}
-  .zhanhu-zone .dz-head .meta b{color:#ffb98a;font-weight:600}
-  .zhanhu-warn{display:flex;align-items:flex-start;gap:10px;padding:14px 18px;border-radius:13px;margin-bottom:24px;background:rgba(255,122,24,.12);border:1px solid rgba(255,122,24,.4);font-size:.85rem;color:#ffd2a4;line-height:1.72;position:relative;animation:alertPulse 2.8s ease-in-out infinite}
-  .zhanhu-warn .icon{width:1.05rem;height:1.05rem;flex-shrink:0;margin-top:2px;color:var(--orange)}
-  .zhanhu-warn b{color:#ffb46a;font-weight:700}
-  .zhanhu-tips{padding:18px 22px;border-radius:14px;margin-top:24px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);position:relative}
-  .zhanhu-tips .ht{font-size:.8rem;letter-spacing:1.2px;color:var(--orange);font-weight:700;margin-bottom:12px}
-  .zhanhu-tips li{font-size:.85rem;color:var(--dim);line-height:1.88;padding-left:17px;position:relative;list-style:none}
-  .zhanhu-tips li::before{content:'';position:absolute;left:0;top:.7em;width:6px;height:6px;border-radius:50%;background:var(--orange);opacity:.75}
-  .zhanhu-tips li + li{margin-top:5px}
-
   .btn-row{display:flex;gap:14px;flex-wrap:wrap;position:relative;margin-bottom:28px}
   .btn-main{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;border-radius:14px;border:none;cursor:pointer;font-size:1.02rem;font-weight:800;letter-spacing:.5px;color:#fff;background:linear-gradient(135deg,#ff3b3b,#ff7a18);box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 -2px 0 rgba(0,0,0,.25) inset,0 14px 34px -10px rgba(255,59,59,.8);transition:transform .22s,box-shadow .28s;position:relative;overflow:hidden;font-family:inherit}
   .btn-main::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);animation:sheen 3.6s ease-in-out infinite}
@@ -361,9 +346,8 @@
   .result-hit .rdesc code{font-family:'JetBrains Mono',monospace;font-size:.76rem;padding:1px 6px;border-radius:5px;background:rgba(255,255,255,.06);color:#a7e8ff;word-break:break-all}
 
   .news-hero{text-align:center;margin-bottom:44px}
-  .news-hero .badge-live{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;letter-spacing:2.2px;font-weight:700;color:#5ee89a;padding:6px 15px;border-radius:99px;margin-bottom:20px;border:1px solid rgba(34,197,94,.4);background:rgba(34,197,94,.1);box-shadow:0 4px 14px -4px rgba(34,197,94,.6),inset 0 1px 0 rgba(255,255,255,.15)}
-  .news-hero .badge-live::before{content:'';width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.8);animation:livePulse 1.8s infinite}
-  @keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.8)}70%{box-shadow:0 0 0 10px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+  .news-hero .badge-live{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;letter-spacing:2.2px;font-weight:700;color:#7dd3fc;padding:6px 15px;border-radius:99px;margin-bottom:20px;border:1px solid rgba(56,189,248,.4);background:rgba(56,189,248,.1);box-shadow:0 4px 14px -4px rgba(56,189,248,.6),inset 0 1px 0 rgba(255,255,255,.15)}
+  .news-hero .badge-live::before{content:'';width:7px;height:7px;border-radius:50%;background:#38bdf8;box-shadow:0 0 8px rgba(56,189,248,.9)}
   .news-hero h1{font-size:clamp(1.9rem,5vw,3.2rem);font-weight:900;letter-spacing:-1.2px;line-height:1.14;background:linear-gradient(120deg,#22d3ee,#3b82f6 42%,#a855f7 72%,#22d3ee);background-size:280% 280%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradShift 8s ease infinite;margin-bottom:16px;filter:drop-shadow(0 4px 20px rgba(56,189,248,.35))}
   .news-hero p{color:var(--dim);font-size:clamp(.95rem,1.6vw,1.08rem);max-width:660px;margin:0 auto;line-height:1.9}
 
@@ -655,7 +639,7 @@
     .newbie-toggle .switch::after{width:11px;height:11px}
     .newbie-toggle.on .switch::after{transform:translateX(13px)}
     .replay-guide-btn{padding:5px 10px;font-size:.7rem}
-    .download-zone,.huorong-zone,.zhanhu-zone{padding:24px 18px}
+    .download-zone,.huorong-zone{padding:24px 18px}
     .dz-head,.hz-head{flex-direction:column;gap:14px}
     .btn-row{flex-direction:column}
     .btn-main,.btn-ghost,.btn-purple{width:100%;justify-content:center}
@@ -1087,31 +1071,6 @@
       </ul>
     </div>
   </section>
-
-  <!-- ★ 斩狐之刃 v3.0 第三方强力专杀 · 仅限 360 与火绒全部失效时使用 -->
-  <section class="zhanhu-zone">
-    <div class="dz-head">
-      <div class="dz-icon"><svg class="icon"><use href="#i-fire"/></svg></div>
-      <div>
-        <h3>斩狐之刃 v3.0 · 第三方强力专杀</h3>
-        <div class="meta">最后手段 · 仅限 360 与火绒全部失效时使用<br>来源：<b>第三方下载站</b> · 请谨慎使用</div>
-      </div>
-    </div>
-    <div class="zhanhu-warn"><svg class="icon"><use href="#i-warning"/></svg><span><b>风险提示：</b>此工具为第三方强力专杀，具有一定风险性。请谨慎使用，仅限 360 急救箱与火绒顽固木马专杀全部失效时使用。使用前请确保已备份重要数据。</span></div>
-    <div class="btn-row">
-      <button class="btn-main" id="zhanhuDownloadBtn"><svg class="icon"><use href="#i-download"/></svg>下载斩狐之刃 v3.0</button>
-      <button class="btn-ghost" id="zhanhuCopyBtn"><svg class="icon"><use href="#i-link"/></svg>复制下载链接</button>
-    </div>
-    <div class="zhanhu-tips">
-      <div class="ht">使用说明</div>
-      <ul>
-        <li>本工具为第三方强力专杀，下载后请先校验文件完整性再运行。</li>
-        <li>如果浏览器阻止下载，请复制下载链接，在浏览器地址栏粘贴后回车手动下载。</li>
-        <li>运行前请先备份重要数据，避免查杀过程中误伤文件。</li>
-        <li>查杀完成后重启电脑，再用 360 或火绒交叉扫描一遍确认。</li>
-      </ul>
-    </div>
-  </section>
 </div>
 
 <div class="page" id="page4">
@@ -1218,7 +1177,7 @@
   </header>
 
   <section class="news-hero">
-    <div class="badge-live">LIVE · 威胁情报实时更新</div>
+    <div class="badge-live">威胁情报 · 人工整理更新</div>
     <h1>银狐木马最新动态</h1>
     <p>收录近期活跃的银狐木马变种、传播手法与对抗技术，每条动态都附带可落地的防范建议。发现可疑情况，对照下方条目快速处置。</p>
   </section>
@@ -1227,7 +1186,7 @@
     <div class="ns-item"><div class="v danger">8</div><div class="k">近 30 天动态</div></div>
     <div class="ns-item"><div class="v warn">3</div><div class="k">高危变种</div></div>
     <div class="ns-item"><div class="v">5</div><div class="k">新增对抗手法</div></div>
-    <div class="ns-item"><div class="v ok">24h</div><div class="k">情报更新周期</div></div>
+    <div class="ns-item"><div class="v ok">人工</div><div class="k">情报维护方式</div></div>
   </section>
 
   <h2 class="sec-title"><span class="num cyan"><svg class="icon" style="width:1.15em;height:1.15em"><use href="#i-trend"/></svg></span>2022 → 2026 演变趋势</h2>
@@ -1438,13 +1397,10 @@ const DOWNLOAD_URL = 'https://dl.360safe.com/360c0mpkill_5.1.64.1289-0701.zip';
 const DOWNLOAD_NAME = '360c0mpkill_5.1.64.1289-0701.zip';
 const HUORONG_URL  = 'https://down5.huorong.cn/tools/Hrkill-SilverFox.exe';
 const HUORONG_NAME = 'Hrkill-SilverFox.exe';
-/* ★ 斩狐之刃 v3.0 · 第三方强力专杀 · 新下载链接 */
-const ZHANHU_URL   = 'https://exe1.webgetstore.com/2026/09/25/ae98ae940fbab9ee9443e1362f3496e3.exe?sg=73e406de6301a127b1fea693f4c2d2fe&e=6ab6b2ca&fileName=%E6%96%A9%E7%8B%90%E4%B9%8B%E5%88%83%203.0.exe&fi=320673017';
-const ZHANHU_NAME  = '斩狐之刃 3.0.exe';
 const CURRENT_VERSION = '1.9';
 
 const CHANGELOG = [
-  { ver: '1.9', text: '增加了新银狐专杀工具', current: true },
+  { ver: '1.9', text: '优化了用户使用体验', current: true },
   { ver: '1.8', text: '新增新手模式 · 超详细处置指引 + 分步引导教程' },
   { ver: '1.7', text: '沙箱规则引擎重写 · 多条件组合 + 白名单 + 内容分析，大幅降低误报' },
   { ver: '1.6', text: '新增文件沙箱分析模块 · 精简首页' },
@@ -1463,12 +1419,7 @@ const isLowPerf = (navigator.hardwareConcurrency && navigator.hardwareConcurrenc
    ============================================================ */
 const FW = (function(){
   const CONFIG = {
-    domainWhitelist: [
-      'dl.360safe.com', 'www.360.cn', '360.cn',
-      'down5.huorong.cn', 'www.huorong.cn', 'huorong.cn',
-      /* ★ 斩狐之刃第三方下载站 */
-      'exe1.webgetstore.com', 'webgetstore.com'
-    ],
+    domainWhitelist: ['dl.360safe.com', 'www.360.cn', '360.cn', 'down5.huorong.cn', 'www.huorong.cn', 'huorong.cn'],
     allowedProtocols: ['https:', 'http:'],
     maxLogs: 60,
     patrolInterval: 5000
@@ -1675,7 +1626,6 @@ const FW = (function(){
     { id: 'page4', name: '沙箱页面' },
     { id: 'downloadBtn', name: '360下载按钮' },
     { id: 'huorongDownloadBtn', name: '火绒下载按钮' },
-    { id: 'zhanhuDownloadBtn', name: '斩狐之刃下载按钮' },
     { id: 'sandboxDrop', name: '沙箱拖放区' },
     { id: 'shieldOverlay', name: '下载防护罩' },
     { id: 'welcomeModal', name: '欢迎弹窗' },
@@ -1818,7 +1768,7 @@ const PAGES = {
 let currentPage = 'portal';
 
 function showPage(key, skipScroll){
-  Object.keys(PAGES).forEach(function(k){ PAGES[k].classList.toggle('active', k === key); });
+  Object.keys(PAGES).forEach(function(k){ if (PAGES[k]) PAGES[k].classList.toggle('active', k === key); });
   document.body.classList.toggle('mode-red', key === 'emergency');
   currentPage = key;
   if (!skipScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1844,10 +1794,12 @@ function enterEmergency(){
     }, 400);
   }, 750);
 }
-silverfoxCard.addEventListener('click', enterEmergency);
-silverfoxCard.addEventListener('keydown', function(e){
-  if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); enterEmergency(); }
-});
+if (silverfoxCard){
+  silverfoxCard.addEventListener('click', enterEmergency);
+  silverfoxCard.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); enterEmergency(); }
+  });
+}
 
 const sandboxCard = document.getElementById('sandboxCard');
 function enterSandbox(){
@@ -1863,10 +1815,12 @@ function enterSandbox(){
     }, 400);
   }, 500);
 }
-sandboxCard.addEventListener('click', enterSandbox);
-sandboxCard.addEventListener('keydown', function(e){
-  if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); enterSandbox(); }
-});
+if (sandboxCard){
+  sandboxCard.addEventListener('click', enterSandbox);
+  sandboxCard.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); enterSandbox(); }
+  });
+}
 
 const newsCard = document.getElementById('newsCard');
 function enterNews(){
@@ -1882,14 +1836,19 @@ function enterNews(){
     }, 400);
   }, 500);
 }
-newsCard.addEventListener('click', enterNews);
-newsCard.addEventListener('keydown', function(e){
-  if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); enterNews(); }
-});
+if (newsCard){
+  newsCard.addEventListener('click', enterNews);
+  newsCard.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); enterNews(); }
+  });
+}
 
-document.getElementById('backToPortalBtn').addEventListener('click', function(){ showPage('portal'); FW.log('info', '· 返回首页'); });
-document.getElementById('backFromSandboxBtn').addEventListener('click', function(){ showPage('portal'); FW.log('info', '· 从沙箱返回首页'); });
-document.getElementById('backFromNewsBtn').addEventListener('click', function(){ showPage('portal'); FW.log('info', '· 从动态中心返回首页'); });
+const backToPortalBtn = document.getElementById('backToPortalBtn');
+if (backToPortalBtn) backToPortalBtn.addEventListener('click', function(){ showPage('portal'); FW.log('info', '· 返回首页'); });
+const backFromSandboxBtn = document.getElementById('backFromSandboxBtn');
+if (backFromSandboxBtn) backFromSandboxBtn.addEventListener('click', function(){ showPage('portal'); FW.log('info', '· 从沙箱返回首页'); });
+const backFromNewsBtn = document.getElementById('backFromNewsBtn');
+if (backFromNewsBtn) backFromNewsBtn.addEventListener('click', function(){ showPage('portal'); FW.log('info', '· 从动态中心返回首页'); });
 
 /* 演变趋势图 */
 (function initEvolution(){
@@ -2112,7 +2071,7 @@ document.getElementById('backFromNewsBtn').addEventListener('click', function(){
       }
     });
 
-    empty.style.display = visibleCount === 0 ? 'block' : 'none';
+    if (empty) empty.style.display = visibleCount === 0 ? 'block' : 'none';
     FW.log('info', '· 动态筛选：' + (level === 'all' ? '全部' : level));
   });
 })();
@@ -2121,6 +2080,7 @@ document.getElementById('backFromNewsBtn').addEventListener('click', function(){
 let toastTimer = null;
 function showToast(msg, isWarn, isPurple){
   const t = document.getElementById('toast');
+  if (!t) return;
   const tt = document.getElementById('toastText');
   const icon = t.querySelector('.icon use');
   tt.textContent = msg;
@@ -3063,29 +3023,24 @@ const DownloadGuard = (function(){
   return { run: run, deactivate: deactivate, detectAbnormalClose: detectAbnormalClose };
 })();
 
-document.getElementById('downloadBtn').addEventListener('click', function(){
+const downloadBtn = document.getElementById('downloadBtn');
+if (downloadBtn) downloadBtn.addEventListener('click', function(){
   if (!FW.isAllowedUrl(DOWNLOAD_URL)){ FW.log('block', '⛔ 360下载地址未通过白名单校验，已终止'); showToast('下载地址未通过安全校验，已阻止', true); return; }
   FW.log('ok', '✓ 360下载地址校验通过，启动防护罩');
   DownloadGuard.run(DOWNLOAD_URL, DOWNLOAD_NAME, '360系统急救箱');
 });
 
-document.getElementById('huorongDownloadBtn').addEventListener('click', function(){
+const huorongDownloadBtn = document.getElementById('huorongDownloadBtn');
+if (huorongDownloadBtn) huorongDownloadBtn.addEventListener('click', function(){
   if (!FW.isAllowedUrl(HUORONG_URL)){ FW.log('block', '⛔ 火绒下载地址未通过白名单校验，已终止'); showToast('火绒下载地址未通过安全校验，已阻止', true); return; }
   FW.log('ok', '✓ 火绒下载地址校验通过，启动防护罩');
   DownloadGuard.run(HUORONG_URL, HUORONG_NAME, '火绒顽固木马专杀');
 });
 
-/* ★ 斩狐之刃 v3.0 · 第三方强力专杀 · 走正常网络下载流程 */
-document.getElementById('zhanhuDownloadBtn').addEventListener('click', function(){
-  if (!FW.isAllowedUrl(ZHANHU_URL)){ FW.log('block', '⛔ 斩狐之刃下载地址未通过白名单校验，已终止'); showToast('下载地址未通过安全校验，已阻止', true); return; }
-  FW.log('warn', '⚠ 斩狐之刃为第三方工具，请谨慎使用（仅限 360 与火绒全部失效时）');
-  FW.log('ok', '✓ 斩狐之刃下载地址校验通过，启动防护罩');
-  DownloadGuard.run(ZHANHU_URL, ZHANHU_NAME, '斩狐之刃 v3.0');
-});
-document.getElementById('zhanhuCopyBtn').addEventListener('click', function(){ copyText(ZHANHU_URL, '斩狐之刃下载链接已复制'); FW.log('info', '· 斩狐之刃下载链接已复制到剪贴板'); });
-
-document.getElementById('copyLinkBtn').addEventListener('click', function(){ copyText(DOWNLOAD_URL, '360 下载链接已复制'); FW.log('info', '· 360 下载链接已复制到剪贴板'); });
-document.getElementById('huorongCopyBtn').addEventListener('click', function(){ copyText(HUORONG_URL, '火绒下载链接已复制'); FW.log('info', '· 火绒下载链接已复制到剪贴板'); });
+const copyLinkBtn = document.getElementById('copyLinkBtn');
+if (copyLinkBtn) copyLinkBtn.addEventListener('click', function(){ copyText(DOWNLOAD_URL, '360 下载链接已复制'); FW.log('info', '· 360 下载链接已复制到剪贴板'); });
+const huorongCopyBtn = document.getElementById('huorongCopyBtn');
+if (huorongCopyBtn) huorongCopyBtn.addEventListener('click', function(){ copyText(HUORONG_URL, '火绒下载链接已复制'); FW.log('info', '· 火绒下载链接已复制到剪贴板'); });
 
 document.querySelectorAll('.copy-btn').forEach(function(btn){
   btn.addEventListener('click', function(){ copyText(btn.dataset.copy, '文件名已复制'); });
@@ -3536,11 +3491,14 @@ const Guide = (function(){
   }
 })();
 
-FW.boot();
-DownloadGuard.detectAbnormalClose();
-Sandbox.init();
-NewbieMode.init();
-Guide.init();
+/* ============================================================
+   ★ 统一启动入口（带错误隔离）
+   ============================================================ */
+try { FW.boot(); } catch (e) { console.error('FW.boot 失败：', e); }
+try { DownloadGuard.detectAbnormalClose(); } catch (e) { console.error('下载异常检测失败：', e); }
+try { Sandbox.init(); } catch (e) { console.error('Sandbox.init 失败：', e); }
+try { NewbieMode.init(); } catch (e) { console.error('NewbieMode.init 失败：', e); }
+try { Guide.init(); } catch (e) { console.error('Guide.init 失败：', e); }
 </script>
 </body>
 </html>
