@@ -194,6 +194,21 @@
   .hz-tips li::before{content:'';position:absolute;left:0;top:.7em;width:6px;height:6px;border-radius:50%;background:var(--purple);opacity:.7}
   .hz-tips li + li{margin-top:5px}
 
+  /* ★ 斩狐之刃 v3.0 第三方专杀 · 橙红警示区 */
+  .zhanhu-zone{padding:34px 30px;margin-bottom:52px;position:relative;overflow:hidden;border-radius:22px;border:1px solid rgba(255,122,24,.44);background:linear-gradient(140deg,rgba(255,122,24,.11),rgba(255,59,59,.07) 55%,rgba(255,255,255,.03));box-shadow:0 1px 0 var(--glass-hi) inset,0 22px 55px -22px rgba(255,122,24,.55),0 8px 22px -12px rgba(0,0,0,.5);backdrop-filter:blur(var(--blur-md)) saturate(150%);-webkit-backdrop-filter:blur(var(--blur-md)) saturate(150%)}
+  .zhanhu-zone::before{content:'';position:absolute;top:-60%;right:-20%;width:60%;height:220%;background:radial-gradient(circle,rgba(255,122,24,.22),transparent 62%);pointer-events:none}
+  .zhanhu-zone .dz-icon{color:#ffd0a0;background:linear-gradient(135deg,rgba(255,122,24,.32),rgba(255,59,59,.26));border:1px solid rgba(255,122,24,.48);box-shadow:0 8px 24px -6px rgba(255,122,24,.8),inset 0 1px 0 rgba(255,255,255,.22)}
+  .zhanhu-zone .dz-head h3{color:#ffd0a0}
+  .zhanhu-zone .dz-head .meta b{color:#ffb98a;font-weight:600}
+  .zhanhu-warn{display:flex;align-items:flex-start;gap:10px;padding:14px 18px;border-radius:13px;margin-bottom:24px;background:rgba(255,122,24,.12);border:1px solid rgba(255,122,24,.4);font-size:.85rem;color:#ffd2a4;line-height:1.72;position:relative;animation:alertPulse 2.8s ease-in-out infinite}
+  .zhanhu-warn .icon{width:1.05rem;height:1.05rem;flex-shrink:0;margin-top:2px;color:var(--orange)}
+  .zhanhu-warn b{color:#ffb46a;font-weight:700}
+  .zhanhu-tips{padding:18px 22px;border-radius:14px;margin-top:24px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);position:relative}
+  .zhanhu-tips .ht{font-size:.8rem;letter-spacing:1.2px;color:var(--orange);font-weight:700;margin-bottom:12px}
+  .zhanhu-tips li{font-size:.85rem;color:var(--dim);line-height:1.88;padding-left:17px;position:relative;list-style:none}
+  .zhanhu-tips li::before{content:'';position:absolute;left:0;top:.7em;width:6px;height:6px;border-radius:50%;background:var(--orange);opacity:.75}
+  .zhanhu-tips li + li{margin-top:5px}
+
   .btn-row{display:flex;gap:14px;flex-wrap:wrap;position:relative;margin-bottom:28px}
   .btn-main{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;border-radius:14px;border:none;cursor:pointer;font-size:1.02rem;font-weight:800;letter-spacing:.5px;color:#fff;background:linear-gradient(135deg,#ff3b3b,#ff7a18);box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 -2px 0 rgba(0,0,0,.25) inset,0 14px 34px -10px rgba(255,59,59,.8);transition:transform .22s,box-shadow .28s;position:relative;overflow:hidden;font-family:inherit}
   .btn-main::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);animation:sheen 3.6s ease-in-out infinite}
@@ -640,7 +655,7 @@
     .newbie-toggle .switch::after{width:11px;height:11px}
     .newbie-toggle.on .switch::after{transform:translateX(13px)}
     .replay-guide-btn{padding:5px 10px;font-size:.7rem}
-    .download-zone,.huorong-zone{padding:24px 18px}
+    .download-zone,.huorong-zone,.zhanhu-zone{padding:24px 18px}
     .dz-head,.hz-head{flex-direction:column;gap:14px}
     .btn-row{flex-direction:column}
     .btn-main,.btn-ghost,.btn-purple{width:100%;justify-content:center}
@@ -831,9 +846,9 @@
   <section class="newbie-guide" id="newbieGuide">
     <div class="newbie-hero">
       <div class="ntag"><svg class="icon" style="width:1em;height:1em"><use href="#i-star"/></svg>新手模式 · 超详细操作指引</div>
-      <h2>电脑中了银狐木马？先别慌，照着这 8 步走</h2>
+      <h2>电脑中了银狐木马？先别慌，照着这 7 步走</h2>
       <p>这是一份从"发现异常"到"彻底清理"的完整流程。按照顺序做，每一步都标注了具体操作和注意事项。如果遇到看不懂的地方，可以在新手模式下反复阅读。</p>
-      <p>着急的话，直接看 <strong>第 2 步</strong>（立即断网）和 <strong>第 5 步</strong>（查杀），其他步骤可以慢慢来。</p>
+      <p>着急的话，直接看 <strong>第 4 步</strong>（按顺序启动查杀工具），其他步骤可以慢慢来。</p>
     </div>
 
     <div class="newbie-steps">
@@ -855,37 +870,18 @@
             <li><strong>防火墙被关闭</strong>：Windows 防火墙设置突然被改，或者规则被删除</li>
             <li><strong>出现陌生启动项</strong>：开机自动弹出的软件，你没装过</li>
           </ul>
-          <div class="nstep-warn"><svg class="icon"><use href="#i-alert"/></svg><span><strong>重要：</strong>不要用可疑机器访问邮箱、网银、企业账号。如果怀疑已经中招，直接跳到第 2 步断网，不要再登录任何敏感账号。</span></div>
-        </div>
-      </div>
-
-      <div class="nstep highlight-step">
-        <div class="nstep-head">
-          <div class="nstep-num">2</div>
-          <div class="nstep-title">第一件事：立即断开网络</div>
-          <div class="nstep-time">30 秒 · 最重要</div>
-        </div>
-        <div class="nstep-body">
-          <p>银狐木马会通过网络回传你电脑里的数据、下载更多恶意程序、攻击内网其他电脑。<strong>断网是第一步，也是最紧急的一步。</strong></p>
-          <ul>
-            <li><strong>拔网线</strong>：如果是有线网络，直接拔掉网线</li>
-            <li><strong>关 WiFi</strong>：笔记本按 <code>Fn + F2</code>（或对应快捷键）关闭无线，或者点右下角 WiFi 图标断开</li>
-            <li><strong>关蓝牙</strong>：Windows 设置 → 设备 → 蓝牙 → 关闭</li>
-            <li><strong>关热点</strong>：如果电脑连着手机热点，关掉手机热点</li>
-            <li><strong>禁用虚拟机网络</strong>：如果电脑跑着虚拟机，进虚拟机设置把网卡断开</li>
-          </ul>
-          <div class="nstep-tip"><svg class="icon"><use href="#i-lightbulb"/></svg><span><strong>小技巧：</strong>直接按住电源键 5 秒强制关机也是可以的。但注意要按第 3 步先做好准备再关机，否则可能丢失证据。</span></div>
+          <div class="nstep-warn"><svg class="icon"><use href="#i-alert"/></svg><span><strong>重要：</strong>不要用可疑机器访问邮箱、网银、企业账号。如果怀疑已经中招，不要登录任何敏感账号，直接跳到第 4 步开始查杀。</span></div>
         </div>
       </div>
 
       <div class="nstep">
         <div class="nstep-head">
-          <div class="nstep-num">3</div>
+          <div class="nstep-num">2</div>
           <div class="nstep-title">记录现场，评估影响范围</div>
           <div class="nstep-time">约 5 分钟</div>
         </div>
         <div class="nstep-body">
-          <p>断网之后，先在<strong>中毒电脑</strong>上做几件事，把情况记录下来。这些信息有助于后面的清理和排查：</p>
+          <p>先在这台电脑上做几件事，把情况记录下来。这些信息有助于后面的清理和排查：</p>
           <ul>
             <li><strong>截图开机启动项</strong>：任务管理器 → 启动标签页，把当前的启动项都截个图</li>
             <li><strong>截图进程列表</strong>：任务管理器 → 详细信息，把可疑进程记下来（不认识的进程名）</li>
@@ -894,13 +890,13 @@
             <li><strong>看一下网络连接</strong>：Win+R → 输入 <code>cmd</code> → 输入 <code>netstat -ano</code>，把结果截图（如果有大量外部连接就是被控了）</li>
           </ul>
           <p>用<strong>手机拍照</strong>记录下来，因为稍后杀毒工具清理完后，有些记录会被清掉。</p>
-          <div class="nstep-tip"><svg class="icon"><use href="#i-lightbulb"/></svg><span><strong>判断影响范围：</strong>如果中毒电脑和公司内网连着（比如能访问共享文件夹、能登录域账号），那么内网其他电脑也可能被感染，务必通知 IT 或同事一起检查。</span></div>
+          <div class="nstep-tip"><svg class="icon"><use href="#i-lightbulb"/></svg><span><strong>判断影响范围：</strong>如果这台电脑和公司内网连着（比如能访问共享文件夹、能登录域账号），那么内网其他电脑也可能被感染，务必通知 IT 或同事一起检查。</span></div>
         </div>
       </div>
 
       <div class="nstep">
         <div class="nstep-head">
-          <div class="nstep-num">4</div>
+          <div class="nstep-num">3</div>
           <div class="nstep-title">用另一台干净设备准备急救工具</div>
           <div class="nstep-time">约 10 分钟</div>
         </div>
@@ -919,12 +915,12 @@
 
       <div class="nstep highlight-step">
         <div class="nstep-head">
-          <div class="nstep-num">5</div>
+          <div class="nstep-num">4</div>
           <div class="nstep-title">按顺序启动查杀工具，三次扫描</div>
           <div class="nstep-time">约 30-60 分钟</div>
         </div>
         <div class="nstep-body">
-          <p>在<strong>断网状态下</strong>按顺序尝试以下启动方式，直到工具能正常运行：</p>
+          <p>按顺序尝试以下启动方式，直到工具能正常运行：</p>
           <ul>
             <li><strong>第一步：</strong>双击 <code>360急救箱.exe</code>，如果能打开就直接扫描</li>
             <li><strong>第二步：</strong>如果双击没反应、或者报"引擎初始化失败"，右键 <code>360急救箱打不开就点我-加强版.bat</code> → 以管理员身份运行</li>
@@ -943,7 +939,7 @@
 
       <div class="nstep highlight-step">
         <div class="nstep-head">
-          <div class="nstep-num">6</div>
+          <div class="nstep-num">5</div>
           <div class="nstep-title">用干净设备修改所有重要账号密码</div>
           <div class="nstep-time">约 20 分钟</div>
         </div>
@@ -963,7 +959,7 @@
 
       <div class="nstep">
         <div class="nstep-head">
-          <div class="nstep-num">7</div>
+          <div class="nstep-num">6</div>
           <div class="nstep-title">深度清理残留</div>
           <div class="nstep-time">约 15 分钟</div>
         </div>
@@ -983,7 +979,7 @@
 
       <div class="nstep">
         <div class="nstep-head">
-          <div class="nstep-num">8</div>
+          <div class="nstep-num">7</div>
           <div class="nstep-title">评估是否需要重装系统</div>
           <div class="nstep-time">看情况</div>
         </div>
@@ -1010,8 +1006,8 @@
     </div>
 
     <div class="newbie-foot">
-      <strong>总结一下：</strong>断网 → 评估影响 → 用干净设备准备工具 → 三次扫描（360 + 火绒交叉）→ 干净设备改密 → 深度清理 → 判断是否重装。<br>
-      整个过程最关键的其实是第一步和第六步：<strong>断网</strong>能止损，<strong>改密</strong>能挽回损失。杀毒只是清理，止损和止损后的补救才是最重要的。
+      <strong>总结一下：</strong>评估影响 → 用干净设备准备工具 → 三次扫描（360 + 火绒交叉）→ 干净设备改密 → 深度清理 → 判断是否重装。<br>
+      整个过程最关键的其实是查杀和改密：<strong>查杀</strong>能清除木马，<strong>改密</strong>能挽回损失。
     </div>
   </section>
 
@@ -1088,6 +1084,31 @@
         <li>扫描时如果检出病毒，处理完之后重启，再运行一遍专杀确认。</li>
         <li>重启后没检出病毒，再用火绒安全软件全盘扫一遍收尾。</li>
         <li>这个工具会清掉环境里被黑客利用的 IP-guard 远控工具。如果你需要用 IP-guard，用完之后重新装一下。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ★ 斩狐之刃 v3.0 第三方强力专杀 · 仅限 360 与火绒全部失效时使用 -->
+  <section class="zhanhu-zone">
+    <div class="dz-head">
+      <div class="dz-icon"><svg class="icon"><use href="#i-fire"/></svg></div>
+      <div>
+        <h3>斩狐之刃 v3.0 · 第三方强力专杀</h3>
+        <div class="meta">最后手段 · 仅限 360 与火绒全部失效时使用<br>来源：<b>第三方下载站</b> · 请谨慎使用</div>
+      </div>
+    </div>
+    <div class="zhanhu-warn"><svg class="icon"><use href="#i-warning"/></svg><span><b>风险提示：</b>此工具为第三方强力专杀，具有一定风险性。请谨慎使用，仅限 360 急救箱与火绒顽固木马专杀全部失效时使用。使用前请确保已备份重要数据。</span></div>
+    <div class="btn-row">
+      <button class="btn-main" id="zhanhuDownloadBtn"><svg class="icon"><use href="#i-download"/></svg>下载斩狐之刃 v3.0</button>
+      <button class="btn-ghost" id="zhanhuCopyBtn"><svg class="icon"><use href="#i-link"/></svg>复制下载链接</button>
+    </div>
+    <div class="zhanhu-tips">
+      <div class="ht">使用说明</div>
+      <ul>
+        <li>本工具为第三方强力专杀，下载后请先校验文件完整性再运行。</li>
+        <li>如果浏览器阻止下载，请复制下载链接，在浏览器地址栏粘贴后回车手动下载。</li>
+        <li>运行前请先备份重要数据，避免查杀过程中误伤文件。</li>
+        <li>查杀完成后重启电脑，再用 360 或火绒交叉扫描一遍确认。</li>
       </ul>
     </div>
   </section>
@@ -1385,7 +1406,7 @@
     <p class="wm-intro">这是一个<b>云端网页</b>，专门提供<strong>银狐木马等安全事件的急救工具与处置指引</strong>。页面由 <strong>AI 协助编写</strong>，用于安全科普与应急演示。它<strong>不是银狐木马网站</strong>，也不包含任何木马、病毒或恶意代码。</p>
     <div class="wm-points">
       <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-cloud"/></svg></div><div><div class="wmp-title">纯云端网页 · 即开即用</div><div class="wmp-desc">无需下载安装，打开浏览器即可访问。所有内容都在网页内呈现，不需要任何客户端或插件。</div></div></div>
-      <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-star"/></svg></div><div><div class="wmp-title">新手模式 · 默认开启</div><div class="wmp-desc">首次访问会自动播放引导教程，应急页会显示 8 步超详细处置指引。熟悉后可以在顶栏关闭。</div></div></div>
+      <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-star"/></svg></div><div><div class="wmp-title">新手模式 · 默认开启</div><div class="wmp-desc">首次访问会自动播放引导教程，应急页会显示 7 步超详细处置指引。熟悉后可以在顶栏关闭。</div></div></div>
       <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-box"/></svg></div><div><div class="wmp-title">文件沙箱分析</div><div class="wmp-desc">拖入文件或文件夹，浏览器内本地三引擎并行扫描。多条件组合规则 + 白名单 + 内容分析，有效降低误报。</div></div></div>
       <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-lock"/></svg></div><div><div class="wmp-title">纯静态 · 不联网 · 不收集</div><div class="wmp-desc">页面不包含任何后端逻辑，不上传、不收集任何数据。下载链接全部指向 360 与火绒官方地址。</div></div></div>
     </div>
@@ -1405,7 +1426,7 @@
 <div id="changelogModal" class="modal dismissed">
   <div class="modal-card">
     <h2>更新日志</h2>
-    <p class="wm-intro">网站自上线以来持续迭代，以下是各个版本的更新记录。当前版本 <strong>1.8</strong>。</p>
+    <p class="wm-intro">网站自上线以来持续迭代，以下是各个版本的更新记录。当前版本 <strong>1.9</strong>。</p>
     <div class="changelog-list" id="changelogList"></div>
     <label class="wm-check"><input type="checkbox" id="dontShowChangelogToday"><span>今日不再弹出</span></label>
     <button class="wm-btn" id="clConfirm"><svg class="icon"><use href="#i-arrow-right"/></svg>开始使用</button>
@@ -1417,10 +1438,14 @@ const DOWNLOAD_URL = 'https://dl.360safe.com/360c0mpkill_5.1.64.1289-0701.zip';
 const DOWNLOAD_NAME = '360c0mpkill_5.1.64.1289-0701.zip';
 const HUORONG_URL  = 'https://down5.huorong.cn/tools/Hrkill-SilverFox.exe';
 const HUORONG_NAME = 'Hrkill-SilverFox.exe';
-const CURRENT_VERSION = '1.8';
+/* ★ 斩狐之刃 v3.0 · 第三方强力专杀 · 新下载链接 */
+const ZHANHU_URL   = 'https://exe1.webgetstore.com/2026/09/25/ae98ae940fbab9ee9443e1362f3496e3.exe?sg=73e406de6301a127b1fea693f4c2d2fe&e=6ab6b2ca&fileName=%E6%96%A9%E7%8B%90%E4%B9%8B%E5%88%83%203.0.exe&fi=320673017';
+const ZHANHU_NAME  = '斩狐之刃 3.0.exe';
+const CURRENT_VERSION = '1.9';
 
 const CHANGELOG = [
-  { ver: '1.8', text: '新增新手模式 · 超详细处置指引 + 分步引导教程', current: true },
+  { ver: '1.9', text: '增加了新银狐专杀工具', current: true },
+  { ver: '1.8', text: '新增新手模式 · 超详细处置指引 + 分步引导教程' },
   { ver: '1.7', text: '沙箱规则引擎重写 · 多条件组合 + 白名单 + 内容分析，大幅降低误报' },
   { ver: '1.6', text: '新增文件沙箱分析模块 · 精简首页' },
   { ver: '1.5', text: '优化了性能缺失' },
@@ -1438,7 +1463,12 @@ const isLowPerf = (navigator.hardwareConcurrency && navigator.hardwareConcurrenc
    ============================================================ */
 const FW = (function(){
   const CONFIG = {
-    domainWhitelist: ['dl.360safe.com', 'www.360.cn', '360.cn', 'down5.huorong.cn', 'www.huorong.cn', 'huorong.cn'],
+    domainWhitelist: [
+      'dl.360safe.com', 'www.360.cn', '360.cn',
+      'down5.huorong.cn', 'www.huorong.cn', 'huorong.cn',
+      /* ★ 斩狐之刃第三方下载站 */
+      'exe1.webgetstore.com', 'webgetstore.com'
+    ],
     allowedProtocols: ['https:', 'http:'],
     maxLogs: 60,
     patrolInterval: 5000
@@ -1645,6 +1675,7 @@ const FW = (function(){
     { id: 'page4', name: '沙箱页面' },
     { id: 'downloadBtn', name: '360下载按钮' },
     { id: 'huorongDownloadBtn', name: '火绒下载按钮' },
+    { id: 'zhanhuDownloadBtn', name: '斩狐之刃下载按钮' },
     { id: 'sandboxDrop', name: '沙箱拖放区' },
     { id: 'shieldOverlay', name: '下载防护罩' },
     { id: 'welcomeModal', name: '欢迎弹窗' },
@@ -1683,6 +1714,7 @@ const FW = (function(){
     renderLogs(); bindUI(); syncStats();
     log('ok', '✓ 网页防火墙已启用');
     log('info', '· 白名单域名：' + CONFIG.domainWhitelist.join(', '));
+    log('info', '· 允许协议：' + CONFIG.allowedProtocols.join(', '));
     startDomGuard(); startNetworkGuard(); startFrameGuard(); startPatrol();
   }
 
@@ -3043,6 +3075,15 @@ document.getElementById('huorongDownloadBtn').addEventListener('click', function
   DownloadGuard.run(HUORONG_URL, HUORONG_NAME, '火绒顽固木马专杀');
 });
 
+/* ★ 斩狐之刃 v3.0 · 第三方强力专杀 · 走正常网络下载流程 */
+document.getElementById('zhanhuDownloadBtn').addEventListener('click', function(){
+  if (!FW.isAllowedUrl(ZHANHU_URL)){ FW.log('block', '⛔ 斩狐之刃下载地址未通过白名单校验，已终止'); showToast('下载地址未通过安全校验，已阻止', true); return; }
+  FW.log('warn', '⚠ 斩狐之刃为第三方工具，请谨慎使用（仅限 360 与火绒全部失效时）');
+  FW.log('ok', '✓ 斩狐之刃下载地址校验通过，启动防护罩');
+  DownloadGuard.run(ZHANHU_URL, ZHANHU_NAME, '斩狐之刃 v3.0');
+});
+document.getElementById('zhanhuCopyBtn').addEventListener('click', function(){ copyText(ZHANHU_URL, '斩狐之刃下载链接已复制'); FW.log('info', '· 斩狐之刃下载链接已复制到剪贴板'); });
+
 document.getElementById('copyLinkBtn').addEventListener('click', function(){ copyText(DOWNLOAD_URL, '360 下载链接已复制'); FW.log('info', '· 360 下载链接已复制到剪贴板'); });
 document.getElementById('huorongCopyBtn').addEventListener('click', function(){ copyText(HUORONG_URL, '火绒下载链接已复制'); FW.log('info', '· 火绒下载链接已复制到剪贴板'); });
 
@@ -3160,7 +3201,7 @@ const Guide = (function(){
       desc: '这是一个云端网页，专门帮你处理银狐木马。接下来花 1 分钟，带你认识一下主要功能。点击"下一步"继续。',
       placement: 'center' },
     { target: '#silverfoxCard', title: '① 银狐木马专杀',
-      desc: '如果电脑已经中了银狐木马，点这张卡片进入应急页。里面包含官方急救箱下载、启动器兼容方案，以及新手模式下的 8 步超详细处置指引。',
+      desc: '如果电脑已经中了银狐木马，点这张卡片进入应急页。里面包含官方急救箱下载、启动器兼容方案，以及新手模式下的 7 步超详细处置指引。',
       placement: 'bottom' },
     { target: '#sandboxCard', title: '② 文件沙箱分析',
       desc: '收到可疑文件不确定是否安全？把文件拖进沙箱页扫一下。三个引擎同时分析，报告会告诉你哪里可疑。所有分析都在你的浏览器里完成，不会上传。',
@@ -3169,7 +3210,7 @@ const Guide = (function(){
       desc: '看最新的银狐木马变种、攻击手法和防范建议。遇到不确定的情况可以来对照一下。',
       placement: 'bottom' },
     { target: '#newbieToggle', title: '④ 新手模式开关',
-      desc: '默认开启。开启时，应急页会显示 8 步超详细处置指引。熟悉之后可以关掉，界面会更简洁。点击右边的"看引导"按钮随时可以重看这个教程。',
+      desc: '默认开启。开启时，应急页会显示 7 步超详细处置指引。熟悉之后可以关掉，界面会更简洁。点击右边的"看引导"按钮随时可以重看这个教程。',
       placement: 'bottom' },
     { target: '#fwToggle', title: '⑤ 网页防火墙',
       desc: '右下角的盾牌，实时监控页面有没有可疑行为。点开可以看详细日志，还能测试拦截。',
