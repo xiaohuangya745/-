@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; object-src 'none'; frame-ancestors 'self'; base-uri 'none'; form-action 'none';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https:; object-src 'none'; frame-ancestors 'self'; base-uri 'none'; form-action 'none';">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>银狐木马急救工具 · 云端网页</title>
 <style>
@@ -106,6 +106,7 @@
   .pcard.sandbox-card .pico{background:linear-gradient(135deg,rgba(168,85,247,.26),rgba(59,130,246,.2));border-color:rgba(168,85,247,.4);color:#dcc8ff}
   .pcard.sandbox-card:hover{border-color:rgba(168,85,247,.8);box-shadow:0 1px 0 var(--glass-hi) inset,0 42px 75px -25px rgba(168,85,247,.7),0 20px 40px -18px rgba(0,0,0,.8)}
   .pcard.sandbox-card:hover .ptag{background:rgba(168,85,247,.16);border-color:rgba(168,85,247,.45);color:#dcc8ff}
+  .glm-tag{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:1.2px;padding:2px 7px;border-radius:6px;background:rgba(255,176,32,.22);border:1px solid rgba(255,176,32,.55);color:#ffd9a3;margin-left:6px;vertical-align:2px}
 
   .pcard.news-card{border-color:rgba(56,189,248,.35);background:linear-gradient(140deg,rgba(34,211,238,.08),rgba(59,130,246,.05) 55%,rgba(255,255,255,.03))}
   .pcard.news-card .pico{background:linear-gradient(135deg,rgba(34,211,238,.24),rgba(168,85,247,.2));border-color:rgba(34,211,238,.4)}
@@ -243,6 +244,66 @@
   .sandbox-hero{text-align:center;margin-bottom:36px}
   .sandbox-hero h1{font-size:clamp(1.9rem,5vw,3rem);font-weight:900;letter-spacing:-1.2px;line-height:1.14;background:linear-gradient(120deg,#22d3ee,#a855f7 50%,#22d3ee);background-size:280% 280%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradShift 8s ease infinite;margin-bottom:16px;filter:drop-shadow(0 4px 20px rgba(168,85,247,.4))}
   .sandbox-hero p{color:var(--dim);font-size:clamp(.95rem,1.6vw,1.05rem);max-width:680px;margin:0 auto;line-height:1.9}
+
+  /* ★ AI 深度分析区（置顶显示） */
+  .sandbox-ai-zone{padding:26px 26px 24px;border-radius:22px;border:1px solid rgba(168,85,247,.42);background:linear-gradient(140deg,rgba(168,85,247,.12),rgba(34,211,238,.06) 55%,rgba(255,255,255,.02));box-shadow:0 1px 0 var(--glass-hi) inset,0 22px 55px -22px rgba(168,85,247,.55);position:relative;overflow:hidden;margin-bottom:26px}
+  .sandbox-ai-zone::before{content:'';position:absolute;top:-60%;right:-20%;width:60%;height:220%;background:radial-gradient(circle,rgba(168,85,247,.22),transparent 62%);pointer-events:none}
+  .sandbox-ai-zone .aiz-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;position:relative;flex-wrap:wrap}
+  .sandbox-ai-zone .aiz-head .aiz-ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;color:#dcc8ff;background:linear-gradient(135deg,rgba(168,85,247,.32),rgba(34,211,238,.22));border:1px solid rgba(168,85,247,.5);box-shadow:0 6px 20px -6px rgba(168,85,247,.85),inset 0 1px 0 rgba(255,255,255,.22);flex-shrink:0}
+  .sandbox-ai-zone .aiz-head .aiz-ico .icon{width:1.4rem;height:1.4rem}
+  .sandbox-ai-zone .aiz-head .aiz-title{font-size:1.12rem;font-weight:800;color:#dcc8ff;letter-spacing:.2px}
+  .sandbox-ai-zone .aiz-head .aiz-sub{font-size:.76rem;color:var(--dim);margin-top:4px;line-height:1.5}
+  .sandbox-ai-zone .aiz-head .aiz-state{margin-left:auto;font-size:.68rem;font-weight:800;letter-spacing:1.2px;padding:5px 12px;border-radius:99px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:var(--dim);white-space:nowrap}
+  .sandbox-ai-zone .aiz-head .aiz-state.unlocked{color:#c4b5fd;background:rgba(168,85,247,.18);border-color:rgba(168,85,247,.5)}
+  .sandbox-ai-zone .aiz-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px;position:relative}
+  .sandbox-ai-zone .aiz-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;cursor:pointer;font-family:inherit;font-size:.9rem;font-weight:700;letter-spacing:.4px;border:1px solid transparent;transition:transform .2s,box-shadow .25s,background .25s,border-color .25s}
+  .sandbox-ai-zone .aiz-btn .icon{width:1.05em;height:1.05em}
+  .sandbox-ai-zone .aiz-btn.primary{color:#fff;background:linear-gradient(135deg,#a855f7,#22d3ee);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 12px 30px -10px rgba(168,85,247,.9)}
+  .sandbox-ai-zone .aiz-btn.primary:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 18px 40px -12px rgba(168,85,247,1)}
+  .sandbox-ai-zone .aiz-btn.primary:disabled{opacity:.55;cursor:not-allowed;transform:none}
+  .sandbox-ai-zone .aiz-btn.ghost{color:var(--txt);background:rgba(255,255,255,.06);border-color:var(--stroke)}
+  .sandbox-ai-zone .aiz-btn.ghost:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
+  .sandbox-ai-zone .aiz-output{padding:18px 20px;border-radius:14px;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);font-size:.86rem;color:var(--txt);line-height:1.85;min-height:80px;position:relative;word-break:break-word}
+  .sandbox-ai-zone .aiz-output .ai-think-inline{display:inline-block;width:8px;height:14px;background:var(--violet);margin-left:2px;animation:aiBlink 1s infinite;vertical-align:-2px;border-radius:1px;box-shadow:0 0 8px var(--violet)}
+  @keyframes aiBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
+  .sandbox-ai-zone .aiz-output strong{color:#dcc8ff;font-weight:700}
+  .sandbox-ai-zone .aiz-output code{font-family:'JetBrains Mono',monospace;font-size:.8rem;padding:1px 6px;border-radius:5px;background:rgba(255,255,255,.08);color:#a7e8ff}
+  .sandbox-ai-zone .aiz-output .ai-code{margin:10px 0;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.5)}
+  .sandbox-ai-zone .aiz-output .ai-code-head{display:flex;align-items:center;justify-content:space-between;padding:7px 12px;background:rgba(255,255,255,.05);font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.6px;color:#9fd8ff;border-bottom:1px solid rgba(255,255,255,.08)}
+  .sandbox-ai-zone .aiz-output .ai-code pre{margin:0;padding:12px 14px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:1.7;color:#d7e6f5}
+
+  /* ★ 醒目警告 */
+  .ai-danger-warn{padding:18px 20px;border-radius:14px;margin-bottom:18px;background:linear-gradient(135deg,rgba(255,20,20,.22),rgba(255,90,0,.16));border:2px solid rgba(255,40,40,.85);box-shadow:0 0 30px -6px rgba(255,40,40,.75),inset 0 0 24px rgba(255,40,40,.08);animation:dangerBlink 1.4s ease-in-out infinite;position:relative;overflow:hidden}
+  @keyframes dangerBlink{
+    0%,100%{border-color:rgba(255,40,40,.85);box-shadow:0 0 30px -6px rgba(255,40,40,.75),inset 0 0 24px rgba(255,40,40,.08)}
+    50%{border-color:rgba(255,120,90,1);box-shadow:0 0 50px -4px rgba(255,40,40,1),inset 0 0 30px rgba(255,40,40,.18)}
+  }
+  .ai-danger-warn .dw-row1{display:flex;align-items:center;gap:10px;font-size:1.05rem;font-weight:900;letter-spacing:1.6px;color:#ffdada;margin-bottom:10px;text-shadow:0 0 12px rgba(255,60,60,.85)}
+  .ai-danger-warn .dw-row1 .icon{width:1.3em;height:1.3em;color:#ff5252;filter:drop-shadow(0 0 6px rgba(255,60,60,.9))}
+  .ai-danger-warn .dw-line{font-size:.9rem;font-weight:700;color:#ffd0d0;line-height:1.9;letter-spacing:.3px}
+  .ai-danger-warn .dw-line b{color:#fff;font-weight:900;background:rgba(255,40,40,.4);padding:1px 8px;border-radius:5px;margin:0 3px}
+  .ai-danger-warn .dw-line code{font-family:'JetBrains Mono',monospace;font-weight:900;color:#fff;background:rgba(255,40,40,.55);padding:2px 10px;border-radius:6px;letter-spacing:1px;font-size:.95rem}
+  .ai-danger-warn .dw-ban{display:inline-block;padding:3px 10px;border-radius:6px;background:linear-gradient(90deg,#ff2a2a,#ff5a2a);color:#fff;font-weight:900;letter-spacing:1.8px;font-size:.92rem;margin:2px 4px 2px 0;box-shadow:0 0 14px -2px rgba(255,60,60,.9)}
+
+  /* 密码弹窗 */
+  .pwd-modal{position:fixed;inset:0;z-index:2200;display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(circle at 50% 42%,rgba(15,20,32,.92),rgba(5,7,13,.98));backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s ease;overflow-y:auto}
+  .pwd-modal.show{opacity:1;visibility:visible}
+  .pwd-modal.dismissed{display:none}
+  .pwd-card{width:min(620px,100%);padding:32px 30px 26px;border-radius:24px;background:rgba(13,18,28,.98);border:1px solid rgba(168,85,247,.45);box-shadow:0 1px 0 var(--glass-hi) inset,0 30px 85px -28px rgba(0,0,0,.95),0 0 65px -22px rgba(168,85,247,.7);position:relative;transform:translateY(24px) scale(.95);transition:transform .5s cubic-bezier(.2,.8,.2,1);margin:auto}
+  .pwd-modal.show .pwd-card{transform:translateY(0) scale(1)}
+  .pwd-card h2{font-size:1.3rem;font-weight:900;letter-spacing:-.3px;margin-bottom:10px;background:linear-gradient(120deg,#dcc8ff,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .pwd-card .pwd-sub{font-size:.85rem;color:var(--dim);line-height:1.75;margin-bottom:18px}
+  .pwd-card .pwd-input-row{display:flex;gap:10px;margin-bottom:14px}
+  .pwd-card .pwd-input-row input{flex:1;padding:13px 16px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.05);color:var(--txt);font-family:'JetBrains Mono',monospace;font-size:.98rem;letter-spacing:2px;outline:none;transition:.2s}
+  .pwd-card .pwd-input-row input:focus{border-color:rgba(168,85,247,.6);background:rgba(168,85,247,.08);box-shadow:0 0 0 3px rgba(168,85,247,.18)}
+  .pwd-card .pwd-hint{font-size:.72rem;color:#ff8a8a;min-height:1.2em;margin-bottom:14px;line-height:1.5}
+  .pwd-card .pwd-btns{display:flex;gap:10px}
+  .pwd-card .pwd-btns button{flex:1;padding:13px 18px;border-radius:12px;cursor:pointer;font-family:inherit;font-size:.92rem;font-weight:700;border:1px solid transparent;transition:.2s}
+  .pwd-card .pwd-btns .pwd-ok{color:#fff;background:linear-gradient(135deg,#a855f7,#22d3ee);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 10px 26px -10px rgba(168,85,247,.95)}
+  .pwd-card .pwd-btns .pwd-ok:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 14px 34px -12px rgba(168,85,247,1)}
+  .pwd-card .pwd-btns .pwd-cancel{color:var(--txt);background:rgba(255,255,255,.06);border-color:var(--stroke)}
+  .pwd-card .pwd-btns .pwd-cancel:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}
+  .pwd-card .ai-danger-warn{margin-bottom:16px}
 
   .sandbox-drop{padding:54px 30px;margin-bottom:22px;position:relative;overflow:hidden;border-radius:22px;border:2px dashed rgba(56,189,248,.4);background:linear-gradient(140deg,rgba(34,211,238,.05),rgba(168,85,247,.04) 55%,rgba(255,255,255,.02));cursor:pointer;transition:border-color .3s,background .3s,transform .3s,box-shadow .3s}
   .sandbox-drop:hover{border-color:rgba(56,189,248,.65);background:linear-gradient(140deg,rgba(34,211,238,.09),rgba(168,85,247,.07) 55%,rgba(255,255,255,.03))}
@@ -432,7 +493,7 @@
   .news-empty{text-align:center;padding:50px 20px;color:var(--dim);font-size:.9rem;line-height:1.8}
   .news-empty .icon{width:2rem;height:2rem;color:#5b6a7d;margin-bottom:12px;display:block;margin-left:auto;margin-right:auto}
 
-  #toast{position:fixed;left:50%;bottom:34px;transform:translate(-50%,80px) scale(.92);z-index:999;padding:13px 22px;border-radius:14px;background:rgba(20,24,32,.94);border:1px solid rgba(34,197,94,.45);color:#7ee0a8;font-size:.88rem;font-weight:600;box-shadow:0 16px 44px -12px rgba(0,0,0,.85),0 0 26px -8px rgba(34,197,94,.5);opacity:0;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s;pointer-events:none;max-width:min(520px,calc(100vw - 40px));display:flex;align-items:center;gap:9px}
+  #toast{position:fixed;left:50%;bottom:34px;transform:translate(-50%,80px) scale(.92);z-index:2999;padding:13px 22px;border-radius:14px;background:rgba(20,24,32,.94);border:1px solid rgba(34,197,94,.45);color:#7ee0a8;font-size:.88rem;font-weight:600;box-shadow:0 16px 44px -12px rgba(0,0,0,.85),0 0 26px -8px rgba(34,197,94,.5);opacity:0;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s;pointer-events:none;max-width:min(520px,calc(100vw - 40px));display:flex;align-items:center;gap:9px}
   #toast.show{transform:translate(-50%,0) scale(1);opacity:1}
   #toast .icon{width:1.05em;height:1.05em}
   #toast.warn{border-color:rgba(255,59,59,.55);color:#ff9a9a}
@@ -552,12 +613,12 @@
   .changelog-list{display:grid;gap:10px;margin-bottom:22px}
   .changelog-item{display:flex;gap:14px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);transition:.25s}
   .changelog-item:hover{background:rgba(255,255,255,.07);border-color:rgba(56,189,248,.32);transform:translateX(4px)}
-  .changelog-item.current{background:linear-gradient(135deg,rgba(34,211,238,.1),rgba(168,85,247,.07));border-color:rgba(34,211,238,.4);box-shadow:0 8px 22px -10px rgba(34,211,238,.5)}
+  .changelog-item.current{background:linear-gradient(135deg,rgba(139,92,246,.12),rgba(34,211,238,.07));border-color:rgba(139,92,246,.45);box-shadow:0 8px 22px -10px rgba(139,92,246,.6)}
   .changelog-item .ver{flex-shrink:0;min-width:46px;font-family:'JetBrains Mono',monospace;font-size:.92rem;font-weight:800;letter-spacing:-.5px;background:linear-gradient(135deg,#fff,#9fd8ff);-webkit-background-clip:text;background-clip:text;color:transparent;padding-top:1px}
-  .changelog-item.current .ver{background:linear-gradient(135deg,#a7f3ff,#7ee0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .changelog-item.current .ver{background:linear-gradient(135deg,#c4b5fd,#7ee0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
   .changelog-item .content{flex:1;min-width:0}
   .changelog-item .text{font-size:.87rem;color:var(--txt);line-height:1.7}
-  .changelog-item .badge{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:1.2px;padding:3px 9px;border-radius:99px;color:#7ee0ff;background:rgba(34,211,238,.15);border:1px solid rgba(34,211,238,.4);margin-left:8px;vertical-align:1px}
+  .changelog-item .badge{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:1.2px;padding:3px 9px;border-radius:99px;color:#dcc8ff;background:rgba(139,92,246,.18);border:1px solid rgba(139,92,246,.45);margin-left:8px;vertical-align:1px}
 
   .newbie-toggle{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:99px;border:1px solid var(--stroke);background:rgba(255,255,255,.045);cursor:pointer;font-size:.76rem;color:var(--dim);font-family:inherit;transition:.25s;user-select:none}
   .newbie-toggle:hover{background:rgba(255,255,255,.1);color:var(--txt)}
@@ -669,6 +730,10 @@
     .nstep{padding:18px 18px}
     .nstep-head{flex-wrap:wrap;gap:10px}
     .nstep-time{margin-left:0}
+    .sandbox-ai-zone{padding:20px 16px 18px}
+    .sandbox-ai-zone .aiz-head .aiz-title{font-size:1rem}
+    .sandbox-ai-zone .aiz-btn{width:100%;justify-content:center}
+    .pwd-card{padding:24px 20px 20px}
   }
   @media(max-width:480px){.wave-a{opacity:.32}.wave-b{opacity:.24}.wave-c{opacity:.18}}
   @media(max-width:420px){.status-strip{grid-template-columns:1fr}}
@@ -803,8 +868,8 @@
 
     <div class="pcard glass sandbox-card clickable" id="sandboxCard" role="button" tabindex="0" aria-label="打开文件沙箱分析">
       <div class="pico"><svg class="icon"><use href="#i-box"/></svg></div>
-      <h3>文件沙箱分析</h3>
-      <p>拖入文件或文件夹，三引擎并行扫描。多条件组合规则 + 白名单 + 内容分析，有效降低误报。</p>
+      <h3>文件沙箱分析（接入GLM5.3模型）<span class="glm-tag">测试版</span></h3>
+      <p>拖入文件或文件夹，三引擎并行扫描；扫描完成后可调用 GLM5.3 大模型做 AI 深度分析。</p>
       <span class="ptag">开始扫描 →</span>
     </div>
 
@@ -1082,8 +1147,39 @@
   </header>
 
   <section class="sandbox-hero">
-    <h1>文件沙箱分析</h1>
-    <p>拖入文件或整个文件夹，本地三引擎并行扫描。所有处理均在浏览器内完成，文件不会上传，也不执行任何可执行代码。</p>
+    <h1>文件沙箱分析（接入GLM5.3模型）</h1>
+    <p>拖入文件或整个文件夹，本地三引擎并行扫描。所有处理均在浏览器内完成，文件不会上传，也不执行任何可执行代码。扫描完成后可调用 GLM5.3 大模型做 AI 深度分析。</p>
+  </section>
+
+  <!-- ★ AI 深度分析区（置顶显示） -->
+  <section class="sandbox-ai-zone" id="sandboxAiZone">
+    <div class="aiz-head">
+      <div class="aiz-ico"><svg class="icon"><use href="#i-cpu"/></svg></div>
+      <div style="flex:1;min-width:0">
+        <div class="aiz-title">GLM5.3 大模型 · AI 深度分析</div>
+        <div class="aiz-sub">把本次扫描结果发送给 GLM5.3，由大模型给出综合判断、风险等级和处置建议</div>
+      </div>
+      <span class="aiz-state" id="aizState">未解锁</span>
+    </div>
+
+    <!-- ★ 醒目警告：默认一直显示 -->
+    <div class="ai-danger-warn">
+      <div class="dw-row1"><svg class="icon"><use href="#i-warning"/></svg>⚠️ 严 禁 泄 密 警 告 ⚠️</div>
+      <div class="dw-line"><b>AI Tokens 资源紧张</b>，要使用请加 <code>QQ：3398808515</code>，并争取同意才可以使用。</div>
+      <div class="dw-line" style="margin-top:10px">
+        <span class="dw-ban">禁止泄密！</span>
+        <span class="dw-ban">禁止泄密！</span>
+        <span class="dw-ban">禁止泄密！</span>
+      </div>
+      <div class="dw-line" style="margin-top:10px;color:#ff9a9a;font-weight:800">（如有发现，我们将会追究法律责任）</div>
+    </div>
+
+    <div class="aiz-actions">
+      <button class="aiz-btn primary" id="aizUnlockBtn"><svg class="icon"><use href="#i-lock"/></svg>解锁 AI 引擎</button>
+      <button class="aiz-btn primary" id="aizAnalyzeBtn" disabled><svg class="icon"><use href="#i-cpu"/></svg>开始 AI 分析</button>
+      <button class="aiz-btn ghost" id="aizApiBtn"><svg class="icon"><use href="#i-link"/></svg>自定义 API Key</button>
+    </div>
+    <div class="aiz-output" id="aizOutput" hidden></div>
   </section>
 
   <section class="sandbox-drop" id="sandboxDrop">
@@ -1162,8 +1258,9 @@
     <h2 class="sec-title"><span class="num cyan">扫描结果</span></h2>
     <div class="result-summary" id="resultSummary"></div>
     <div class="result-details" id="resultDetails"></div>
+
     <div class="disclaimer" style="margin-top:24px">
-      <b>说明：</b>沙箱在浏览器本地运行，所有分析均为前端模拟，不会执行任何文件、不会上传任何数据。检测结果仅供参考，如需彻底查杀请使用本页"银狐木马专杀"中提供的官方工具。
+      <b>说明：</b>沙箱在浏览器本地运行，所有分析均为前端模拟，不会执行任何文件。本地扫描不会上传数据；AI 深度分析会将扫描结果摘要发送至智谱 GLM 接口。
     </div>
   </section>
 </div>
@@ -1366,8 +1463,8 @@
     <div class="wm-points">
       <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-cloud"/></svg></div><div><div class="wmp-title">纯云端网页 · 即开即用</div><div class="wmp-desc">无需下载安装，打开浏览器即可访问。所有内容都在网页内呈现，不需要任何客户端或插件。</div></div></div>
       <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-star"/></svg></div><div><div class="wmp-title">新手模式 · 默认开启</div><div class="wmp-desc">首次访问会自动播放引导教程，应急页会显示 7 步超详细处置指引。熟悉后可以在顶栏关闭。</div></div></div>
-      <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-box"/></svg></div><div><div class="wmp-title">文件沙箱分析</div><div class="wmp-desc">拖入文件或文件夹，浏览器内本地三引擎并行扫描。多条件组合规则 + 白名单 + 内容分析，有效降低误报。</div></div></div>
-      <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-lock"/></svg></div><div><div class="wmp-title">纯静态 · 不联网 · 不收集</div><div class="wmp-desc">页面不包含任何后端逻辑，不上传、不收集任何数据。下载链接全部指向 360 与火绒官方地址。</div></div></div>
+      <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-box"/></svg></div><div><div class="wmp-title">文件沙箱分析（接入GLM5.3模型）</div><div class="wmp-desc">拖入文件或文件夹，浏览器内本地三引擎并行扫描。扫描完成后可调用 GLM5.3 做 AI 深度分析。</div></div></div>
+      <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-lock"/></svg></div><div><div class="wmp-title">纯静态 · 不联网 · 不收集</div><div class="wmp-desc">本地扫描不上传、不收集任何数据。下载链接全部指向 360 与火绒官方地址。</div></div></div>
     </div>
     <div class="wm-verify">
       <div class="wmv-title">安全验证渠道</div>
@@ -1392,6 +1489,34 @@
   </div>
 </div>
 
+<!-- ★ 密码弹窗（置顶 + 内置醒目警告） -->
+<div class="pwd-modal dismissed" id="aiPwdModal">
+  <div class="pwd-card">
+    <h2>AI 引擎验证</h2>
+    <p class="pwd-sub">使用 GLM5.3 AI 深度分析需要输入访问密码。<br>如暂无密码，请点“取消”，仅使用本地三引擎扫描。</p>
+
+    <div class="ai-danger-warn">
+      <div class="dw-row1"><svg class="icon"><use href="#i-warning"/></svg>⚠️ 严 禁 泄 密 警 告 ⚠️</div>
+      <div class="dw-line"><b>AI Tokens 资源紧张</b>，要使用请加 <code>QQ：3398808515</code>，并争取同意才可以使用。</div>
+      <div class="dw-line" style="margin-top:10px">
+        <span class="dw-ban">禁止泄密！</span>
+        <span class="dw-ban">禁止泄密！</span>
+        <span class="dw-ban">禁止泄密！</span>
+      </div>
+      <div class="dw-line" style="margin-top:10px;color:#ff9a9a;font-weight:800">（如有发现，我们将会追究法律责任）</div>
+    </div>
+
+    <div class="pwd-input-row">
+      <input type="password" id="aiPwdInput" placeholder="请输入访问密码" maxlength="20" autocomplete="off">
+    </div>
+    <div class="pwd-hint" id="aiPwdHint"></div>
+    <div class="pwd-btns">
+      <button class="pwd-cancel" id="aiPwdCancel" type="button">取消</button>
+      <button class="pwd-ok" id="aiPwdConfirm" type="button">确认解锁</button>
+    </div>
+  </div>
+</div>
+
 <script>
 const DOWNLOAD_URL = 'https://dl.360safe.com/360c0mpkill_5.1.64.1289-0701.zip';
 const DOWNLOAD_NAME = '360c0mpkill_5.1.64.1289-0701.zip';
@@ -1400,7 +1525,7 @@ const HUORONG_NAME = 'Hrkill-SilverFox.exe';
 const CURRENT_VERSION = '1.9';
 
 const CHANGELOG = [
-  { ver: '1.9', text: '优化了用户使用体验', current: true },
+  { ver: '1.9', text: '优化了用户使用体验 · 沙箱接入 GLM5.3 大模型（测试版）· 新增每用户 1 次免费试用', current: true },
   { ver: '1.8', text: '新增新手模式 · 超详细处置指引 + 分步引导教程' },
   { ver: '1.7', text: '沙箱规则引擎重写 · 多条件组合 + 白名单 + 内容分析，大幅降低误报' },
   { ver: '1.6', text: '新增文件沙箱分析模块 · 精简首页' },
@@ -1419,7 +1544,7 @@ const isLowPerf = (navigator.hardwareConcurrency && navigator.hardwareConcurrenc
    ============================================================ */
 const FW = (function(){
   const CONFIG = {
-    domainWhitelist: ['dl.360safe.com', 'www.360.cn', '360.cn', 'down5.huorong.cn', 'www.huorong.cn', 'huorong.cn'],
+    domainWhitelist: ['dl.360safe.com', 'www.360.cn', '360.cn', 'down5.huorong.cn', 'www.huorong.cn', 'huorong.cn', 'open.bigmodel.cn'],
     allowedProtocols: ['https:', 'http:'],
     maxLogs: 60,
     patrolInterval: 5000
@@ -1502,6 +1627,14 @@ const FW = (function(){
     else { state.blocked++; raise('拦截非白名单跳转：' + shorten(rawUrl)); }
     syncStats();
     return ok;
+  }
+  function addDomain(host){
+    if (!host) return;
+    host = String(host).toLowerCase();
+    if (CONFIG.domainWhitelist.indexOf(host) === -1){
+      CONFIG.domainWhitelist.push(host);
+      log('info', '· 白名单动态添加：' + host);
+    }
   }
 
   document.addEventListener('click', function(e){
@@ -1627,6 +1760,7 @@ const FW = (function(){
     { id: 'downloadBtn', name: '360下载按钮' },
     { id: 'huorongDownloadBtn', name: '火绒下载按钮' },
     { id: 'sandboxDrop', name: '沙箱拖放区' },
+    { id: 'sandboxAiZone', name: '沙箱 AI 分析区' },
     { id: 'shieldOverlay', name: '下载防护罩' },
     { id: 'welcomeModal', name: '欢迎弹窗' },
     { id: 'changelogModal', name: '更新日志弹窗' },
@@ -1668,7 +1802,7 @@ const FW = (function(){
     startDomGuard(); startNetworkGuard(); startFrameGuard(); startPatrol();
   }
 
-  return { boot: boot, checkUrl: checkUrl, isAllowedUrl: isAllowedUrl, log: log };
+  return { boot: boot, checkUrl: checkUrl, isAllowedUrl: isAllowedUrl, log: log, addDomain: addDomain };
 })();
 
 /* 3D 倾斜 */
@@ -1809,6 +1943,10 @@ function enterSandbox(){
   setTimeout(function(){
     showPage('sandbox');
     FW.log('info', '· 进入文件沙箱分析');
+    // ★ 进入后按状态自动弹出密码框（有免费试用时不打扰）
+    try {
+      if (window.SandboxAI && SandboxAI.onEnter) SandboxAI.onEnter();
+    } catch (e){ console.error(e); }
     setTimeout(function(){
       portalGrid.classList.remove('fade-mode');
       animating = false;
@@ -2127,6 +2265,7 @@ const Sandbox = (function(){
   let queue = [];
   let scanning = false;
   let abortFlag = false;
+  let lastResults = null;
 
   const el = {};
   const engines = {};
@@ -2599,6 +2738,7 @@ const Sandbox = (function(){
 
   function renderResults(results){
     el.results.hidden = false;
+    lastResults = results;
 
     let totalScore = 0;
     let highCount = 0, midCount = 0, lowCount = 0, wlCount = 0;
@@ -2788,7 +2928,7 @@ const Sandbox = (function(){
     el.startBtn.addEventListener('click', function(){ startScan(); });
   }
 
-  return { init: init };
+  return { init: init, getLastResults: function(){ return lastResults; } };
 })();
 
 /* 下载防护罩 */
@@ -3158,8 +3298,8 @@ const Guide = (function(){
     { target: '#silverfoxCard', title: '① 银狐木马专杀',
       desc: '如果电脑已经中了银狐木马，点这张卡片进入应急页。里面包含官方急救箱下载、启动器兼容方案，以及新手模式下的 7 步超详细处置指引。',
       placement: 'bottom' },
-    { target: '#sandboxCard', title: '② 文件沙箱分析',
-      desc: '收到可疑文件不确定是否安全？把文件拖进沙箱页扫一下。三个引擎同时分析，报告会告诉你哪里可疑。所有分析都在你的浏览器里完成，不会上传。',
+    { target: '#sandboxCard', title: '② 文件沙箱分析（接入GLM5.3模型）',
+      desc: '收到可疑文件不确定是否安全？把文件拖进沙箱页扫一下。三引擎并行扫描，扫描完成后还可以调用 GLM5.3 大模型做 AI 深度分析（新用户有 1 次免费试用，之后需密码解锁）。',
       placement: 'bottom' },
     { target: '#newsCard', title: '③ 威胁动态',
       desc: '看最新的银狐木马变种、攻击手法和防范建议。遇到不确定的情况可以来对照一下。',
@@ -3492,11 +3632,388 @@ const Guide = (function(){
 })();
 
 /* ============================================================
+   ★ 沙箱 AI 深度分析（GLM5.3 · 内置 key · 每用户 1 次免费试用 · 密码解锁）
+   ============================================================ */
+const SandboxAI = (function(){
+  const DEFAULT_KEY = 'f07860254c084cb49262969cabe4a094.k6FyiKihZNtxyURV';
+  const API_URL = 'https://open.bigmodel.cn/api/paas/v4/chat/completions';
+  const MODEL = 'glm-4-flash';
+  const UNLOCK_PWD = '54188';
+  const STORAGE_USER_KEY = 'sandbox_ai_user_key_v1';
+  const TRIAL_STORAGE_KEY = 'sandbox_ai_trial_used_v1';   // ★ 免费试用标记
+
+  let unlocked = false;
+  let userKey = '';
+  let analyzing = false;
+  let autoPopuped = false;
+  let trialUsed = false;                                  // ★ 是否已用完免费试用
+
+  const el = {};
+
+  function initEls(){
+    el.zone       = document.getElementById('sandboxAiZone');
+    el.state      = document.getElementById('aizState');
+    el.unlockBtn  = document.getElementById('aizUnlockBtn');
+    el.analyzeBtn = document.getElementById('aizAnalyzeBtn');
+    el.apiBtn     = document.getElementById('aizApiBtn');
+    el.output     = document.getElementById('aizOutput');
+    el.pwdModal   = document.getElementById('aiPwdModal');
+    el.pwdInput   = document.getElementById('aiPwdInput');
+    el.pwdHint    = document.getElementById('aiPwdHint');
+    el.pwdOk      = document.getElementById('aiPwdConfirm');
+    el.pwdCancel  = document.getElementById('aiPwdCancel');
+  }
+
+  function loadUserKey(){
+    try {
+      const k = localStorage.getItem(STORAGE_USER_KEY);
+      if (k) userKey = k;
+    } catch (e){}
+  }
+
+  // ★ 加载 / 消耗免费试用
+  function loadTrial(){
+    try { trialUsed = localStorage.getItem(TRIAL_STORAGE_KEY) === '1'; }
+    catch (e){ trialUsed = false; }
+  }
+  function consumeTrial(){
+    if (trialUsed) return;
+    trialUsed = true;
+    try { localStorage.setItem(TRIAL_STORAGE_KEY, '1'); } catch (e){}
+  }
+
+  function getKey(){ return userKey || DEFAULT_KEY; }
+
+  function setUnlockedUI(){
+    if (!el.state) return;
+
+    // ① 已解锁（输入密码或自定义 Key 通过）
+    if (unlocked){
+      el.state.textContent = userKey ? '已解锁 · 自定义 Key' : '已解锁';
+      el.state.classList.add('unlocked');
+      el.unlockBtn.innerHTML = '<svg class="icon"><use href="#i-check"/></svg>已解锁';
+      el.unlockBtn.disabled = true;
+      el.analyzeBtn.disabled = false;
+      el.analyzeBtn.innerHTML = '<svg class="icon"><use href="#i-cpu"/></svg>开始 AI 分析';
+      return;
+    }
+
+    // ② 未解锁但还有 1 次免费试用
+    if (!trialUsed){
+      el.state.textContent = '免费试用 1 次';
+      el.state.classList.add('unlocked');
+      el.unlockBtn.innerHTML = '<svg class="icon"><use href="#i-lock"/></svg>解锁 AI 引擎';
+      el.unlockBtn.disabled = false;
+      el.analyzeBtn.disabled = false;
+      el.analyzeBtn.innerHTML = '<svg class="icon"><use href="#i-cpu"/></svg>免费试用 1 次';
+      return;
+    }
+
+    // ③ 试用已用完，必须解锁
+    el.state.textContent = '试用已用完';
+    el.state.classList.remove('unlocked');
+    el.unlockBtn.innerHTML = '<svg class="icon"><use href="#i-lock"/></svg>解锁 AI 引擎';
+    el.unlockBtn.disabled = false;
+    el.analyzeBtn.disabled = true;
+    el.analyzeBtn.innerHTML = '<svg class="icon"><use href="#i-lock"/></svg>请先解锁 AI 引擎';
+  }
+
+  function openPwdModal(){
+    if (!el.pwdModal) return;
+    el.pwdInput.value = '';
+    el.pwdHint.textContent = '';
+    el.pwdModal.classList.remove('dismissed');
+    void el.pwdModal.offsetWidth;
+    el.pwdModal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function(){ el.pwdInput.focus(); }, 150);
+  }
+  function closePwdModal(){
+    if (!el.pwdModal) return;
+    el.pwdModal.classList.remove('show');
+    document.body.style.overflow = '';
+    setTimeout(function(){ el.pwdModal.classList.add('dismissed'); }, 320);
+  }
+
+  function tryUnlock(){
+    const v = (el.pwdInput.value || '').trim();
+    if (v === UNLOCK_PWD){
+      unlocked = true;
+      closePwdModal();
+      setUnlockedUI();
+      showToast('AI 引擎已解锁', false, true);
+      FW.log('ok', '✓ 沙箱 AI 引擎已解锁');
+    } else {
+      el.pwdHint.textContent = '密码错误，请重试。若不知密码，请联系管理员（QQ：3398808515）。';
+      el.pwdInput.value = '';
+      el.pwdInput.focus();
+    }
+  }
+
+  function buildPrompt(results){
+    if (!results || results.length === 0) return '沙箱未检测到任何文件，请输出一段简单的说明。';
+
+    const lines = [];
+    lines.push('我刚刚用浏览器本地沙箱对一批文件做了静态扫描，请你以安全分析师的角度，对结果做综合判断。');
+    lines.push('');
+    lines.push('【扫描总览】');
+    lines.push('文件总数：' + results.length);
+    lines.push('');
+
+    let high = 0, mid = 0, wl = 0;
+    const hitList = [];
+    results.forEach(function(r){
+      if (r.whitelisted) wl++;
+      ['yara','reverse','local'].forEach(function(eng){
+        (r.hits[eng] || []).forEach(function(h){
+          if (h.level === 'high') high++;
+          else if (h.level === 'mid') mid++;
+          hitList.push({
+            file: r.file.path,
+            name: r.file.name,
+            size: r.file.size,
+            magic: r.file.magic,
+            entropy: r.file.entropy,
+            engine: eng,
+            ruleId: h.id,
+            ruleName: h.name,
+            level: h.level,
+            desc: h.desc
+          });
+        });
+      });
+    });
+    lines.push('高危命中：' + high + '，中危命中：' + mid + '，白名单通过：' + wl);
+    lines.push('');
+
+    lines.push('【命中明细】');
+    if (hitList.length === 0){
+      lines.push('（无命中）');
+    } else {
+      hitList.slice(0, 30).forEach(function(h, i){
+        lines.push((i+1) + '. 文件: ' + h.file + ' | 规则: ' + h.ruleId + ' ' + h.ruleName + ' | 等级: ' + h.level);
+        lines.push('   引擎: ' + h.engine + ' | Magic: ' + (h.magic || 'UNKNOWN') + ' | 熵值: ' + (h.entropy || 0).toFixed(2));
+        lines.push('   说明: ' + h.desc);
+      });
+      if (hitList.length > 30) lines.push('...（仅展示前 30 条）');
+    }
+    lines.push('');
+    lines.push('【请你输出】');
+    lines.push('1. 综合风险等级（安全 / 可疑 / 高危）及判断理由；');
+    lines.push('2. 最可疑的文件及命中规则的简要解读；');
+    lines.push('3. 针对这些结果的处置建议（是否隔离、是否需要交叉扫描、是否需要断网/改密等）；');
+    lines.push('4. 如果结果不足以定论，请说明还需要哪些补充信息。');
+    lines.push('');
+    lines.push('请用中文输出，结构清晰，不要输出 JSON。');
+
+    return lines.join('\n');
+  }
+
+  async function callGLM(prompt){
+    const key = getKey();
+    if (!key) throw new Error('未配置 API Key');
+
+    const body = {
+      model: MODEL,
+      messages: [
+        { role: 'system', content: '你是一位资深的安全分析专家，擅长木马查杀、可疑文件研判和应急处置。请基于用户提供的扫描结果，给出简洁、专业、可落地的分析。' },
+        { role: 'user', content: prompt }
+      ],
+      stream: false,
+      temperature: 0.3
+    };
+
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + key
+      },
+      body: JSON.stringify(body)
+    });
+
+    if (!res.ok){
+      let errText = '';
+      try { errText = await res.text(); } catch (e){}
+      throw new Error('HTTP ' + res.status + (errText ? ('：' + errText.slice(0, 200)) : ''));
+    }
+
+    const data = await res.json();
+    const content = data && data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
+    if (!content) throw new Error('API 返回内容为空');
+    return typeof content === 'string' ? content : JSON.stringify(content);
+  }
+
+  function esc(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function renderMarkdown(text){
+    if (!text) return '';
+    const parts = [];
+    const regex = /```(\w+)?\n?([\s\S]*?)```/g;
+    let last = 0, m;
+    while ((m = regex.exec(text)) !== null){
+      if (m.index > last) parts.push({ type: 'text', content: text.slice(last, m.index) });
+      parts.push({ type: 'code', lang: m[1] || 'text', content: m[2] });
+      last = m.index + m[0].length;
+    }
+    if (last < text.length) parts.push({ type: 'text', content: text.slice(last) });
+    if (parts.length === 0) parts.push({ type: 'text', content: text });
+
+    return parts.map(function(p){
+      if (p.type === 'code'){
+        return '<div class="ai-code"><div class="ai-code-head"><span>' + esc(p.lang) + '</span></div><pre>' + esc(p.content.replace(/\n$/, '')) + '</pre></div>';
+      }
+      return esc(p.content)
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/`([^`]+?)`/g, '<code>$1</code>')
+        .replace(/\n/g, '<br>');
+    }).join('');
+  }
+
+  async function runAnalysis(){
+    // ★ 试用已用完且未解锁 → 弹密码框
+    if (!unlocked && trialUsed){
+      showToast('免费试用已用完，请先解锁 AI 引擎', true);
+      openPwdModal();
+      return;
+    }
+    if (analyzing) return;
+
+    const results = Sandbox.getLastResults();
+    if (!results || results.length === 0){
+      showToast('暂无扫描结果，请先完成本地扫描', true);
+      return;
+    }
+
+    analyzing = true;
+    el.analyzeBtn.disabled = true;
+    el.analyzeBtn.innerHTML = '<svg class="icon"><use href="#i-refresh"/></svg>分析中...';
+
+    el.output.hidden = false;
+    el.output.innerHTML = '<div id="aizLoad" style="color:#9fd8ff;font-size:.85rem">正在请求 GLM5.3 大模型…<span class="ai-think-inline"></span></div>';
+    FW.log('info', '· 沙箱 AI 分析请求已发起（模型：' + MODEL + '）');
+
+    try {
+      const prompt = buildPrompt(results);
+      const answer = await callGLM(prompt);
+
+      // ★ 调用成功才消耗免费试用次数
+      if (!unlocked && !trialUsed){
+        consumeTrial();
+        FW.log('info', '· 免费试用已使用（每用户 1 次），后续分析需解锁 AI 引擎');
+      }
+
+      const load = document.getElementById('aizLoad');
+      if (load) load.remove();
+
+      let i = 0;
+      const out = document.createElement('div');
+      out.innerHTML = '<div style="font-weight:800;color:#dcc8ff;margin-bottom:8px">🤖 GLM5.3 分析结果</div><div class="aiz-text"></div>';
+      el.output.appendChild(out);
+      const txt = out.querySelector('.aiz-text');
+
+      const speed = 8;
+      while (i <= answer.length){
+        txt.innerHTML = renderMarkdown(answer.slice(0, i)) + '<span class="ai-think-inline"></span>';
+        i += 3;
+        if (i % 60 === 0) el.output.scrollTop = el.output.scrollHeight;
+        await new Promise(r => setTimeout(r, speed));
+      }
+      txt.innerHTML = renderMarkdown(answer);
+
+      showToast(unlocked ? 'AI 分析完成' : 'AI 分析完成 · 免费试用已用完', false, true);
+      FW.log('ok', '✓ 沙箱 AI 分析完成');
+    } catch (e){
+      const load = document.getElementById('aizLoad');
+      if (load) load.remove();
+      const msg = String(e && e.message || e);
+      el.output.innerHTML +=
+        '<div style="margin-top:14px;padding:14px 16px;border-radius:12px;background:rgba(255,59,59,.1);border:1px solid rgba(255,59,59,.4);color:#ffc0c0;font-size:.85rem;line-height:1.75">' +
+          '<div style="font-weight:800;margin-bottom:6px">❌ AI 调用失败</div>' +
+          '<div>' + esc(msg) + '</div>' +
+          '<div style="margin-top:8px;color:var(--dim)">常见原因：Key 无效、额度不足、网络受限、CORS 拦截。可尝试点击“自定义 API Key”换成你自己的 Key。</div>' +
+        '</div>';
+      FW.log('block', '⛔ 沙箱 AI 调用失败：' + msg.slice(0, 80));
+      showToast('AI 调用失败：' + msg.slice(0, 40), true);
+    } finally {
+      analyzing = false;
+      setUnlockedUI();   // ★ 由统一状态函数决定按钮文案与可用性
+    }
+  }
+
+  function openApiConfig(){
+    const cur = userKey;
+    const k = prompt(
+      'GLM5.3 分析支持自定义 API Key（智谱 BigModel）。\n\n' +
+      '留空则使用内置 Key（资源紧张，需密码解锁）。\n\n' +
+      '请输入你自己的智谱 API Key（形如 xxxxxxxx.xxxxxxxx）：',
+      cur || ''
+    );
+    if (k === null) return;
+    if (!k.trim()){
+      userKey = '';
+      try { localStorage.removeItem(STORAGE_USER_KEY); } catch (e){}
+      showToast('已切换回内置 Key');
+      FW.log('info', '· 沙箱 AI 已切回内置 Key');
+    } else {
+      userKey = k.trim();
+      try { localStorage.setItem(STORAGE_USER_KEY, userKey); } catch (e){}
+      showToast('已保存自定义 Key');
+      FW.log('ok', '✓ 沙箱 AI 已配置自定义 Key');
+    }
+    setUnlockedUI();
+  }
+
+  function onEnter(){
+    if (unlocked) return;
+    if (autoPopuped) return;
+    if (!trialUsed) return;   // ★ 还有免费试用，不弹窗打扰
+    autoPopuped = true;
+    setTimeout(function(){
+      openPwdModal();
+    }, 700);
+  }
+
+  function bindEvents(){
+    if (el.unlockBtn) el.unlockBtn.addEventListener('click', openPwdModal);
+    if (el.analyzeBtn) el.analyzeBtn.addEventListener('click', runAnalysis);
+    if (el.apiBtn) el.apiBtn.addEventListener('click', openApiConfig);
+    if (el.pwdOk) el.pwdOk.addEventListener('click', tryUnlock);
+    if (el.pwdCancel) el.pwdCancel.addEventListener('click', function(){
+      closePwdModal();
+      showToast('已取消解锁，仅使用本地三引擎扫描');
+    });
+    if (el.pwdInput) el.pwdInput.addEventListener('keydown', function(e){
+      if (e.key === 'Enter'){ e.preventDefault(); tryUnlock(); }
+    });
+    if (el.pwdModal) el.pwdModal.addEventListener('click', function(e){
+      if (e.target === el.pwdModal){ closePwdModal(); }
+    });
+  }
+
+  function init(){
+    initEls();
+    if (!el.zone) return;
+    loadUserKey();
+    loadTrial();     // ★ 加载试用状态
+    bindEvents();
+    setUnlockedUI();
+    FW.log('info', '· 沙箱 AI 模块已就绪' + (unlocked ? '（已解锁）' : (trialUsed ? '（试用已用完）' : '（含 1 次免费试用）')));
+  }
+
+  return { init: init, onEnter: onEnter };
+})();
+
+/* ============================================================
    ★ 统一启动入口（带错误隔离）
    ============================================================ */
 try { FW.boot(); } catch (e) { console.error('FW.boot 失败：', e); }
 try { DownloadGuard.detectAbnormalClose(); } catch (e) { console.error('下载异常检测失败：', e); }
 try { Sandbox.init(); } catch (e) { console.error('Sandbox.init 失败：', e); }
+try { SandboxAI.init(); } catch (e) { console.error('SandboxAI.init 失败：', e); }
+try { window.SandboxAI = SandboxAI; } catch (e) {}
 try { NewbieMode.init(); } catch (e) { console.error('NewbieMode.init 失败：', e); }
 try { Guide.init(); } catch (e) { console.error('Guide.init 失败：', e); }
 </script>
