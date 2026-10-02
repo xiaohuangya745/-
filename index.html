@@ -884,7 +884,7 @@ body.newbie .newbie-guide{display:block}
 </div>
 </section>
 <section class="huorong-zone">
-<div class="hz-head"><div class="hz-icon"><svg class="icon"><use href="#i-fire"/></svg></div><div><h3>火绒顽固木马专杀工具</h3><div class="meta">备选方案 · 仅限 360 急救箱完全失效时使用<br>来源域名：<b>down5.huorong.cn</b> · 下载已启用<b>安全防护罩</b></div></div></div>
+<div class="hz-head"><div class="hz-icon"><svg class="icon"><use href="#i-fire"/></svg></div><div><h3>火绒顽固木马专杀工具</h3><div class="meta">备选方案 · 仅限 360 急救箱完全失效时使用<br>来源域名：<b>down7.huorong.cn</b> · 下载已启用<b>安全防护罩</b></div></div></div>
 <div class="hz-warn"><svg class="icon"><use href="#i-warning"/></svg><span>银狐木马最新变种能自己写驱动程序，可以绕过微软黑名单拦截，直接关掉 360、火绒、腾讯电脑管家等 11 种杀软和 EDR 进程。</span></div>
 <div class="btn-row"><button class="btn-purple" id="huorongDownloadBtn"><svg class="icon"><use href="#i-shield-check"/></svg>安全下载火绒顽固木马专杀</button><button class="btn-ghost" id="huorongCopyBtn"><svg class="icon"><use href="#i-link"/></svg>复制下载链接</button></div>
 <div class="hz-tips"><div class="ht">使用说明</div><ul>
@@ -1091,7 +1091,7 @@ body.newbie .newbie-guide{display:block}
 <script>
 const DOWNLOAD_URL='https://dl.360safe.com/360c0mpkill_5.1.64.1289-0701.zip';
 const DOWNLOAD_NAME='360c0mpkill_5.1.64.1289-0701.zip';
-const HUORONG_URL='https://down5.huorong.cn/tools/Hrkill-SilverFox.exe';
+const HUORONG_URL='https://down7.huorong.cn/hrkill/hrkill-1.0.0.198.exe';
 const HUORONG_NAME='Hrkill-SilverFox.exe';
 const CURRENT_VERSION='2.0.1';
 const CHANGELOG=[
@@ -1110,7 +1110,7 @@ const CHANGELOG=[
 const isLowPerf=(navigator.hardwareConcurrency&&navigator.hardwareConcurrency<=2)||window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const FW=(function(){
-const CONFIG={domainWhitelist:['dl.360safe.com','www.360.cn','360.cn','down5.huorong.cn','www.huorong.cn','huorong.cn','open.bigmodel.cn'],allowedProtocols:['https:','http:'],maxLogs:60,patrolInterval:5000};
+const CONFIG={domainWhitelist:['dl.360safe.com','www.360.cn','360.cn','down7.huorong.cn','www.huorong.cn','huorong.cn','open.bigmodel.cn'],allowedProtocols:['https:','http:'],maxLogs:60,patrolInterval:5000};
 const state={checked:0,blocked:0,scans:0,alert:false,logs:[]};
 const el={panel:document.getElementById('fwPanel'),toggle:document.getElementById('fwToggle'),badge:document.getElementById('fwBadge'),status:document.getElementById('fwStatus'),log:document.getElementById('fwLog'),statChecked:document.getElementById('fwStatChecked'),statBlocked:document.getElementById('fwStatBlocked'),statScan:document.getElementById('fwStatScan'),banner:document.getElementById('fwBanner'),bannerText:document.getElementById('fwBannerText'),chipPortal:document.getElementById('fwChipPortal'),chip1:document.getElementById('fwChip1'),chip3:document.getElementById('fwChip3'),chip4:document.getElementById('fwChip4')};
 function ts(){const d=new Date(),p=n=>String(n).padStart(2,'0');return p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds())}
