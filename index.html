@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https:; object-src 'none'; frame-ancestors 'self'; base-uri 'none'; form-action 'none';">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>银狐木马急救工具 · 2.0.1</title>
+<title>银狐木马急救工具 · 2.0.2</title>
 <style>
 :root{--red:#ff4d4d;--orange:#ff8a3d;--amber:#ffc857;--green:#10d981;--cyan:#8b5cf6;--blue:#6366f1;--violet:#10d981;--purple:#a855f7;--bg:#06030d;--txt:#f5f0ff;--dim:#9b8fb5;--glass:rgba(255,255,255,.06);--stroke:rgba(255,255,255,.12);--stroke-hi:rgba(139,92,246,.35);--glass-hi:rgba(255,255,255,.16);--blur-md:14px;--blur-lg:18px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -338,6 +338,7 @@ body.mode-red .brand .grad{background:linear-gradient(90deg,var(--red),var(--amb
 .engine-icon .icon{width:1.2rem;height:1.2rem}
 .engine-card:nth-child(2) .engine-icon{color:#c9ffe0;background:linear-gradient(135deg,rgba(16,217,129,.26),rgba(139,92,246,.2));border-color:rgba(16,217,129,.42)}
 .engine-card:nth-child(3) .engine-icon{color:#ffdfa3;background:linear-gradient(135deg,rgba(255,200,87,.26),rgba(255,138,61,.18));border-color:rgba(255,200,87,.4)}
+.engine-card:nth-child(4) .engine-icon{color:#ffbaba;background:linear-gradient(135deg,rgba(255,77,77,.26),rgba(255,138,61,.18));border-color:rgba(255,77,77,.42)}
 .engine-name{font-size:.95rem;font-weight:800;line-height:1.2}
 .engine-desc{font-size:.72rem;color:var(--dim);margin-top:2px}
 .engine-status{margin-left:auto;font-size:.68rem;font-weight:800;letter-spacing:1px;padding:4px 11px;border-radius:99px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--dim);white-space:nowrap}
@@ -350,48 +351,62 @@ body.mode-red .brand .grad{background:linear-gradient(90deg,var(--red),var(--amb
 .engine-card.danger .engine-bar{background:linear-gradient(90deg,#ff8a3d,#ff4d4d)}
 .engine-card:nth-child(2) .engine-bar{background:linear-gradient(90deg,#10d981,#8b5cf6)}
 .engine-card:nth-child(3) .engine-bar{background:linear-gradient(90deg,#ffc857,#ff8a3d)}
+.engine-card:nth-child(4) .engine-bar{background:linear-gradient(90deg,#ff4d4d,#a855f7)}
 .engine-meta{font-size:.76rem;color:var(--dim);font-family:'JetBrains Mono',monospace}
 .engine-meta span{color:var(--txt);font-weight:800}
-.behavior-timeline{margin-bottom:34px;position:relative}
-.behavior-timeline::before{content:'';position:absolute;left:22px;top:12px;bottom:12px;width:2px;background:linear-gradient(180deg,rgba(139,92,246,.7),rgba(16,217,129,.5));border-radius:2px}
-.bt-event{position:relative;padding:14px 18px 14px 56px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);margin-bottom:10px;transition:all .25s;animation:btIn .4s cubic-bezier(.2,.8,.2,1) both}
-@keyframes btIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
-.bt-event:hover{background:rgba(139,92,246,.09);border-color:rgba(139,92,246,.35);transform:translateX(4px)}
-.bt-event::before{content:'';position:absolute;left:14px;top:20px;width:18px;height:18px;border-radius:50%;border:3px solid var(--bg);background:var(--dim);box-shadow:0 0 0 3px rgba(255,255,255,.08)}
-.bt-event.high::before{background:var(--red);box-shadow:0 0 0 3px rgba(255,77,77,.3),0 0 16px rgba(255,77,77,.9)}
-.bt-event.mid::before{background:var(--amber);box-shadow:0 0 0 3px rgba(255,200,87,.3),0 0 16px rgba(255,200,87,.9)}
-.bt-event.low::before{background:var(--green);box-shadow:0 0 0 3px rgba(16,217,129,.3),0 0 16px rgba(16,217,129,.9)}
-.bt-event.info::before{background:#8b5cf6;box-shadow:0 0 0 3px rgba(139,92,246,.3),0 0 16px rgba(139,92,246,.9)}
-.bt-event .bt-head{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap}
-.bt-event .bt-time{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--dim);letter-spacing:.5px;padding:3px 9px;border-radius:7px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
-.bt-event .bt-cat{font-size:.68rem;font-weight:800;letter-spacing:1.1px;padding:3px 10px;border-radius:7px}
-.bt-event .bt-cat.process{color:#c9b8ff;background:rgba(139,92,246,.16);border:1px solid rgba(139,92,246,.45)}
-.bt-event .bt-cat.file{color:#ffdfa3;background:rgba(255,200,87,.14);border:1px solid rgba(255,200,87,.44)}
-.bt-event .bt-cat.network{color:#c9ffe0;background:rgba(16,217,129,.14);border:1px solid rgba(16,217,129,.44)}
-.bt-event .bt-cat.registry{color:#b8d4ff;background:rgba(99,102,241,.16);border:1px solid rgba(99,102,241,.45)}
-.bt-event .bt-cat.memory{color:#dcc8ff;background:rgba(168,85,247,.16);border:1px solid rgba(168,85,247,.45)}
-.bt-event .bt-cat.credential{color:#ffbaba;background:rgba(255,77,77,.16);border:1px solid rgba(255,77,77,.45)}
-.bt-event .bt-cat.driver{color:#ffd4c4;background:rgba(255,138,61,.16);border:1px solid rgba(255,138,61,.45)}
-.bt-event .bt-cat.input{color:#a7e8ff;background:rgba(34,211,238,.16);border:1px solid rgba(34,211,238,.45)}
-.bt-event .bt-cat.anti{color:#e2c8ff;background:rgba(168,85,247,.14);border:1px solid rgba(168,85,247,.42)}
-.bt-event .bt-cat.lateral{color:#ffe0b8;background:rgba(255,176,32,.14);border:1px solid rgba(255,176,32,.42)}
-.bt-event .bt-title{font-size:.92rem;font-weight:800;color:var(--txt);margin-bottom:5px;line-height:1.4}
-.bt-event .bt-detail{font-size:.82rem;color:var(--dim);line-height:1.75;word-break:break-word}
-.bt-event .bt-detail code{font-family:'JetBrains Mono',monospace;font-size:.76rem;padding:1px 6px;border-radius:5px;background:rgba(255,255,255,.07);color:#c9b8ff;word-break:break-all}
-.bt-event .bt-evidence{margin-top:6px;font-size:.72rem;color:#5b6a7d;font-family:'JetBrains Mono',monospace;letter-spacing:.3px;padding-top:6px;border-top:1px dashed rgba(255,255,255,.06)}
-.bt-event .bt-evidence b{color:#8b95a8;font-weight:700}
-.bt-empty{text-align:center;padding:40px 20px;color:var(--dim);font-size:.88rem;line-height:1.7;background:rgba(255,255,255,.02);border:1px dashed rgba(255,255,255,.1);border-radius:16px}
-.sandbox-log-wrap{margin-bottom:34px}
-.sandbox-log{max-height:320px;overflow-y:auto;padding:18px 20px;border-radius:18px;background:rgba(0,0,0,.42);border:1px solid rgba(255,255,255,.09);font-family:'JetBrains Mono',monospace;font-size:.74rem;line-height:1.78;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
-.sandbox-log::-webkit-scrollbar{width:6px}
-.sandbox-log::-webkit-scrollbar-thumb{background:rgba(139,92,246,.4);border-radius:99px}
-.slog-line{display:flex;gap:8px;padding:2px 0;word-break:break-word;animation:fwLineIn .25s ease}
-.slog-line .t{color:#5b6a7d;flex-shrink:0}
-.slog-line .m{flex:1;min-width:0}
-.slog-line.info .m{color:#a8b8d8}
-.slog-line.ok .m{color:#c9ffe0}
-.slog-line.warn .m{color:#ffdfa3}
-.slog-line.danger .m{color:#ffaaaa}
+/* ============ 沙箱活动监控窗口 ============ */
+.monitor-window{border-radius:22px;background:rgba(10,5,20,.55);border:1px solid rgba(139,92,246,.28);backdrop-filter:blur(var(--blur-md)) saturate(155%);-webkit-backdrop-filter:blur(var(--blur-md)) saturate(155%);box-shadow:0 1px 0 var(--glass-hi) inset,0 22px 52px -20px rgba(0,0,0,.75),0 0 40px -18px rgba(139,92,246,.4);overflow:hidden;margin-bottom:34px}
+.monitor-head{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.08);background:linear-gradient(120deg,rgba(139,92,246,.14),rgba(16,217,129,.05) 60%,rgba(255,255,255,.02));flex-wrap:wrap}
+.monitor-title{display:flex;align-items:center;gap:9px;font-size:.94rem;font-weight:800;letter-spacing:.2px}
+.monitor-title .icon{width:1.15em;height:1.15em;color:var(--violet)}
+.monitor-count{font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:3px 11px;border-radius:99px;background:rgba(139,92,246,.18);border:1px solid rgba(139,92,246,.42);color:#dcc8ff;font-weight:800;letter-spacing:.4px}
+.monitor-count.alert{background:rgba(255,77,77,.2);border-color:rgba(255,77,77,.5);color:#ffbaba;box-shadow:0 0 14px -2px rgba(255,77,77,.7)}
+.monitor-filters{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.monitor-filter{font-size:.7rem;padding:5px 12px;border-radius:99px;border:1px solid var(--stroke);background:rgba(255,255,255,.04);color:var(--dim);cursor:pointer;font-family:inherit;font-weight:700;letter-spacing:.4px;transition:all .2s}
+.monitor-filter:hover{background:rgba(139,92,246,.14);color:var(--txt);border-color:rgba(139,92,246,.4)}
+.monitor-filter.active{background:linear-gradient(135deg,rgba(139,92,246,.32),rgba(16,217,129,.2));border-color:rgba(139,92,246,.6);color:#dcc8ff;box-shadow:0 4px 14px -4px rgba(139,92,246,.65),inset 0 1px 0 rgba(255,255,255,.18)}
+.monitor-body{max-height:480px;overflow-y:auto;padding:8px 10px 12px;scroll-behavior:smooth}
+.monitor-body::-webkit-scrollbar{width:7px}
+.monitor-body::-webkit-scrollbar-track{background:transparent}
+.monitor-body::-webkit-scrollbar-thumb{background:rgba(139,92,246,.4);border-radius:99px}
+.monitor-body::-webkit-scrollbar-thumb:hover{background:rgba(139,92,246,.6)}
+.monitor-item{margin-bottom:3px;border-radius:11px;overflow:hidden}
+.monitor-row{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:11px;font-size:.82rem;line-height:1.5;cursor:pointer;transition:background .18s,border-color .18s;border:1px solid transparent;user-select:none}
+.monitor-row:hover{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.08)}
+.monitor-item.expanded .monitor-row{background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.32)}
+.monitor-row .mr-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.monitor-row .mr-time{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#6f7d92;flex-shrink:0;min-width:68px;letter-spacing:.3px}
+.monitor-row .mr-cat{font-size:.64rem;font-weight:800;letter-spacing:.5px;padding:2px 8px;border-radius:6px;flex-shrink:0;min-width:48px;text-align:center}
+.monitor-row .mr-title{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.monitor-row .mr-chevron{width:14px;height:14px;flex-shrink:0;color:#5b6a7d;transition:transform .25s,color .25s}
+.monitor-item.expanded .mr-chevron{transform:rotate(90deg);color:#c9b8ff}
+.mr-detail{display:none;padding:10px 16px 12px 96px;font-size:.8rem;line-height:1.78;color:var(--dim);animation:mrDetailIn .25s ease}
+@keyframes mrDetailIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.monitor-item.expanded .mr-detail{display:block}
+.mr-detail code{font-family:'JetBrains Mono',monospace;font-size:.74rem;padding:1px 6px;border-radius:5px;background:rgba(255,255,255,.08);color:#c9b8ff;word-break:break-all}
+.mr-detail .mr-evidence{margin-top:8px;padding-top:8px;border-top:1px dashed rgba(255,255,255,.1);font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#8b95a8;letter-spacing:.3px}
+.mr-detail .mr-tech{margin-top:6px;display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#c9b8ff;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.4);border-radius:6px;padding:2px 8px;letter-spacing:.4px}
+.monitor-empty{text-align:center;padding:46px 20px;color:var(--dim);font-size:.85rem;line-height:1.75}
+.monitor-empty .icon{width:2rem;height:2rem;color:#5b6a7d;margin-bottom:12px;display:block;margin-left:auto;margin-right:auto}
+.monitor-row.high .mr-dot{background:var(--red);box-shadow:0 0 10px var(--red)}
+.monitor-row.mid .mr-dot{background:var(--amber);box-shadow:0 0 10px var(--amber)}
+.monitor-row.low .mr-dot{background:var(--green);box-shadow:0 0 10px var(--green)}
+.monitor-row.info .mr-dot{background:#8b5cf6;box-shadow:0 0 10px #8b5cf6}
+.monitor-row.high .mr-title{color:#ffd0d0;font-weight:600}
+.monitor-row.mid .mr-title{color:#ffe8b8}
+.monitor-row.low .mr-title{color:#c9ffe0}
+.monitor-row.info .mr-title{color:#a8b8d8}
+.mr-cat.process{color:#c9b8ff;background:rgba(139,92,246,.16)}
+.mr-cat.file{color:#ffdfa3;background:rgba(255,200,87,.14)}
+.mr-cat.network{color:#c9ffe0;background:rgba(16,217,129,.14)}
+.mr-cat.registry{color:#b8d4ff;background:rgba(99,102,241,.16)}
+.mr-cat.memory{color:#dcc8ff;background:rgba(168,85,247,.16)}
+.mr-cat.credential{color:#ffbaba;background:rgba(255,77,77,.16)}
+.mr-cat.driver{color:#ffd4c4;background:rgba(255,138,61,.16)}
+.mr-cat.input{color:#a7e8ff;background:rgba(34,211,238,.16)}
+.mr-cat.anti{color:#e2c8ff;background:rgba(168,85,247,.14)}
+.mr-cat.antisandbox{color:#ff9a9a;background:rgba(255,77,77,.18)}
+.mr-cat.lateral{color:#ffe0b8;background:rgba(255,176,32,.14)}
 .result-summary{padding:24px 26px;border-radius:20px;margin-bottom:22px;border:1px solid var(--stroke);background:var(--glass);backdrop-filter:blur(var(--blur-md));-webkit-backdrop-filter:blur(var(--blur-md))}
 .result-summary.safe{border-color:rgba(16,217,129,.4);background:linear-gradient(135deg,rgba(16,217,129,.1),rgba(255,255,255,.03))}
 .result-summary.warn{border-color:rgba(255,200,87,.44);background:linear-gradient(135deg,rgba(255,200,87,.1),rgba(255,255,255,.03))}
@@ -403,6 +418,11 @@ body.mode-red .brand .grad{background:linear-gradient(90deg,var(--red),var(--amb
 .result-summary .stat{text-align:center}
 .result-summary .stat .v{font-size:1.6rem;font-weight:900;letter-spacing:-.9px;line-height:1.1}
 .result-summary .stat .k{font-size:.7rem;color:var(--dim);margin-top:3px;letter-spacing:.6px}
+.result-summary .attack-chain{margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.09)}
+.result-summary .attack-chain .ac-title{font-size:.78rem;font-weight:800;letter-spacing:1.2px;color:#c9b8ff;margin-bottom:12px}
+.result-summary .attack-chain .ac-steps{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.result-summary .attack-chain .ac-step{padding:7px 12px;border-radius:10px;font-size:.76rem;font-weight:700;background:rgba(139,92,246,.14);border:1px solid rgba(139,92,246,.4);color:#dcc8ff;font-family:'JetBrains Mono',monospace;letter-spacing:.3px}
+.result-summary .attack-chain .ac-arrow{color:#5b6a7d;font-weight:800}
 .news-hero{text-align:center;margin-bottom:46px}
 .news-hero .badge-live{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;letter-spacing:2.2px;font-weight:800;color:#c9b8ff;padding:6px 16px;border-radius:99px;margin-bottom:20px;border:1px solid rgba(139,92,246,.45);background:rgba(139,92,246,.12);box-shadow:0 4px 16px -4px rgba(139,92,246,.7),inset 0 1px 0 rgba(255,255,255,.16)}
 .news-hero .badge-live::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--violet);box-shadow:0 0 10px rgba(16,217,129,.95)}
@@ -597,15 +617,27 @@ body.mode-red .brand .grad{background:linear-gradient(90deg,var(--red),var(--amb
 .wm-btn .icon{width:1.05em;height:1.05em}
 .wm-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.4) 50%,transparent 70%);transform:translateX(-120%);animation:sheen 3.6s ease-in-out infinite}
 .wm-btn:hover{transform:translateY(-2px) scale(1.01);box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 -2px 0 rgba(0,0,0,.22) inset,0 22px 52px -14px rgba(139,92,246,1)}
+/* ============ 更新日志优化 ============ */
 .changelog-list{display:grid;gap:10px;margin-bottom:24px}
-.changelog-item{display:flex;gap:14px;padding:15px 18px;border-radius:15px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);transition:all .25s}
+.changelog-item{display:flex;gap:16px;padding:15px 18px;border-radius:15px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);transition:all .25s;position:relative;overflow:hidden}
+.changelog-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:rgba(255,255,255,.12);transition:background .25s}
+.changelog-item.major::before{background:linear-gradient(180deg,#8b5cf6,#6366f1)}
+.changelog-item.patch::before{background:linear-gradient(180deg,#10d981,#06b06a)}
 .changelog-item:hover{background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.36);transform:translateX(4px)}
 .changelog-item.current{background:linear-gradient(135deg,rgba(139,92,246,.16),rgba(16,217,129,.09));border-color:rgba(139,92,246,.5);box-shadow:0 8px 26px -10px rgba(139,92,246,.7)}
-.changelog-item .ver{flex-shrink:0;min-width:52px;font-family:'JetBrains Mono',monospace;font-size:.92rem;font-weight:900;letter-spacing:-.5px;background:linear-gradient(135deg,#fff,#c9b8ff);-webkit-background-clip:text;background-clip:text;color:transparent;padding-top:1px}
+.changelog-item.current::before{background:linear-gradient(180deg,#c9b8ff,#10d981);box-shadow:0 0 14px -2px rgba(139,92,246,.9)}
+.changelog-ver-wrap{flex-shrink:0;min-width:70px;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.changelog-item .ver{font-family:'JetBrains Mono',monospace;font-size:.98rem;font-weight:900;letter-spacing:-.5px;background:linear-gradient(135deg,#fff,#c9b8ff);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.1}
 .changelog-item.current .ver{background:linear-gradient(135deg,#c9b8ff,#7ee0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.changelog-item .cl-date{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:#5b6a7d;letter-spacing:.4px}
+.changelog-item.current .cl-date{color:#a89ecf}
 .changelog-item .content{flex:1;min-width:0}
 .changelog-item .text{font-size:.87rem;color:var(--txt);line-height:1.75}
-.changelog-item .badge{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:1.2px;padding:3px 10px;border-radius:99px;color:#dcc8ff;background:rgba(139,92,246,.2);border:1px solid rgba(139,92,246,.5);margin-left:8px;vertical-align:1px}
+.changelog-item .badge{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:1.2px;padding:2px 9px;border-radius:99px;color:#dcc8ff;background:rgba(139,92,246,.22);border:1px solid rgba(139,92,246,.55);margin-left:8px;vertical-align:1px}
+.changelog-item.current .badge{background:linear-gradient(135deg,rgba(139,92,246,.4),rgba(16,217,129,.32));border-color:rgba(16,217,129,.6);color:#e0ffe8;box-shadow:0 0 12px -2px rgba(16,217,129,.8)}
+.changelog-item .cl-type{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:1.1px;padding:1px 7px;border-radius:5px;margin-left:6px;vertical-align:1px}
+.changelog-item .cl-type.major{color:#c9b8ff;background:rgba(139,92,246,.16);border:1px solid rgba(139,92,246,.4)}
+.changelog-item .cl-type.patch{color:#c9ffe0;background:rgba(16,217,129,.14);border:1px solid rgba(16,217,129,.4)}
 .newbie-toggle{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:99px;border:1px solid var(--stroke);background:rgba(255,255,255,.05);cursor:pointer;font-size:.76rem;color:var(--dim);font-family:inherit;transition:all .25s;user-select:none}
 .newbie-toggle:hover{background:rgba(139,92,246,.15);color:var(--txt)}
 .newbie-toggle .switch{position:relative;width:34px;height:18px;border-radius:99px;background:rgba(255,255,255,.12);transition:all .3s cubic-bezier(.2,.8,.2,1);flex-shrink:0}
@@ -667,7 +699,7 @@ body.newbie .newbie-guide{display:block}
 .newbie-foot{padding:22px 24px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid var(--stroke);font-size:.83rem;color:var(--dim);line-height:1.88}
 .newbie-foot strong{color:#ffd7a8;font-weight:800}
 @media(max-width:768px){.wave-a{opacity:.36}.wave-b{opacity:.28}.wave-c{opacity:.2}.sandbox-drop{padding:40px 20px}}
-@media(max-width:640px){.page{padding:0 15px 70px}.topbar{margin:12px 0 30px;padding:12px 15px;gap:9px;flex-wrap:wrap}.chip{display:none}.newbie-toggle{padding:5px 10px;font-size:.7rem}.newbie-toggle .switch{width:28px;height:15px}.newbie-toggle .switch::after{width:11px;height:11px}.newbie-toggle.on .switch::after{transform:translateX(13px)}.replay-guide-btn{padding:5px 10px;font-size:.7rem}.brand .ver{font-size:.6rem;padding:2px 6px}.download-zone,.huorong-zone{padding:26px 20px}.dz-head,.hz-head{flex-direction:column;gap:14px}.btn-row{flex-direction:column}.btn-main,.btn-ghost,.btn-purple{width:100%;justify-content:center}.fb-item{flex-wrap:wrap}#fwHud{right:14px;bottom:14px}#fwToggle{width:56px;height:56px}#fwToggle .icon{width:1.4rem;height:1.4rem}#fwPanel{max-height:64vh}.status-strip{grid-template-columns:1fr 1fr}.shield-card{padding:26px 20px 22px}.shield-top{flex-direction:column;align-items:flex-start;gap:12px}.modal-card{padding:28px 22px 22px;border-radius:22px}.wmv-row{grid-template-columns:1fr}.news-timeline{padding-left:26px}.news-item::before{left:-22px}.filter-row{padding:12px}.evo-chart-wrap{padding:22px 18px 18px}.evo-chart-head{flex-direction:column;align-items:flex-start;gap:10px}.evo-tooltip{min-width:160px;padding:10px 12px}.evo-legend{gap:10px 18px}.evo-legend-item{font-size:.75rem}.drop-icon{width:66px;height:66px}.drop-icon .icon{width:2rem;height:2rem}.file-item{flex-wrap:wrap}.guide-tip{left:16px !important;right:16px !important;top:auto !important;bottom:20px !important;width:auto}.newbie-steps{gap:12px}.nstep{padding:20px 20px}.nstep-head{flex-wrap:wrap;gap:10px}.nstep-time{margin-left:0}.sandbox-ai-zone{padding:22px 18px 20px}.sandbox-ai-zone .aiz-head .aiz-title{font-size:1rem}.sandbox-ai-zone .aiz-btn{width:100%;justify-content:center}.deep-think-bar{flex-direction:column;align-items:stretch;gap:12px}.deep-think-bar .dt-icon{align-self:flex-start}.dt-switch{align-self:flex-end}.ai-progress .ap-stages{grid-template-columns:repeat(2,1fr)}.pwd-card{padding:26px 22px 22px}.behavior-timeline::before{left:14px}.bt-event{padding-left:44px}.bt-event::before{left:6px}}
+@media(max-width:640px){.page{padding:0 15px 70px}.topbar{margin:12px 0 30px;padding:12px 15px;gap:9px;flex-wrap:wrap}.chip{display:none}.newbie-toggle{padding:5px 10px;font-size:.7rem}.newbie-toggle .switch{width:28px;height:15px}.newbie-toggle .switch::after{width:11px;height:11px}.newbie-toggle.on .switch::after{transform:translateX(13px)}.replay-guide-btn{padding:5px 10px;font-size:.7rem}.brand .ver{font-size:.6rem;padding:2px 6px}.download-zone,.huorong-zone{padding:26px 20px}.dz-head,.hz-head{flex-direction:column;gap:14px}.btn-row{flex-direction:column}.btn-main,.btn-ghost,.btn-purple{width:100%;justify-content:center}.fb-item{flex-wrap:wrap}#fwHud{right:14px;bottom:14px}#fwToggle{width:56px;height:56px}#fwToggle .icon{width:1.4rem;height:1.4rem}#fwPanel{max-height:64vh}.status-strip{grid-template-columns:1fr 1fr}.shield-card{padding:26px 20px 22px}.shield-top{flex-direction:column;align-items:flex-start;gap:12px}.modal-card{padding:28px 22px 22px;border-radius:22px}.wmv-row{grid-template-columns:1fr}.news-timeline{padding-left:26px}.news-item::before{left:-22px}.filter-row{padding:12px}.evo-chart-wrap{padding:22px 18px 18px}.evo-chart-head{flex-direction:column;align-items:flex-start;gap:10px}.evo-tooltip{min-width:160px;padding:10px 12px}.evo-legend{gap:10px 18px}.evo-legend-item{font-size:.75rem}.drop-icon{width:66px;height:66px}.drop-icon .icon{width:2rem;height:2rem}.file-item{flex-wrap:wrap}.guide-tip{left:16px !important;right:16px !important;top:auto !important;bottom:20px !important;width:auto}.newbie-steps{gap:12px}.nstep{padding:20px 20px}.nstep-head{flex-wrap:wrap;gap:10px}.nstep-time{margin-left:0}.sandbox-ai-zone{padding:22px 18px 20px}.sandbox-ai-zone .aiz-head .aiz-title{font-size:1rem}.sandbox-ai-zone .aiz-btn{width:100%;justify-content:center}.deep-think-bar{flex-direction:column;align-items:stretch;gap:12px}.deep-think-bar .dt-icon{align-self:flex-start}.dt-switch{align-self:flex-end}.ai-progress .ap-stages{grid-template-columns:repeat(2,1fr)}.pwd-card{padding:26px 22px 22px}.mr-detail{padding-left:16px;padding-right:14px}.monitor-head{padding:12px 14px}.monitor-body{max-height:360px}.monitor-row{padding:7px 10px;gap:8px;font-size:.78rem}.monitor-row .mr-time{min-width:56px;font-size:.66rem}.monitor-row .mr-cat{min-width:40px;font-size:.6rem;padding:2px 6px}.monitor-filters{width:100%;margin-left:0;justify-content:flex-start}.result-summary .attack-chain .ac-step{font-size:.7rem;padding:5px 9px}}
 @media(max-width:480px){.wave-a{opacity:.28}.wave-b{opacity:.22}.wave-c{opacity:.16}}
 @media(max-width:420px){.status-strip{grid-template-columns:1fr}}
 @media(max-width:360px){.wave-svg{animation:none !important;opacity:.26 !important}}
@@ -719,7 +751,7 @@ body.newbie .newbie-guide{display:block}
 
 <div class="page active" id="portal">
 <header class="topbar glass">
-<div class="brand"><span class="dot"></span><span>银狐木马<span class="grad">急救工具</span></span><span class="ver">v2.0.1</span></div>
+<div class="brand"><span class="dot"></span><span>银狐木马<span class="grad">急救工具</span></span><span class="ver">v2.0.2</span></div>
 <div class="spacer"></div>
 <button class="newbie-toggle" id="newbieToggle" type="button" aria-pressed="false"><span class="switch"></span><span>新手模式</span></button>
 <button class="replay-guide-btn" id="replayGuideBtn" type="button"><svg class="icon"><use href="#i-lightbulb"/></svg>看引导</button>
@@ -741,8 +773,8 @@ body.newbie .newbie-guide{display:block}
 </div>
 <div class="pcard glass sandbox-card clickable" id="sandboxCard" role="button" tabindex="0">
 <div class="pico"><svg class="icon"><use href="#i-monitor"/></svg></div>
-<h3>动态沙箱分析（接入GLM5.3模型）<span class="glm-tag">2.0.1</span></h3>
-<p>隔离环境模拟执行，实时捕获进程/文件/网络/注册表/内存/凭据/驱动/输入/反分析 9 大类行为。由 GLM5.3 大模型基于完整行为链路做最终判定。</p><span class="ptag">开始分析 →</span>
+<h3>动态沙箱分析（接入GLM5.3模型）<span class="glm-tag">2.0.2</span></h3>
+<p>隔离环境模拟执行，实时捕获进程/文件/网络/注册表/内存/凭据/驱动/输入/反分析/反沙箱 10 大类行为。由 GLM5.3 大模型基于完整行为链路做最终判定。</p><span class="ptag">开始分析 →</span>
 </div>
 <div class="pcard glass news-card clickable" id="newsCard" role="button" tabindex="0">
 <div class="pico"><svg class="icon"><use href="#i-radar"/></svg></div>
@@ -753,7 +785,7 @@ body.newbie .newbie-guide{display:block}
 
 <div class="page" id="page1">
 <header class="topbar glass">
-<div class="brand"><span class="dot"></span><span>银狐<span class="grad">专杀应急</span></span><span class="ver">v2.0.1</span></div>
+<div class="brand"><span class="dot"></span><span>银狐<span class="grad">专杀应急</span></span><span class="ver">v2.0.2</span></div>
 <div class="spacer"></div>
 <div class="chip fw" id="fwChip1"><svg class="icon"><use href="#i-shield"/></svg>防火墙：已启用</div>
 <button class="back-btn" id="backToPortalBtn"><svg class="icon"><use href="#i-arrow-left"/></svg>返回首页</button>
@@ -898,12 +930,12 @@ body.newbie .newbie-guide{display:block}
 
 <div class="page" id="page4">
 <header class="topbar glass">
-<div class="brand"><span class="dot" style="background:var(--violet)"></span><span>动态<span class="grad">沙箱分析</span></span><span class="ver">v2.0.1</span></div>
+<div class="brand"><span class="dot" style="background:var(--violet)"></span><span>动态<span class="grad">沙箱分析</span></span><span class="ver">v2.0.2</span></div>
 <div class="spacer"></div>
 <div class="chip fw" id="fwChip4"><svg class="icon"><use href="#i-shield"/></svg>防火墙：已启用</div>
 <button class="back-btn" id="backFromSandboxBtn"><svg class="icon"><use href="#i-arrow-left"/></svg>返回首页</button>
 </header>
-<section class="sandbox-hero"><h1>动态沙箱分析（接入GLM5.3模型）</h1><p>在隔离环境中模拟执行文件，实时捕获 9 大类动态行为：进程、文件、网络、注册表、内存、凭据、驱动、输入监控、反分析。由 GLM5.3 大模型基于完整行为链路做最终判定（会读取行为日志 + 文件内容）。</p></section>
+<section class="sandbox-hero"><h1>动态沙箱分析（接入GLM5.3模型）</h1><p>在隔离环境中模拟执行文件，实时捕获 10 大类动态行为：进程、文件、网络、注册表、内存、凭据、驱动、输入监控、反分析、反沙箱。由 GLM5.3 大模型基于完整行为链路做最终判定（会读取行为日志 + 文件内容）。</p></section>
 <section class="sandbox-ai-zone" id="sandboxAiZone">
 <div class="aiz-head">
 <div class="aiz-ico"><svg class="icon"><use href="#i-cpu"/></svg></div>
@@ -946,18 +978,32 @@ body.newbie .newbie-guide{display:block}
 </section>
 <section class="sandbox-action" id="sandboxAction" hidden><button class="btn-main" id="startScanBtn" type="button"><svg class="icon"><use href="#i-play"/></svg>开始动态分析</button></section>
 <section id="sandboxEngines" hidden>
-<h2 class="sec-title"><span class="num cyan"><svg class="icon" style="width:1.15em;height:1.15em"><use href="#i-monitor"/></svg></span>动态沙箱 · 9 大类行为监控</h2>
+<h2 class="sec-title"><span class="num cyan"><svg class="icon" style="width:1.15em;height:1.15em"><use href="#i-monitor"/></svg></span>动态沙箱 · 10 大类行为监控</h2>
 <div class="engines-grid">
 <div class="engine-card" id="engineBehavior"><div class="engine-head"><div class="engine-icon"><svg class="icon"><use href="#i-cpu"/></svg></div><div><div class="engine-name">进程与内存监控</div><div class="engine-desc">进程/命令行/注入/镂空/提权/令牌/内存操作</div></div><span class="engine-status" data-status="idle">待命</span></div><div class="engine-progress"><div class="engine-bar"></div></div><div class="engine-meta">已捕获 <span class="ev-num">0</span> / <span class="ev-total">0</span> 条行为</div></div>
 <div class="engine-card" id="engineFile"><div class="engine-head"><div class="engine-icon"><svg class="icon"><use href="#i-file"/></svg></div><div><div class="engine-name">文件 / 注册表 / 驱动监控</div><div class="engine-desc">落盘/释放/加密/删除/ADS/时间戳/注册表/驱动加载</div></div><span class="engine-status" data-status="idle">待命</span></div><div class="engine-progress"><div class="engine-bar"></div></div><div class="engine-meta">已捕获 <span class="ev-num">0</span> / <span class="ev-total">0</span> 条行为</div></div>
-<div class="engine-card" id="engineNetwork"><div class="engine-head"><div class="engine-icon"><svg class="icon"><use href="#i-radar"/></svg></div><div><div class="engine-name">网络 / 凭据 / 输入 / 反分析监控</div><div class="engine-desc">C2/DNS/心跳/下载/SMB/凭据窃取/键盘钩子/反调试</div></div><span class="engine-status" data-status="idle">待命</span></div><div class="engine-progress"><div class="engine-bar"></div></div><div class="engine-meta">已捕获 <span class="ev-num">0</span> / <span class="ev-total">0</span> 条行为</div></div>
+<div class="engine-card" id="engineNetwork"><div class="engine-head"><div class="engine-icon"><svg class="icon"><use href="#i-radar"/></svg></div><div><div class="engine-name">网络 / 凭据 / 输入 / 横向监控</div><div class="engine-desc">C2/DNS/心跳/下载/SMB/凭据窃取/键盘钩子/横向移动</div></div><span class="engine-status" data-status="idle">待命</span></div><div class="engine-progress"><div class="engine-bar"></div></div><div class="engine-meta">已捕获 <span class="ev-num">0</span> / <span class="ev-total">0</span> 条行为</div></div>
+<div class="engine-card" id="engineAnti"><div class="engine-head"><div class="engine-icon"><svg class="icon"><use href="#i-ban"/></svg></div><div><div class="engine-name">反分析 / 反沙箱监控</div><div class="engine-desc">反调试/反虚拟机/沙箱检测/时间检测/硬件指纹/用户活动检测</div></div><span class="engine-status" data-status="idle">待命</span></div><div class="engine-progress"><div class="engine-bar"></div></div><div class="engine-meta">已捕获 <span class="ev-num">0</span> / <span class="ev-total">0</span> 条行为</div></div>
 </div>
 </section>
-<section id="sandboxTimelineWrap" hidden>
-<h2 class="sec-title"><span class="num cyan"><svg class="icon" style="width:1.15em;height:1.15em"><use href="#i-pulse"/></svg></span>动态行为时间线</h2>
-<div class="behavior-timeline" id="behaviorTimeline"></div>
+<section id="sandboxMonitor" hidden>
+<h2 class="sec-title"><span class="num cyan"><svg class="icon" style="width:1.15em;height:1.15em"><use href="#i-pulse"/></svg></span>沙箱活动监控</h2>
+<div class="monitor-window">
+<div class="monitor-head">
+<div class="monitor-title"><svg class="icon"><use href="#i-monitor"/></svg><span>实时行为监控</span><span class="monitor-count" id="monitorCount">0 条</span></div>
+<div class="monitor-filters" id="monitorFilters">
+<button class="monitor-filter active" data-filter="all" type="button">全部</button>
+<button class="monitor-filter" data-filter="high" type="button">高危</button>
+<button class="monitor-filter" data-filter="mid" type="button">中危</button>
+<button class="monitor-filter" data-filter="low" type="button">低危</button>
+<button class="monitor-filter" data-filter="anti" type="button">反沙箱</button>
+</div>
+</div>
+<div class="monitor-body" id="monitorBody">
+<div class="monitor-empty"><svg class="icon"><use href="#i-radar"/></svg>等待沙箱启动 · 扫描过程中会实时记录样本行为</div>
+</div>
+</div>
 </section>
-<section id="sandboxLogWrap" hidden><h2 class="sec-title"><span class="num cyan">实时沙箱日志</span></h2><div class="sandbox-log" id="sandboxLog"></div></section>
 <section id="sandboxResults" hidden>
 <h2 class="sec-title"><span class="num cyan">动态分析结果</span></h2>
 <div id="foxVerdictWrap"></div>
@@ -968,7 +1014,7 @@ body.newbie .newbie-guide{display:block}
 
 <div class="page" id="page3">
 <header class="topbar glass">
-<div class="brand"><span class="dot" style="background:var(--violet)"></span><span>威胁<span class="grad">动态中心</span></span><span class="ver">v2.0.1</span></div>
+<div class="brand"><span class="dot" style="background:var(--violet)"></span><span>威胁<span class="grad">动态中心</span></span><span class="ver">v2.0.2</span></div>
 <div class="spacer"></div>
 <div class="chip fw" id="fwChip3"><svg class="icon"><use href="#i-shield"/></svg>防火墙：已启用</div>
 <button class="back-btn" id="backFromNewsBtn"><svg class="icon"><use href="#i-arrow-left"/></svg>返回首页</button>
@@ -997,14 +1043,14 @@ body.newbie .newbie-guide{display:block}
 <button class="filter-btn" data-level="low"><span class="dot"></span>低危</button>
 </div>
 <section class="news-timeline" id="newsTimeline">
-<article class="news-item" data-level="high"><div class="news-meta"><span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-24</span><span class="news-level high"><span class="dot"></span>高危</span><span class="news-tag">新型变种</span></div><h3>银狐新增"白加黑"加载链，可绕过常规杀软检测</h3><p class="news-desc">最新捕获的样本使用带有效数字签名的正规软件作为白文件，通过 DLL 劫持加载恶意载荷。由于白文件本身可信任，传统基于签名和信誉的检测手段容易被绕过。</p><div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>开启安全软件的行为监控和驱动拦截；不要运行来源不明的安装包。</span></div></article>
-<article class="news-item" data-level="high"><div class="news-meta"><span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-22</span><span class="news-level high"><span class="dot"></span>高危</span><span class="news-tag">钓鱼投递</span></div><h3>伪装企业微信官网的大规模钓鱼投放正在活跃</h3><p class="news-desc">攻击者注册了与企业微信官方域名高度相似的域名，页面外观几乎完全一致，提供"最新版客户端"下载。下载的安装包内嵌银狐木马。</p><div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>安装企业微信、钉钉、WPS 等常用软件只从官方网站获取。</span></div></article>
-<article class="news-item" data-level="high"><div class="news-meta"><span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-20</span><span class="news-level high"><span class="dot"></span>高危</span><span class="news-tag">驱动对抗</span></div><h3>银狐变种新增驱动级对抗能力，可关闭 11 种杀软</h3><p class="news-desc">安全研究团队发现，银狐最新变种已具备自行编写和加载内核驱动能力，可绕过微软的驱动程序黑名单拦截，直接结束 360、火绒、腾讯电脑管家等 11 种主流杀软的进程。</p><div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>不要仅凭界面图标判断安全软件状态，定期手动执行全盘扫描。</span></div></article>
-<article class="news-item" data-level="mid"><div class="news-meta"><span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-18</span><span class="news-level mid"><span class="dot"></span>中危</span><span class="news-tag">传播渠道</span></div><h3>财务群聊成为主要投递渠道，伪装"对账单"文件高发</h3><p class="news-desc">攻击者潜伏在财务、采购相关的微信群和 QQ 群中，以"上月对账单""供应商合同""发票汇总"为名发送压缩包。</p><div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>在文件管理器中开启"显示文件扩展名"。</span></div></article>
-<article class="news-item" data-level="mid"><div class="news-meta"><span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-15</span><span class="news-level mid"><span class="dot"></span>中危</span><span class="news-tag">清理行为</span></div><h3>银狐新增 IP-guard 远控工具清除逻辑</h3><p class="news-desc">新版银狐木马会主动检测环境中是否存在 IP-guard 等企业级远控工具，发现后尝试卸载或停止其服务。</p><div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>如果企业依赖 IP-guard 等远控工具，务必在清理银狐后重新安装。</span></div></article>
-<article class="news-item" data-level="mid"><div class="news-meta"><span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-12</span><span class="news-level mid"><span class="dot"></span>中危</span><span class="news-tag">横向扩散</span></div><h3>内网共享目录成为横向扩散温床</h3><p class="news-desc">多起企业感染案例显示，银狐木马会枚举内网共享目录，尝试用弱口令和常见凭据登录其他主机，投递自身副本。</p><div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>关闭不必要的默认共享；禁用 Guest 账户。</span></div></article>
-<article class="news-item" data-level="low"><div class="news-meta"><span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-10</span><span class="news-level low"><span class="dot"></span>低危</span><span class="news-tag">工具更新</span></div><h3>火绒顽固木马专杀工具更新，增强银狐检出率</h3><p class="news-desc">火绒发布了针对银狐木马的最新专杀工具版本，新增对多个白加黑加载链、驱动级对抗样本的识别规则。</p><div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>从本页"银狐木马专杀"入口下载最新版专杀工具。</span></div></article>
-<article class="news-item" data-level="low"><div class="news-meta"><span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-08</span><span class="news-level low"><span class="dot"></span>低危</span><span class="news-tag">防护升级</span></div><h3>微软更新驱动黑名单，拦截部分银狐变种</h3><p class="news-desc">微软在本月补丁更新中扩大了驱动程序黑名单，对已知银狐使用的部分恶意驱动实现开机拦截。</p><div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>及时安装 Windows 更新；开启 Windows 安全中心的内存完整性。</span></div></article>
+<article class="news-item" data-level="high"><div class="news-meta"><span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-10-03</span><span class="news-level high"><span class="dot"></span>高危</span><span class="news-tag">APT 攻击</span></div><h3>银狐团伙针对财务人员发动精准钓鱼，伪装"年度审计底稿"</h3><p class="news-desc">最新监测显示，银狐团伙通过攻陷的邮箱账号向企业财务人员投递"2026年度审计底稿.zip"，内嵌 LNK 文件，点击后调用 PowerShell 从云盘拉取银狐载荷。攻击者会先在真实邮件中潜伏数日，模仿正常商务沟通语气降低戒心。</p><div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>收到审计、合同、对账单类压缩包，先通过电话核实；开启 Windows 脚本宿主关闭策略。</span></div></article>
+<article class="news-item" data-level="high"><div class="news-meta"><span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-10-02</span><span class="news-level high"><span class="dot"></span>高危</span><span class="news-tag">驱动对抗</span></div><h3>银狐新变种利用 BYOVD 技术关闭国产 EDR，攻击链全解析</h3><p class="news-desc">安全团队披露银狐最新变种使用带有效签名的正规驱动（如某硬件厂商驱动）作为跳板，绕过微软驱动签名强制校验，加载恶意驱动后直接向 EDR 内核模块发送 IOCTL 指令，实现静默卸载。</p><div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>部署内存完整性（HVCI）+ 受保护进程轻量版（LSA 保护）；关注微软每月驱动黑名单更新。</span></div></article>
+<article class="news-item" data-level="high"><div class="news-meta"><span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-30</span><span class="news-level high"><span class="dot"></span>高危</span><span class="news-tag">无文件攻击</span></div><h3>银狐开始大规模使用无文件攻击，PowerShell 内存加载成主流</h3><p class="news-desc">近期超过 60% 的银狐样本采用 PowerShell 编码命令 + AMSI 绕过组合，完全不落地可执行文件，直接在内存中反射加载 .NET 载荷，传统基于文件扫描的防护手段基本失效。</p><div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>开启 PowerShell 脚本块日志（Script Block Logging）；限制普通用户执行 PowerShell 的权限。</span></div></article>
+<article class="news-item" data-level="mid"><div class="news-meta"><span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-28</span><span class="news-level mid"><span class="dot"></span>中危</span><span class="news-tag">传播渠道</span></div><h3>银狐伪装"税务稽查通知"通过微信群大规模投递</h3><p class="news-desc">攻击者伪装成税务专管员，在中小企业财务群中发送"税务稽查自查通知.pdf.exe"，利用双扩展名 + 单位图标伪装成文档。受害者点击后，木马会立即尝试关闭火绒、360 等安全软件。</p><div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>在文件管理器中开启"显示文件扩展名"；开启 Windows 系统"隐藏已知文件类型的扩展名"的反向设置。</span></div></article>
+<article class="news-item" data-level="mid"><div class="news-meta"><span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-26</span><span class="news-level mid"><span class="dot"></span>中危</span><span class="news-tag">横向移动</span></div><h3>银狐内网横向新手法：利用 SMB 共享 + PsExec 批量投毒</h3><p class="news-desc">多起企业感染案例显示，银狐在单机感染后会枚举内网 SMB 共享，尝试用弱口令和常见企业凭据登录其他主机，通过 PsExec 批量投递。部分变种还会扫描 445 端口和 3389 端口。</p><div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>关闭不必要的 SMB 共享；启用 SMB 签名；禁用管理员账户远程登录。</span></div></article>
+<article class="news-item" data-level="mid"><div class="news-meta"><span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-24</span><span class="news-level mid"><span class="dot"></span>中危</span><span class="news-tag">凭据窃取</span></div><h3>银狐新增 LSASS 内存转储 + 浏览器凭据批量解密能力</h3><p class="news-desc">新版银狐集成 Mimikatz 部分功能，会尝试读取 LSASS 进程内存获取 Windows 登录凭据，同时读取 Chrome/Edge/Firefox 的 Login Data、Cookies 和 Local State，使用 DPAPI 解密后打包回传。</p><div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>开启 Windows Defender Credential Guard；定期清理浏览器保存的密码。</span></div></article>
+<article class="news-item" data-level="low"><div class="news-meta"><span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-22</span><span class="news-level low"><span class="dot"></span>低危</span><span class="news-tag">工具更新</span></div><h3>火绒顽固木马专杀更新，新增银狐驱动对抗样本检出</h3><p class="news-desc">火绒发布专杀工具更新，新增对银狐 BYOVD 驱动加载、APC 注入、无文件执行等高级手法的识别规则，显著提升银狐家族检出率。</p><div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>从本页"银狐木马专杀"入口下载最新版专杀工具，并配合 360 急救箱交叉查杀。</span></div></article>
+<article class="news-item" data-level="low"><div class="news-meta"><span class="news-date"><svg class="icon"><use href="#i-calendar"/></svg> 2026-09-20</span><span class="news-level low"><span class="dot"></span>低危</span><span class="news-tag">防护升级</span></div><h3>微软 9 月补丁更新扩大驱动黑名单，新增 17 个恶意驱动指纹</h3><p class="news-desc">微软在本月补丁更新中扩大了驱动程序黑名单，新增 17 个已知被银狐等恶意软件滥用的驱动指纹，开启内存完整性的机器可实现开机拦截。</p><div class="news-advice"><span class="ai"><svg class="icon"><use href="#i-shield-check"/></svg></span><span><strong>防范建议：</strong>及时安装 Windows 更新；在"Windows 安全中心 → 设备安全性"中开启内存完整性。</span></div></article>
 </section>
 <div class="news-empty" id="newsEmpty" style="display:none"><svg class="icon"><use href="#i-radar"/></svg>该分类下暂无动态</div>
 </div>
@@ -1043,11 +1089,11 @@ body.newbie .newbie-guide{display:block}
 
 <div id="welcomeModal" class="modal dismissed">
 <div class="modal-card">
-<h2>欢迎来到云端急救工具平台 · 2.0.1</h2>
+<h2>欢迎来到云端急救工具平台 · 2.0.2</h2>
 <p class="wm-intro">这是一个<b>云端网页</b>，专门提供<strong>银狐木马等安全事件的急救工具与处置指引</strong>。页面由 <strong>AI 协助编写</strong>，用于安全科普与应急演示。它<strong>不是银狐木马网站</strong>，也不包含任何木马、病毒或恶意代码。</p>
 <div class="wm-points">
 <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-cloud"/></svg></div><div><div class="wmp-title">纯云端网页 · 即开即用</div><div class="wmp-desc">无需下载安装，打开浏览器即可访问。所有内容都在网页内呈现。</div></div></div>
-<div class="wmp"><div class="wi"><svg class="icon"><use href="#i-monitor"/></svg></div><div><div class="wmp-title">动态沙箱 · 9 大类行为监控</div><div class="wmp-desc">进程/内存 · 文件/注册表/驱动 · 网络/凭据/输入/反分析，实时捕获完整行为链路。</div></div></div>
+<div class="wmp"><div class="wi"><svg class="icon"><use href="#i-monitor"/></svg></div><div><div class="wmp-title">动态沙箱 · 10 大类行为监控</div><div class="wmp-desc">进程/内存 · 文件/注册表/驱动 · 网络/凭据/输入/横向 · 反分析/反沙箱，实时捕获完整行为链路。</div></div></div>
 <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-box"/></svg></div><div><div class="wmp-title">AI 判定（核心）</div><div class="wmp-desc">GLM5.3 大模型基于完整行为链路做最终判定，重建攻击链、比对家族、提取 IOC。</div></div></div>
 <div class="wmp"><div class="wi"><svg class="icon"><use href="#i-lock"/></svg></div><div><div class="wmp-title">纯静态 · 不联网 · 不收集</div><div class="wmp-desc">本地分析不上传、不收集任何数据。下载链接全部指向 360 与火绒官方地址。</div></div></div>
 </div>
@@ -1065,7 +1111,7 @@ body.newbie .newbie-guide{display:block}
 <div id="changelogModal" class="modal dismissed">
 <div class="modal-card">
 <h2>更新日志</h2>
-<p class="wm-intro">网站自上线以来持续迭代，当前版本 <strong>2.0.1</strong>。</p>
+<p class="wm-intro">网站自上线以来持续迭代，当前版本 <strong>2.0.2</strong>。</p>
 <div class="changelog-list" id="changelogList"></div>
 <label class="wm-check"><input type="checkbox" id="dontShowChangelogToday"><span>今日不再弹出</span></label>
 <button class="wm-btn" id="clConfirm"><svg class="icon"><use href="#i-arrow-right"/></svg>开始使用</button>
@@ -1093,19 +1139,20 @@ const DOWNLOAD_URL='https://dl.360safe.com/360c0mpkill_5.1.64.1289-0701.zip';
 const DOWNLOAD_NAME='360c0mpkill_5.1.64.1289-0701.zip';
 const HUORONG_URL='https://down7.huorong.cn/hrkill/hrkill-1.0.0.198.exe';
 const HUORONG_NAME='Hrkill-SilverFox.exe';
-const CURRENT_VERSION='2.0.1';
+const CURRENT_VERSION='2.0.2';
 const CHANGELOG=[
-{ver:'2.0.1',text:'动态沙箱全面加强 · 9 大类行为监控（进程/内存 · 文件/注册表/驱动 · 网络/凭据/输入/反分析）· AI 判定升级为攻击链重建 + 家族指纹匹配 + 置信度评估 · 监控引擎精细化',current:true},
-{ver:'2.0',text:'大版本更新 · 每人 2 次 AI 试用 · 请求可视化 · 银狐木马专项判定 · 深度思考模式 · 全新深空暮光主题'},
-{ver:'1.9',text:'沙箱接入 GLM5.3 大模型（测试版） · AI 分析改为读取文件实际内容以减少误判 · 新增文件名检测'},
-{ver:'1.8',text:'新增新手模式 · 超详细处置指引 + 分步引导教程'},
-{ver:'1.7',text:'沙箱规则引擎重写 · 多条件组合 + 白名单 + 内容分析，大幅降低误报'},
-{ver:'1.6',text:'新增文件沙箱分析模块 · 精简首页'},
-{ver:'1.5',text:'优化了性能缺失'},
-{ver:'1.4',text:'优化了一些用户体验性'},
-{ver:'1.3',text:'新增动态'},
-{ver:'1.2',text:'UI 优化'},
-{ver:'1.1',text:'整合了 360 以及火绒专杀工具'}
+{ver:'2.0.2',date:'2026-10-03',text:'沙箱活动记录整合至紧凑监控窗口 · 新增 20+ 条行为检测规则（APC 注入/线程上下文劫持/无文件攻击/银狐家族特征等）· AI 引擎加入重试机制与请求优化 · 更新日志模块视觉优化',current:true,major:true},
+{ver:'2.0.1',date:'2026-09-28',text:'动态沙箱全面加强 · 9 大类行为监控（进程/内存 · 文件/注册表/驱动 · 网络/凭据/输入/反分析）· AI 判定升级为攻击链重建 + 家族指纹匹配 + 置信度评估 · 监控引擎精细化',major:true},
+{ver:'2.0',date:'2026-09-20',text:'大版本更新 · 每人 2 次 AI 试用 · 请求可视化 · 银狐木马专项判定 · 深度思考模式 · 全新深空暮光主题',major:true},
+{ver:'1.9',date:'2026-09-10',text:'沙箱接入 GLM5.3 大模型（测试版） · AI 分析改为读取文件实际内容以减少误判 · 新增文件名检测'},
+{ver:'1.8',date:'2026-08-25',text:'新增新手模式 · 超详细处置指引 + 分步引导教程'},
+{ver:'1.7',date:'2026-08-12',text:'沙箱规则引擎重写 · 多条件组合 + 白名单 + 内容分析，大幅降低误报'},
+{ver:'1.6',date:'2026-08-01',text:'新增文件沙箱分析模块 · 精简首页'},
+{ver:'1.5',date:'2026-07-20',text:'优化了性能缺失'},
+{ver:'1.4',date:'2026-07-12',text:'优化了一些用户体验性'},
+{ver:'1.3',date:'2026-07-05',text:'新增动态'},
+{ver:'1.2',date:'2026-06-28',text:'UI 优化'},
+{ver:'1.1',date:'2026-06-20',text:'整合了 360 以及火绒专杀工具'}
 ];
 const isLowPerf=(navigator.hardwareConcurrency&&navigator.hardwareConcurrency<=2)||window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -1135,16 +1182,16 @@ const domObserver=new MutationObserver(function(mutations){for(const m of mutati
 function startDomGuard(){domObserver.observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['href']});if(document.querySelector('base')){state.blocked++;raise('检测到非法 base 标签');const b=document.querySelector('base');if(b)b.remove();syncStats()}log('info','· DOM 注入监控已启动')}
 function startNetworkGuard(){if(window.fetch){const nativeFetch=window.fetch;window.fetch=function(input){let url='';try{url=(typeof input==='string')?input:(input&&input.url)||''}catch(e){}if(url&&!isAllowedUrl(url)){state.blocked++;raise('阻断出站请求 fetch：'+shorten(url));syncStats();return Promise.reject(new Error('Blocked by Web Firewall'))}if(url){state.checked++;log('ok','✓ 放行 [fetch] '+shorten(url));syncStats()}return nativeFetch.apply(window,arguments)}}if(window.XMLHttpRequest){const nativeOpenXHR=XMLHttpRequest.prototype.open;XMLHttpRequest.prototype.open=function(method,url){let href='';try{href=new URL(url,location.href).href}catch(e){href=String(url)}if(href&&!isAllowedUrl(href)){state.blocked++;raise('阻断出站请求 XHR：'+shorten(href));syncStats();return nativeOpenXHR.call(this,method,'about:blank',true)}state.checked++;log('ok','✓ 放行 [XHR] '+shorten(href));syncStats();return nativeOpenXHR.apply(this,arguments)}}log('info','· 出站请求监控已启动')}
 function startFrameGuard(){try{if(window.top!==window.self){log('warn','⚠ 页面被嵌套在 iframe 中');banner('检测到页面被嵌入 iframe，请确认来源可信')}else{log('ok','✓ 点击劫持检测通过（顶层窗口）')}}catch(e){log('warn','⚠ 页面被跨域 iframe 嵌套')}}
-const CRITICAL=[{id:'portal',name:'安全门户'},{id:'page1',name:'应急页面'},{id:'page3',name:'动态页面'},{id:'page4',name:'沙箱页面'},{id:'downloadBtn',name:'360下载按钮'},{id:'huorongDownloadBtn',name:'火绒下载按钮'},{id:'sandboxDrop',name:'沙箱拖放区'},{id:'sandboxAiZone',name:'沙箱 AI 分析区'},{id:'shieldOverlay',name:'下载防护罩'},{id:'welcomeModal',name:'欢迎弹窗'},{id:'changelogModal',name:'更新日志弹窗'},{id:'evoChart',name:'趋势图'},{id:'newbieToggle',name:'新手模式开关'},{id:'guideHighlight',name:'引导高亮层'},{id:'deepThinkBar',name:'深度思考开关'}];
+const CRITICAL=[{id:'portal',name:'安全门户'},{id:'page1',name:'应急页面'},{id:'page3',name:'动态页面'},{id:'page4',name:'沙箱页面'},{id:'downloadBtn',name:'360下载按钮'},{id:'huorongDownloadBtn',name:'火绒下载按钮'},{id:'sandboxDrop',name:'沙箱拖放区'},{id:'sandboxAiZone',name:'沙箱 AI 分析区'},{id:'shieldOverlay',name:'下载防护罩'},{id:'welcomeModal',name:'欢迎弹窗'},{id:'changelogModal',name:'更新日志弹窗'},{id:'evoChart',name:'趋势图'},{id:'newbieToggle',name:'新手模式开关'},{id:'guideHighlight',name:'引导高亮层'},{id:'deepThinkBar',name:'深度思考开关'},{id:'sandboxMonitor',name:'沙箱监控窗口'}];
 function startPatrol(){setInterval(function(){state.scans++;let broken=false;for(const item of CRITICAL){if(!document.getElementById(item.id)){broken=true;state.blocked++;raise('关键元素缺失：'+item.name);break}}if(!broken)syncStats()},CONFIG.patrolInterval)}
 function bindUI(){if(!el.toggle)return;el.toggle.addEventListener('click',function(){el.panel.classList.toggle('collapsed')});const clearBtn=document.getElementById('fwClearBtn');if(clearBtn)clearBtn.addEventListener('click',function(){state.logs=[];renderLogs();log('info','· 日志已清空')});const testBtn=document.getElementById('fwTestBtn');if(testBtn)testBtn.addEventListener('click',function(){log('info','· 发起拦截测试...');setTimeout(function(){checkUrl('http://malicious-silverfox-c2.example.com/payload.exe','测试');showToast('防火墙已拦截测试链接',true)},260)})}
-function boot(){renderLogs();bindUI();syncStats();log('ok','✓ 网页防火墙已启用 v2.0.1');log('info','· 白名单域名：'+CONFIG.domainWhitelist.join(', '));startDomGuard();startNetworkGuard();startFrameGuard();startPatrol()}
+function boot(){renderLogs();bindUI();syncStats();log('ok','✓ 网页防火墙已启用 v2.0.2');log('info','· 白名单域名：'+CONFIG.domainWhitelist.join(', '));startDomGuard();startNetworkGuard();startFrameGuard();startPatrol()}
 return{boot:boot,checkUrl:checkUrl,isAllowedUrl:isAllowedUrl,log:log}
 })();
 
-(function initTilt(){if(isLowPerf)return;const MAX_TILT=8;let activeCard=null,curRX=0,curRY=0,targetRX=0,targetRY=0,mxs=0,mys=0,tmxs=0,tmys=0,ticking=false;function update(){curRX+=(targetRX-curRX)*0.16;curRY+=(targetRY-curRY)*0.16;mxs+=(tmxs-mxs)*0.2;mys+=(tmys-mys)*0.2;if(activeCard){activeCard.style.setProperty('--mx',mxs+'px');activeCard.style.setProperty('--my',mys+'px');activeCard.style.transform='perspective(1200px) rotateX('+curRX.toFixed(2)+'deg) rotateY('+curRY.toFixed(2)+'deg) translateY('+(Math.abs(curRX)+Math.abs(curRY)>0.5?-8:0)+'px)'}const stillMoving=Math.abs(curRX-targetRX)>0.04||Math.abs(curRY-targetRY)>0.04||Math.abs(mxs-tmxs)>0.5||Math.abs(mys-tmys)>0.5;if(stillMoving&&activeCard){requestAnimationFrame(update)}else{if(activeCard){activeCard.style.transform='';activeCard=null}ticking=false}}function start(){if(!ticking){ticking=true;requestAnimationFrame(update)}}function bind(card){card.addEventListener('mouseenter',function(){if(activeCard&&activeCard!==card){activeCard.style.transform=''}activeCard=card;curRX=curRY=0;start()});card.addEventListener('mousemove',function(e){if(activeCard!==card){activeCard=card;curRX=curRY=0}const r=card.getBoundingClientRect();const px=(e.clientX-r.left)/r.width-0.5;const py=(e.clientY-r.top)/r.height-0.5;targetRY=px*MAX_TILT*2;targetRX=-py*MAX_TILT*2;tmxs=e.clientX-r.left;tmys=e.clientY-r.top;start()},{passive:true});card.addEventListener('mouseleave',function(){if(activeCard===card){targetRX=0;targetRY=0;start()}})}document.querySelectorAll('.pcard, .step, .ss-item, .wmp, .wmv-badge, .news-item, .ns-item, .changelog-item, .engine-card, .bt-event, .nstep').forEach(bind)})();
+(function initTilt(){if(isLowPerf)return;const MAX_TILT=8;let activeCard=null,curRX=0,curRY=0,targetRX=0,targetRY=0,mxs=0,mys=0,tmxs=0,tmys=0,ticking=false;function update(){curRX+=(targetRX-curRX)*0.16;curRY+=(targetRY-curRY)*0.16;mxs+=(tmxs-mxs)*0.2;mys+=(tmys-mys)*0.2;if(activeCard){activeCard.style.setProperty('--mx',mxs+'px');activeCard.style.setProperty('--my',mys+'px');activeCard.style.transform='perspective(1200px) rotateX('+curRX.toFixed(2)+'deg) rotateY('+curRY.toFixed(2)+'deg) translateY('+(Math.abs(curRX)+Math.abs(curRY)>0.5?-8:0)+'px)'}const stillMoving=Math.abs(curRX-targetRX)>0.04||Math.abs(curRY-targetRY)>0.04||Math.abs(mxs-tmxs)>0.5||Math.abs(mys-tmys)>0.5;if(stillMoving&&activeCard){requestAnimationFrame(update)}else{if(activeCard){activeCard.style.transform='';activeCard=null}ticking=false}}function start(){if(!ticking){ticking=true;requestAnimationFrame(update)}}function bind(card){card.addEventListener('mouseenter',function(){if(activeCard&&activeCard!==card){activeCard.style.transform=''}activeCard=card;curRX=curRY=0;start()});card.addEventListener('mousemove',function(e){if(activeCard!==card){activeCard=card;curRX=curRY=0}const r=card.getBoundingClientRect();const px=(e.clientX-r.left)/r.width-0.5;const py=(e.clientY-r.top)/r.height-0.5;targetRY=px*MAX_TILT*2;targetRX=-py*MAX_TILT*2;tmxs=e.clientX-r.left;tmys=e.clientY-r.top;start()},{passive:true});card.addEventListener('mouseleave',function(){if(activeCard===card){targetRX=0;targetRY=0;start()}})}document.querySelectorAll('.pcard, .step, .ss-item, .wmp, .wmv-badge, .news-item, .ns-item, .changelog-item, .engine-card, .monitor-item, .nstep').forEach(bind)})();
 
-(function initRipple(){if(isLowPerf)return;const MAX_RIPPLES=3;let activeCount=0;document.addEventListener('click',function(e){if(activeCount>=MAX_RIPPLES)return;const ripple=document.createElement('span');ripple.style.cssText='position:fixed;width:24px;height:24px;border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%) scale(0);mix-blend-mode:screen;animation:rippleOut .8s cubic-bezier(.2,.8,.2,1) forwards;';const isInteractive=e.target.closest('button, a, [role="button"], .pcard, .ss-item, .copy-btn, .changelog-item, .engine-card');ripple.style.background=isInteractive?'radial-gradient(circle,rgba(139,92,246,.7),rgba(139,92,246,0) 70%)':'radial-gradient(circle,rgba(255,255,255,.3),rgba(255,255,255,0) 70%)';ripple.style.left=e.clientX+'px';ripple.style.top=e.clientY+'px';document.body.appendChild(ripple);activeCount++;setTimeout(function(){ripple.remove();activeCount--},850)},{passive:true});const style=document.createElement('style');style.textContent='@keyframes rippleOut{0%{transform:translate(-50%,-50%) scale(0);opacity:1}100%{transform:translate(-50%,-50%) scale(10);opacity:0}}';document.head.appendChild(style)})();
+(function initRipple(){if(isLowPerf)return;const MAX_RIPPLES=3;let activeCount=0;document.addEventListener('click',function(e){if(activeCount>=MAX_RIPPLES)return;const ripple=document.createElement('span');ripple.style.cssText='position:fixed;width:24px;height:24px;border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%) scale(0);mix-blend-mode:screen;animation:rippleOut .8s cubic-bezier(.2,.8,.2,1) forwards;';const isInteractive=e.target.closest('button, a, [role="button"], .pcard, .ss-item, .copy-btn, .changelog-item, .engine-card, .monitor-row');ripple.style.background=isInteractive?'radial-gradient(circle,rgba(139,92,246,.7),rgba(139,92,246,0) 70%)':'radial-gradient(circle,rgba(255,255,255,.3),rgba(255,255,255,0) 70%)';ripple.style.left=e.clientX+'px';ripple.style.top=e.clientY+'px';document.body.appendChild(ripple);activeCount++;setTimeout(function(){ripple.remove();activeCount--},850)},{passive:true});const style=document.createElement('style');style.textContent='@keyframes rippleOut{0%{transform:translate(-50%,-50%) scale(0);opacity:1}100%{transform:translate(-50%,-50%) scale(10);opacity:0}}';document.head.appendChild(style)})();
 
 (function initVisibilityPause(){if(!('IntersectionObserver' in window))return;const observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){entry.target.style.animationPlayState=entry.isIntersecting?'running':'paused'})},{rootMargin:'100px'});document.querySelectorAll('.pulse-ring, .pulse-core, .fox-icon, .drop-icon').forEach(function(el){observer.observe(el)})})();
 
@@ -1174,7 +1221,7 @@ if(backFromNewsBtn)backFromNewsBtn.addEventListener('click',function(){showPage(
 const svg=document.getElementById('evoChart');const tooltip=document.getElementById('evoTooltip');const legendEl=document.getElementById('evoLegend');const wrap=document.getElementById('evoChartBody');if(!svg||!tooltip||!legendEl||!wrap)return;
 const YEARS=['2022','2023','2024','2025','2026'];
 const SERIES=[{name:'样本数量',color1:'#8b5cf6',color2:'#6366f1',data:[22,48,70,88,100]},{name:'技术复杂度',color1:'#a855f7',color2:'#8b5cf6',data:[15,40,68,90,100]},{name:'对抗强度',color1:'#ffc857',color2:'#ff4d4d',data:[10,34,72,96,100]}];
-const YEAR_INFO={'2022':{level:'mid',tag:'初代现身',desc:'伪装常用软件安装包，通过钓鱼链接与群文件投递，功能以基础远控为主。'},'2023':{level:'mid',tag:'白加黑',desc:'利用有效签名的白文件作为载体，通过 DLL 劫持加载载荷，绕过静态特征检测。'},'2024':{level:'high',tag:'驱动对抗',desc:'开始加载恶意内核驱动，与杀软进行内核级对抗，尝试结束其进程、删除服务。'},'2025':{level:'high',tag:'自写驱动',desc:'具备自行编写驱动能力，绕过微软黑名单，针对性对抗 11 种主流杀软与 EDR。'},'2026':{level:'high',tag:'AI 变种',desc:'AI 辅助生成变种代码，多域名轮换投递，社工话术持续演进，隐蔽性显著提升。'}};
+const YEAR_INFO={'2022':{level:'mid',tag:'初代现身',desc:'伪装常用软件安装包，通过钓鱼链接与群文件投递，功能以基础远控为主。'},'2023':{level:'mid',tag:'白加黑',desc:'利用有效签名的白文件作为载体，通过 DLL 劫持加载载荷，绕过静态特征检测。'},'2024':{level:'high',tag:'驱动对抗',desc:'开始加载恶意内核驱动，与杀软进行内核级对抗，尝试结束其进程、删除服务。'},'2025':{level:'high',tag:'自写驱动',desc:'具备自行编写驱动能力，绕过微软黑名单，针对性对抗 11 种主流杀软与 EDR。'},'2026':{level:'high',tag:'AI + 无文件',desc:'AI 辅助生成变种代码，大规模使用 PowerShell 无文件加载，BYOVD 驱动对抗，隐蔽性显著提升。'}};
 const W=1000,H=420,PAD_L=92,PAD_R=60,PAD_T=40,PAD_B=70,PLOT_W=W-PAD_L-PAD_R,PLOT_H=H-PAD_T-PAD_B,BASE_Y=H-PAD_B;
 function xAt(i){return PAD_L+(i/(YEARS.length-1))*PLOT_W}
 function yAt(v){return PAD_T+(1-v/100)*PLOT_H}
@@ -1210,12 +1257,14 @@ async function copyText(text,okMsg){try{await navigator.clipboard.writeText(text
 (function clock(){const el=document.getElementById('clockVal');if(!el)return;function tick(){const d=new Date();const p=n=>String(n).padStart(2,'0');el.textContent=p(d.getHours())+':'+p(d.getMinutes())}tick();setInterval(tick,15000)})();
 
 /* ============================================================
-   动态沙箱（加强版）· 9 大类行为监控
+   动态沙箱（大加强版）· 10 大类行为监控 · 反沙箱保护
    ============================================================ */
 const Sandbox=(function(){
 const MAX_FILES=200;const MAX_FILE_SIZE=100*1024*1024;
 let queue=[];let scanning=false;let lastResults=null;
 const el={};const engines={};
+let monitorCounts={high:0,mid:0,low:0,info:0,total:0};
+const CAT_NAMES={process:'进程',file:'文件',network:'网络',registry:'注册表',memory:'内存',credential:'凭据',driver:'驱动',input:'输入',anti:'反分析',antisandbox:'反沙箱',lateral:'横向'};
 const EXEC_EXTS=new Set(['.exe','.dll','.sys','.scr','.com','.bat','.cmd','.ps1','.vbs','.js','.jar','.msi','.lnk','.hta','.cpl','.pif','.ocx']);
 const ARCHIVE_EXTS=new Set(['.zip','.rar','.7z','.tar','.gz','.bz2','.xz']);
 const OFFICE_EXTS=new Set(['.doc','.docx','.xls','.xlsx','.ppt','.pptx','.rtf','.pdf']);
@@ -1233,7 +1282,36 @@ function extractStrings(bytes,minLen){const out=[];let cur='';const limit=Math.m
 function containsLegitDomain(text){return/(microsoft|windows|msn|live|google|gstatic|apple|icloud|mozilla|adobe|360|huorong|qq|weixin|dingtalk|wps|kingsoft|baidu|aliyun|tencent|taobao|jd|byteimg|douyin)\.[a-z]/i.test(text)}
 
 /* ============================================================
-   动态行为推断（模拟执行）· 9 大类行为
+   反沙箱保护检测规则（新增）
+   ============================================================ */
+const ANTISANDBOX_RULES=[
+  {re:/IsDebuggerPresent|CheckRemoteDebuggerPresent/i,name:'调试器检测',tech:'T1622',desc:'样本调用调试器检测 API，尝试判断是否被分析。'},
+  {re:/NtQueryInformationProcess[\s\S]{0,60}ProcessDebugPort|ProcessDebugFlags|ProcessDebugObjectHandle/i,name:'进程调试信息检测',tech:'T1622',desc:'通过 NtQueryInformationProcess 查询调试相关标志位。'},
+  {re:/NtQuerySystemInformation[\s\S]{0,60}SystemKernelDebuggerInformation/i,name:'内核调试器检测',tech:'T1622',desc:'查询内核调试器状态，判断是否处于调试环境。'},
+  {re:/NtSetInformationThread[\s\S]{0,60}ThreadHideFromDebugger/i,name:'线程反调试',tech:'T1622',desc:'调用 NtSetInformationThread 隐藏线程，规避调试器。'},
+  {re:/OutputDebugString|SetUnhandledExceptionFilter/i,name:'调试输出/异常检测',tech:'T1622',desc:'使用调试输出或异常处理进行反调试。'},
+  {re:/VMware|VMwareTools|vmtoolsd|vmmouse/i,name:'VMware 检测',tech:'T1497.001',desc:'样本检测 VMware 虚拟化环境特征。'},
+  {re:/VBox|VBoxService|VBoxTray|vboxguest/i,name:'VirtualBox 检测',tech:'T1497.001',desc:'样本检测 VirtualBox 虚拟化环境特征。'},
+  {re:/QEMU|qemu-ga|qemu_kvm/i,name:'QEMU 检测',tech:'T1497.001',desc:'样本检测 QEMU 虚拟化环境特征。'},
+  {re:/Xen|XenVMM|Citrix|Hyper-V|vmbus|VMBus/i,name:'虚拟化平台检测',tech:'T1497.001',desc:'样本检测 Xen / Hyper-V / Citrix 等虚拟化平台。'},
+  {re:/Sandboxie|SbieDll|SbieSvc|snxhk/i,name:'Sandboxie 检测',tech:'T1497.001',desc:'样本检测 Sandboxie 沙箱环境。'},
+  {re:/Cuckoo|JoeBox|CWSandbox|Anubis|ThreatExpert|Norman|Wine|wine_get_version/i,name:'沙箱环境检测',tech:'T1497.001',desc:'样本检测已知沙箱或 Wine 环境。'},
+  {re:/SbieDll\.dll|SxIn\.dll|cmdvrt32\.dll|api_log\.dll|dbghelp\.dll/i,name:'已知沙箱 DLL 检测',tech:'T1497.001',desc:'枚举已加载模块，检测已知沙箱注入的 DLL。'},
+  {re:/GetTickCount|QueryPerformanceCounter|GetSystemTime|GetLocalTime/i,name:'时间检测',tech:'T1497.003',desc:'通过时间差判断是否被沙箱加速执行。'},
+  {re:/GlobalMemoryStatus|GetSystemInfo|GetComputerName|GetVolumeInformation/i,name:'硬件指纹',tech:'T1497.001',desc:'收集硬件指纹，判断是否运行在虚拟机中。'},
+  {re:/GetCursorPos|GetLastInputInfo|GetKeyboardState|GetAsyncKeyState/i,name:'用户活动检测',tech:'T1497.002',desc:'检测鼠标键盘活动，判断是否有真人操作。'},
+  {re:/EnumWindows|GetForegroundWindow|GetWindowText|FindWindow/i,name:'窗口枚举',tech:'T1497.002',desc:'枚举窗口，判断是否处于分析环境（沙箱通常窗口较少）。'},
+  {re:/CreateToolhelp32Snapshot|Process32First|Process32Next/i,name:'进程枚举',tech:'T1057',desc:'枚举进程列表，可能用于检测分析工具。'},
+  {re:/OpenProcess[\s\S]{0,80}PROCESS_QUERY_INFORMATION/i,name:'目标进程查询',tech:'T1057',desc:'打开目标进程查询信息，可能用于检测安全软件。'},
+  {re:/WinExec|ShellExecute|CreateProcess/i,name:'命令执行检测',tech:'T1059',desc:'样本启动外部进程，可能是反沙箱延时执行。'},
+  {re:/Sleep\s*\(\s*\d{4,}|NtDelayExecution/i,name:'长延时反沙箱',tech:'T1497.003',desc:'样本使用长延时，尝试等待沙箱超时。'},
+  {re:/GetModuleHandle[\s\S]{0,40}kernel32|LoadLibrary[\s\S]{0,40}ntdll/i,name:'关键模块加载',tech:'T1622',desc:'动态加载 ntdll/kernel32，规避 API Hook 检测。'},
+  {re:/VirusTotal|virustotal|Hybrid-Analysis|ANY\.RUN|metaDefender/i,name:'在线分析平台检测',tech:'T1497.001',desc:'样本检测是否运行在在线恶意软件分析平台。'},
+  {re:/\\\\.\\pipe\\|\\\\.\\mailslot\\/i,name:'管道/邮件槽检测',tech:'T1497.001',desc:'检测命名管道或邮件槽，可能用于沙箱识别。'}
+];
+
+/* ============================================================
+   动态行为推断（大加强版）· 10 大类行为 · 反沙箱保护
    ============================================================ */
 function simulateExecution(fileInfo){
   const file=fileInfo;
@@ -1244,7 +1322,7 @@ function simulateExecution(fileInfo){
   let t=0;
   const tick=(sec)=>{t+=sec;return t};
   const fmtT=(s)=>{const m=Math.floor(s/60);const sec=s%60;return (m>0?String(m).padStart(2,'0')+':':'')+String(sec).padStart(2,'0')+'.'+String(Math.floor(Math.random()*900+100)).slice(0,3)};
-  const push=(level,cat,title,detail,evidence)=>{events.push({time:fmtT(tick(1)),level,cat,title,detail,evidence:evidence||''})};
+  const push=(level,cat,title,detail,evidence,tech)=>{events.push({time:fmtT(tick(1)),level,cat,title,detail,evidence:evidence||'',tech:tech||''})};
 
   const harmless=HARMLESS_NAME_KEYWORDS.some(k=>lname.indexOf(k)>=0);
   const prank=PRANK_NAME_KEYWORDS.some(k=>lname.indexOf(k)>=0);
@@ -1252,207 +1330,346 @@ function simulateExecution(fileInfo){
   const isPE=fileInfo.magic==='PE';
   const isScript=/\.(ps1|vbs|js|bat|cmd)$/i.test(name);
 
-  // 起始
-  push('info','process','沙箱装载样本','将样本 <code>'+escapeHtml(name)+'</code> 装载到隔离环境（'+(isPE?'PE 可执行':isScript?'脚本':'未知')+'，大小 '+fmtSize(file.size)+'，熵值 '+(file.entropy||0).toFixed(2)+'）','Main entry');
+  push('info','process','沙箱装载样本','将样本 <code>'+escapeHtml(name)+'</code> 装载到隔离环境（'+(isPE?'PE 可执行':isScript?'脚本':'未知')+'，大小 '+fmtSize(file.size)+'，熵值 '+(file.entropy||0).toFixed(2)+'）','Main entry','');
 
   if(harmless){
-    push('low','process','未观察到可疑行为','样本未触发任何敏感 API，属于测试/良性样本。','—');
+    push('low','process','未观察到可疑行为','样本未触发任何敏感 API，属于测试/良性样本。','—','');
     return {events, verdict:'harmless', score:0};
   }
   if(prank){
-    push('low','process','触发娱乐性质行为','检测到恶作剧特征，可能弹出对话框/播放声音，无实质破坏。','—');
+    push('low','process','触发娱乐性质行为','检测到恶作剧特征，可能弹出对话框/播放声音，无实质破坏。','—','');
     return {events, verdict:'prank', score:2};
   }
 
-  // ========== 1. 进程与内存 ==========
+  /* ========== 1. 进程与内存（大加强） ========== */
   if(isPE){
-    push('info','process','创建子进程','CreateProcess → <code>'+escapeHtml(lname.replace(/\.(exe|dll)$/i,'_helper.exe'))+'</code>','CreateProcessW');
+    push('info','process','创建子进程','CreateProcess → <code>'+escapeHtml(lname.replace(/\.(exe|dll)$/i,'_helper.exe'))+'</code>','CreateProcessW','');
     if(/LoadLibrary|GetProcAddress|LdrLoadDll/i.test(text)){
-      push('mid','process','动态库加载','LoadLibrary / GetProcAddress 调用动态库，疑似白加黑加载链。','LoadLibraryW + GetProcAddress');
+      push('mid','process','动态库加载','LoadLibrary / GetProcAddress 调用动态库，疑似白加黑加载链。','LoadLibraryW + GetProcAddress','T1129');
     }
     if(/VirtualAllocEx|WriteProcessMemory|CreateRemoteThread/i.test(text)){
-      push('high','process','跨进程内存注入','VirtualAllocEx → WriteProcessMemory → CreateRemoteThread 组合，符合进程注入特征。','VirtualAllocEx/WriteProcessMemory/CreateRemoteThread');
+      push('high','process','跨进程内存注入','VirtualAllocEx → WriteProcessMemory → CreateRemoteThread 组合，符合进程注入特征。','VirtualAllocEx/WriteProcessMemory/CreateRemoteThread','T1055');
     }
     if(/NtUnmapViewOfSection|ZwUnmapViewOfSection|NtResumeThread/i.test(text)){
-      push('high','process','进程镂空行为','NtUnmapViewOfSection + ResumeThread，疑似 Process Hollowing。','NtUnmapViewOfSection/NtResumeThread');
+      push('high','process','进程镂空行为','NtUnmapViewOfSection + ResumeThread，疑似 Process Hollowing。','NtUnmapViewOfSection/NtResumeThread','T1055.012');
     }
     if(/AdjustTokenPrivileges|SeDebugPrivilege|SeLoadDriverPrivilege/i.test(text)){
-      push('high','process','尝试提权','AdjustTokenPrivileges 尝试获取 SeDebugPrivilege。','AdjustTokenPrivileges/SeDebugPrivilege');
+      push('high','process','尝试提权','AdjustTokenPrivileges 尝试获取 SeDebugPrivilege。','AdjustTokenPrivileges/SeDebugPrivilege','T1134');
     }
     if(/OpenProcessToken|DuplicateTokenEx|ImpersonateLoggedOnUser/i.test(text)){
-      push('high','process','令牌操作','打开/复制进程令牌，尝试以其他身份执行。','OpenProcessToken/DuplicateTokenEx');
+      push('high','process','令牌操作','打开/复制进程令牌，尝试以其他身份执行。','OpenProcessToken/DuplicateTokenEx','T1134.001');
     }
     if(/TerminateProcess|NtTerminateProcess|taskkill\s+\/f/i.test(text)){
-      push('high','process','尝试终止进程','TerminateProcess 调用，可能针对安全软件进程。','TerminateProcess');
+      push('high','process','尝试终止进程','TerminateProcess 调用，可能针对安全软件进程。','TerminateProcess','T1562.001');
     }
     if(/CreateService[AW]?|ChangeServiceConfig/i.test(text)){
-      push('high','process','安装系统服务','CreateService 创建 Windows 服务用于持久化。','CreateServiceW');
+      push('high','process','安装系统服务','CreateService 创建 Windows 服务用于持久化。','CreateServiceW','T1543.003');
+    }
+    if(/NtQueueApcThread|RtlQueueApc|QueueUserAPC/i.test(text)){
+      push('high','process','APC 注入','QueueUserAPC 向目标进程队列插入 APC 回调，是高级注入技术。','QueueUserAPC/NtQueueApcThread','T1055.004');
+    }
+    if(/SetThreadContext|GetThreadContext|Wow64SetThreadContext/i.test(text)){
+      push('high','process','线程上下文劫持','SetThreadContext 修改线程上下文，常用于进程注入。','SetThreadContext','T1055.003');
+    }
+    if(/NtMapViewOfSection|MapViewOfFile/i.test(text) && /SEC_COMMIT|PAGE_EXECUTE/i.test(text)){
+      push('high','process','内存映射执行','NtMapViewOfSection 映射可执行内存段。','NtMapViewOfSection','T1055');
     }
     if(/VirtualAlloc|VirtualProtect|HeapAlloc/i.test(text)){
-      push('mid','memory','动态内存操作','VirtualAlloc/VirtualProtect 申请可执行内存，常见于 shellcode 执行器。','VirtualAlloc/VirtualProtect');
+      push('mid','memory','动态内存操作','VirtualAlloc/VirtualProtect 申请可执行内存，常见于 shellcode 执行器。','VirtualAlloc/VirtualProtect','T1055');
     }
     if(/WriteProcessMemory|NtWriteVirtualMemory/i.test(text) && !/VirtualAllocEx/i.test(text)){
-      push('mid','memory','写入其他进程内存','WriteProcessMemory 调用，尝试修改其他进程内存。','WriteProcessMemory');
+      push('mid','memory','写入其他进程内存','WriteProcessMemory 调用，尝试修改其他进程内存。','WriteProcessMemory','T1055');
     }
     if(/NtCreateThreadEx|RtlCreateUserThread|QueueUserAPC/i.test(text)){
-      push('high','process','远程线程 / APC 注入','NtCreateThreadEx / QueueUserAPC 等高级注入技术。','NtCreateThreadEx/QueueUserAPC');
+      push('high','process','远程线程 / APC 注入','NtCreateThreadEx / QueueUserAPC 等高级注入技术。','NtCreateThreadEx/QueueUserAPC','T1055');
+    }
+    if(/GetThreadSelectorEntry|Wow64GetThreadSelectorEntry/i.test(text)){
+      push('mid','process','WOW64 线程探测','Wow64 线程选择器探测，用于判断 32/64 位注入目标。','Wow64GetThreadSelectorEntry','T1055');
     }
   }
   if(isScript && /cmd\.exe|powershell|CreateProcess|ShellExecute|WinExec|system\s*\(/i.test(text)){
-    push('mid','process','脚本调用外部命令','脚本启动 cmd/powershell 命令行执行。','cmd.exe/powershell.exe');
+    push('mid','process','脚本调用外部命令','脚本启动 cmd/powershell 命令行执行。','cmd.exe/powershell.exe','T1059');
   }
   if(/cmd\.exe|powershell/i.test(text)){
-    push('mid','process','命令行调用','cmd.exe / powershell.exe 被调用。','cmd.exe/powershell.exe');
+    push('mid','process','命令行调用','cmd.exe / powershell.exe 被调用。','cmd.exe/powershell.exe','T1059');
+  }
+  if(/powershell.*-enc|powershell.*-e\s|FromBase64String|IEX\s*\(|Invoke-Expression/i.test(text)){
+    push('high','process','无文件执行','PowerShell 编码/内联执行，常见于无文件攻击。','powershell -enc','T1059.001');
+  }
+  if(/mshta|regsvr32|rundll32|certutil\s+-urlcache|wmic\s+process|InstallUtil/i.test(text)){
+    push('high','process','LOLBins 系统工具滥用','使用 mshta/regsvr32/rundll32 等系统自带工具执行载荷。','LOLBins','T1218');
   }
 
-  // ========== 2. 文件 / 注册表 / 驱动 ==========
+  /* ========== 2. 文件 / 注册表 / 驱动（大加强） ========== */
   if(isPE){
     if(/CreateFile[AW]?|WriteFile/i.test(text)){
-      push('mid','file','释放文件到磁盘','WriteFile → <code>%TEMP%\\'+escapeHtml(lname.replace(/\.(exe|dll)$/i,'_drop.dat'))+'</code>','CreateFileW/WriteFile');
+      push('mid','file','释放文件到磁盘','WriteFile → <code>%TEMP%\\'+escapeHtml(lname.replace(/\.(exe|dll)$/i,'_drop.dat'))+'</code>','CreateFileW/WriteFile','T1105');
     }
     if(/CopyFile|MoveFile/i.test(text)){
-      push('mid','file','复制/移动文件','复制自身到系统目录。','CopyFileW/MoveFileW');
+      push('mid','file','复制/移动文件','复制自身到系统目录。','CopyFileW/MoveFileW','T1074.001');
     }
     if(/DeleteFile|RemoveDirectory/i.test(text)){
-      push('mid','file','删除文件','删除临时文件 / 原文件。','DeleteFileW');
+      push('mid','file','删除文件','删除临时文件 / 原文件。','DeleteFileW','T1070.004');
     }
     if(/CryptEncrypt|CryptGenKey/i.test(text)){
-      push('high','file','文件加密操作','CryptEncrypt 调用，疑似勒索行为。','CryptEncrypt/CryptGenKey');
+      push('high','file','文件加密操作','CryptEncrypt 调用，疑似勒索行为。','CryptEncrypt/CryptGenKey','T1486');
     }
     if(/:Zone\.Identifier|Zone\.Identifier|Alternate Data Stream|ADS/i.test(text)){
-      push('mid','file','ADS 数据流','使用 NTFS 备用数据流隐藏数据。',':Zone.Identifier');
+      push('mid','file','ADS 数据流','使用 NTFS 备用数据流隐藏数据。',':Zone.Identifier','T1564.004');
     }
     if(/SetFileTime|SetFileAttributes/i.test(text)){
-      push('mid','file','篡改文件时间戳','SetFileTime 篡改文件时间戳以掩盖痕迹。','SetFileTime/SetFileAttributes');
+      push('mid','file','篡改文件时间戳','SetFileTime 篡改文件时间戳以掩盖痕迹。','SetFileTime/SetFileAttributes','T1070.006');
+    }
+    if(/MoveFileEx[\s\S]{0,80}MOVEFILE_DELAY_UNTIL_REBOOT/i.test(text)){
+      push('high','file','重启后删除文件','MoveFileEx 标记文件在重启后删除，隐蔽清理。','MOVEFILE_DELAY_UNTIL_REBOOT','T1070.004');
     }
   }
   if(isScript && /%temp%|\\Temp\\|\/tmp|%appdata%|\\AppData\\/i.test(text)){
-    push('mid','file','写入临时目录','脚本向 %TEMP% / %APPDATA% 写入文件。','%TEMP%/%APPDATA%');
+    push('mid','file','写入临时目录','脚本向 %TEMP% / %APPDATA% 写入文件。','%TEMP%/%APPDATA%','T1105');
   }
   if(/\.exe|\.dll|\.bat|\.vbs|\.ps1/i.test(text) && !isPE){
-    push('mid','file','释放子文件','样本包含对其他可执行文件的引用，疑似释放子文件。','嵌入式 PE 引用');
+    push('mid','file','释放子文件','样本包含对其他可执行文件的引用，疑似释放子文件。','嵌入式 PE 引用','T1105');
   }
 
-  let regCount=0;
-  if(/CurrentVersion\\Run/i.test(text)){regCount++;push('high','registry','写入自启动注册表','<code>HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run</code> 添加启动项。','CurrentVersion\\Run')}
-  if(/CurrentVersion\\RunOnce/i.test(text)){regCount++;push('mid','registry','写入 RunOnce','一次性启动项，重启后执行。','CurrentVersion\\RunOnce')}
-  if(/Winlogon\\Shell|Winlogon\\Userinit/i.test(text)){regCount++;push('high','registry','篡改 Winlogon','注册表 Winlogon Shell 被篡改。','Winlogon\\Shell')}
-  if(/Image File Execution Options|IFEO/i.test(text)){regCount++;push('high','registry','IFEO 劫持','利用 Image File Execution Options 劫持程序启动。','Image File Execution Options')}
-  if(/schtasks\s+\/create|RegisterTaskDefinition/i.test(text)){
-    push('high','registry','创建计划任务','schtasks /create 创建持久化计划任务。','schtasks /create');
-  }
-  if(/__EventFilter|CommandLineEventConsumer|ActiveScriptEventConsumer/i.test(text)){
-    push('high','registry','WMI 事件订阅','注册 WMI 事件订阅实现持久化。','__EventFilter');
-  }
+  if(/CurrentVersion\\Run/i.test(text))push('high','registry','写入自启动注册表','<code>HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run</code> 添加启动项。','CurrentVersion\\Run','T1547.001');
+  if(/CurrentVersion\\RunOnce/i.test(text))push('mid','registry','写入 RunOnce','一次性启动项，重启后执行。','CurrentVersion\\RunOnce','T1547.001');
+  if(/Winlogon\\Shell|Winlogon\\Userinit/i.test(text))push('high','registry','篡改 Winlogon','注册表 Winlogon Shell 被篡改。','Winlogon\\Shell','T1547.004');
+  if(/Image File Execution Options|IFEO/i.test(text))push('high','registry','IFEO 劫持','利用 Image File Execution Options 劫持程序启动。','Image File Execution Options','T1546.012');
+  if(/schtasks\s+\/create|RegisterTaskDefinition/i.test(text))push('high','registry','创建计划任务','schtasks /create 创建持久化计划任务。','schtasks /create','T1053.005');
+  if(/__EventFilter|CommandLineEventConsumer|ActiveScriptEventConsumer/i.test(text))push('high','registry','WMI 事件订阅','注册 WMI 事件订阅实现持久化。','__EventFilter','T1546.003');
+  if(/BootExecute|AppInit_DLLs|SvcHost|Winlogon\\Notify/i.test(text))push('high','registry','注册表持久化','写入 BootExecute / AppInit_DLLs 等持久化位置。','AppInit_DLLs','T1546.010');
+  if(/StartupApproved|StartupFolder/i.test(text))push('mid','registry','启动项修改','修改启动项审批状态。','StartupApproved','T1547.001');
+  if(/COM\s+Object|CLSID|InprocServer32|LocalServer32/i.test(text))push('high','registry','COM 劫持','通过 CLSID 注册表劫持 COM 组件。','InprocServer32','T1546.015');
 
   if(/NtLoadDriver|ZwLoadDriver|IoCreateDevice|SeLoadDriverPrivilege/i.test(text)){
-    push('high','driver','加载内核驱动','加载恶意内核驱动，绕过微软驱动黑名单（银狐核心行为）。','NtLoadDriver/IoCreateDevice');
+    push('high','driver','加载内核驱动','加载恶意内核驱动，绕过微软驱动黑名单（银狐核心行为）。','NtLoadDriver/IoCreateDevice','T1543.003');
   }
   if(/\\Device\\|\\Driver\\|IoCreateSymbolicLink/i.test(text) && isPE){
-    push('high','driver','创建设备对象','创建设备对象 / 符号链接，疑似内核级操作。','IoCreateSymbolicLink');
+    push('high','driver','创建设备对象','创建设备对象 / 符号链接，疑似内核级操作。','IoCreateSymbolicLink','T1543.003');
+  }
+  if(/BYOVD|Bring\s+Your\s+Own\s+Vulnerable\s+Driver|IOCTL/i.test(text)){
+    push('high','driver','BYOVD 驱动对抗','使用带漏洞的合法签名驱动加载恶意载荷，绕过驱动签名强制。','BYOVD/IOCTL','T1068');
   }
 
-  // ========== 3. 网络 / 凭据 / 输入 / 反分析 ==========
+  /* ========== 3. 网络 / 凭据 / 输入 / 横向（大加强） ========== */
   const c2Domains=text.match(/https?:\/\/[a-z0-9.-]+\.[a-z]{2,}/gi)||[];
   const suspiciousC2=c2Domains.filter(u=>!containsLegitDomain(u));
   if(suspiciousC2.length>0){
-    push('high','network','建立 C2 连接','连接到可疑域名 <code>'+escapeHtml(suspiciousC2[0])+'</code>（共 '+(suspiciousC2.length)+' 个）','HTTP POST');
-    push('high','network','C2 心跳 / 数据回传','周期性向 C2 发送心跳，可能回传主机信息与凭证数据。','周期性 TCP 连接');
+    push('high','network','建立 C2 连接','连接到可疑域名 <code>'+escapeHtml(suspiciousC2[0])+'</code>（共 '+(suspiciousC2.length)+' 个）','HTTP POST','T1071.001');
+    push('high','network','C2 心跳 / 数据回传','周期性向 C2 发送心跳，可能回传主机信息与凭证数据。','周期性 TCP 连接','T1071.001');
   }
   if(/\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/.test(text)){
     const ipMatch=text.match(/\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/);
-    if(ipMatch)push('high','network','硬编码 IP 外联','样本包含硬编码 IP <code>'+escapeHtml(ipMatch[0])+'</code>，疑似备用 C2。','硬编码 IP');
+    if(ipMatch)push('high','network','硬编码 IP 外联','样本包含硬编码 IP <code>'+escapeHtml(ipMatch[0])+'</code>，疑似备用 C2。','硬编码 IP','T1071.001');
   }
   if(/curl\s|wget\s|bitsadmin|certutil\s+-urlcache|Invoke-WebRequest|WebClient|DownloadFile/i.test(text)){
-    push('high','network','下载远程载荷','样本尝试从远程下载文件并落地执行。','curl/wget/bitsadmin');
+    push('high','network','下载远程载荷','样本尝试从远程下载文件并落地执行。','curl/wget/bitsadmin','T1105');
   }
   if(/User-Agent:|Mozilla\/5\.0.*\(Windows NT/i.test(text) && suspiciousC2.length>0){
-    push('mid','network','构造伪装 HTTP 请求','使用伪装 User-Agent 与 C2 通信，规避流量检测。','伪装 User-Agent');
+    push('mid','network','构造伪装 HTTP 请求','使用伪装 User-Agent 与 C2 通信，规避流量检测。','伪装 User-Agent','T1071.001');
   }
   if(/DnsQuery|getaddrinfo|gethostbyname/i.test(text)){
-    push('info','network','DNS 查询','样本执行 DNS 查询解析域名。','DnsQuery');
+    push('info','network','DNS 查询','样本执行 DNS 查询解析域名。','DnsQuery','T1071.004');
+  }
+  if(/TLS|SSL|https.*443|port\s*443/i.test(text) && suspiciousC2.length>0){
+    push('mid','network','HTTPS C2 信道','通过 HTTPS 443 端口与 C2 通信，难以被简单流量规则识别。','TLS/443','T1573.002');
+  }
+  if(/smtp|发送邮件|SendMail/i.test(text)){
+    push('high','network','邮件外发','使用 SMTP 向外发送数据。','SMTP','T1048.003');
+  }
+  if(/Telegram|Discord|Slack|Bot.*Token/i.test(text)){
+    push('high','network','第三方平台 C2','使用 Telegram / Discord 等平台作为 C2 信道。','Bot API','T1102');
   }
   if(/NetShareEnum|WNetAddConnection|net\s+use\s+\\\\|445|\\\\ADMIN\$/i.test(text)){
-    push('high','lateral','内网横向扫描','枚举内网共享目录，尝试通过 SMB / 445 端口横向移动。','NetShareEnum/SMB 445');
+    push('high','lateral','内网横向扫描','枚举内网共享目录，尝试通过 SMB / 445 端口横向移动。','NetShareEnum/SMB 445','T1021.002');
   }
   if(/PsExec|smbexec|wmiexec|Win32_Process.*Create/i.test(text)){
-    push('high','lateral','远程执行','尝试通过 PsExec / WMI 远程执行命令。','PsExec/WMI');
+    push('high','lateral','远程执行','尝试通过 PsExec / WMI 远程执行命令。','PsExec/WMI','T1021.002');
+  }
+  if(/RDP|3389|Terminal\s+Services|mstsc/i.test(text)){
+    push('mid','lateral','RDP 探测','检测 RDP/3389 端口，可能尝试远程登录。','RDP/3389','T1021.001');
   }
 
   if(/Login Data|Web Data|Cookies|key4\.db|logins\.json|signons\.sqlite/i.test(text) && /CryptUnprotectData|sqlite3_open|sqlite3_exec/i.test(text)){
-    push('high','credential','读取浏览器凭证数据库','读取 Chrome/Edge 登录数据、Cookie、密钥库，解密后打包外发。','Login Data + CryptUnprotectData');
+    push('high','credential','读取浏览器凭证数据库','读取 Chrome/Edge 登录数据、Cookie、密钥库，解密后打包外发。','Login Data + CryptUnprotectData','T1555.003');
   }
   if(/lsass\.exe|MiniDumpWriteDump|MiniDump/i.test(text)){
-    push('high','credential','LSASS 内存转储','尝试转储 LSASS 内存获取系统凭证。','MiniDumpWriteDump');
+    push('high','credential','LSASS 内存转储','尝试转储 LSASS 内存获取系统凭证。','MiniDumpWriteDump','T1003.001');
   }
   if(/SAM\\SAM|SYSTEM\\CurrentControlSet|reg\s+save\s+hklm\\sam/i.test(text)){
-    push('high','credential','导出 SAM / SYSTEM','尝试导出 Windows 凭证数据库。','reg save hklm\\sam');
+    push('high','credential','导出 SAM / SYSTEM','尝试导出 Windows 凭证数据库。','reg save hklm\\sam','T1003.002');
+  }
+  if(/CredEnumerate|CredRead|Vault|DPAPI/i.test(text)){
+    push('high','credential','Windows 凭据管理器访问','读取 Windows 凭据管理器中的凭据。','CredEnumerate','T1555.004');
+  }
+  if(/sqlite3|Chrome|Edge|Firefox.*Profile/i.test(text) && /CopyFile|CreateFile/i.test(text)){
+    push('high','credential','浏览器数据打包','复制浏览器配置文件用于外发。','Chrome/Edge Profile','T1555.003');
   }
 
   if(/SetWindowsHookEx|SetWinEventHook/i.test(text)){
-    push('high','input','安装全局钩子','SetWindowsHookEx 安装全局键盘/鼠标钩子，可记录用户输入。','SetWindowsHookEx');
+    push('high','input','安装全局钩子','SetWindowsHookEx 安装全局键盘/鼠标钩子，可记录用户输入。','SetWindowsHookEx','T1056.001');
   }
   if(/GetAsyncKeyState|GetKeyState|RegisterHotKey/i.test(text)){
-    push('high','input','键盘监听','GetAsyncKeyState 轮询键盘状态，疑似键盘记录。','GetAsyncKeyState');
+    push('high','input','键盘监听','GetAsyncKeyState 轮询键盘状态，疑似键盘记录。','GetAsyncKeyState','T1056.001');
   }
   if(/GetClipboardData|SetClipboardViewer|AddClipboardFormatListener/i.test(text)){
-    push('mid','input','剪贴板监控','监控剪贴板内容，可能劫持加密货币地址。','GetClipboardData');
+    push('mid','input','剪贴板监控','监控剪贴板内容，可能劫持加密货币地址。','GetClipboardData','T1115');
   }
   if(/BitBlt|GetDC|GetWindowDC|PrintWindow/i.test(text) && isPE){
-    push('mid','input','屏幕截图','BitBlt / PrintWindow 截屏操作，疑似屏幕监控。','BitBlt/PrintWindow');
+    push('mid','input','屏幕截图','BitBlt / PrintWindow 截屏操作，疑似屏幕监控。','BitBlt/PrintWindow','T1113');
+  }
+  if(/RawInput|RegisterRawInputDevices|WM_INPUT/i.test(text)){
+    push('high','input','原始输入监控','注册原始输入设备监听键盘输入。','RegisterRawInputDevices','T1056.001');
   }
 
+  /* ========== 4. 反分析（保留 + 强化） ========== */
   let antiCnt=0;
   if(/IsDebuggerPresent|CheckRemoteDebuggerPresent|NtQueryInformationProcess/i.test(text))antiCnt++;
   if(/VMware|VirtualBox|VBox|QEMU|Xen|Hyper-V/i.test(text))antiCnt++;
   if(/Sandboxie|Cuckoo|Wine|JoeBox|Sandbox/i.test(text))antiCnt++;
   if(/NtSetInformationThread|ThreadHideFromDebugger/i.test(text))antiCnt++;
+  if(/NtQuerySystemInformation|SystemKernelDebuggerInformation/i.test(text))antiCnt++;
+  if(/NtQueryObject|NtQueryInformationThread/i.test(text))antiCnt++;
+  if(/OutputDebugString|SetUnhandledExceptionFilter/i.test(text))antiCnt++;
   if(antiCnt>=2){
-    push('mid','anti','反调试 / 反虚拟机','样本包含 '+(antiCnt)+' 类反分析特征，会尝试规避沙箱检测。','IsDebuggerPresent/VMware 检测');
+    push('mid','anti','反调试 / 反虚拟机','样本包含 '+(antiCnt)+' 类反分析特征，会尝试规避沙箱检测。','IsDebuggerPresent/VMware 检测','T1622');
   }
   if(/\b\d+\s*ms\s*sleep|Sleep\(|NtDelayExecution/i.test(text) && antiCnt>0){
-    push('mid','anti','延时执行','样本使用 Sleep 延时执行，规避沙箱动态检测。','Sleep/NtDelayExecution');
+    push('mid','anti','延时执行','样本使用 Sleep 延时执行，规避沙箱动态检测。','Sleep/NtDelayExecution','T1497.003');
+  }
+  if(/GetTickCount|QueryPerformanceCounter/i.test(text) && antiCnt>0){
+    push('mid','anti','时间检测','使用 GetTickCount / QueryPerformanceCounter 检测沙箱加速。','GetTickCount','T1497.003');
+  }
+  if(/packed|VMProtect|Themida|ASPack|UPX/i.test(text)){
+    push('mid','anti','加壳特征','字符串包含常见壳名，样本被加壳保护。','UPX/VMProtect','T1027.002');
+  }
+  if(/ClearEventLog|wevtutil\s+cl|wevtutil\s+clear-log/i.test(text)){
+    push('high','anti','清除系统日志','清除安全/系统事件日志，掩盖入侵痕迹。','wevtutil cl','T1070.001');
   }
 
-  // 文件名高危
+  /* ========== 5. 反沙箱保护（新增类别） ========== */
+  const matchedAnti=new Set();
+  ANTISANDBOX_RULES.forEach(function(rule){
+    if(rule.re.test(text) && !matchedAnti.has(rule.name)){
+      matchedAnti.add(rule.name);
+      push('high','antisandbox','反沙箱：'+rule.name,rule.desc,'规则: '+rule.tech,rule.tech);
+    }
+  });
+  if(matchedAnti.size>=3){
+    push('high','antisandbox','多重反沙箱保护','样本集成了 '+matchedAnti.size+' 种反沙箱检测技术，具有明显的环境感知和规避能力。','组合检测','T1497');
+  }
+
+  /* ========== 6. 文件名/扩展名/熵值/银狐特征 ========== */
   if(virusName){
-    push('high','process','文件名命中已知高危病毒','文件名包含明显病毒关键字，属于典型的恶意样本命名习惯。','文件名匹配');
+    push('high','process','文件名命中已知高危病毒','文件名包含明显病毒关键字，属于典型的恶意样本命名习惯。','文件名匹配','');
   }
   const ext=getExt(name);const base=name.toLowerCase().slice(0,name.length-ext.length);
   if(EXEC_EXTS.has(ext)&&/\.(pdf|doc|docx|xls|xlsx|ppt|pptx|jpg|jpeg|png|gif|bmp|txt|rtf|zip|rar|7z)$/i.test(base)){
-    push('high','process','双扩展名伪装','文件名 <code>'+escapeHtml(name)+'</code> 使用双扩展名伪装成文档。','双扩展名');
+    push('high','process','双扩展名伪装','文件名 <code>'+escapeHtml(name)+'</code> 使用双扩展名伪装成文档。','双扩展名','T1036.007');
   }
   if(isPE&&!EXEC_EXTS.has(ext)&&ext!=='.sys'&&ext!=='.ocx'){
-    push('high','process','文件内容与扩展名严重不符','魔数表明是 PE 可执行文件，但扩展名为 <code>'+escapeHtml(ext)+'</code>。','魔数 PE vs 扩展名');
+    push('high','process','文件内容与扩展名严重不符','魔数表明是 PE 可执行文件，但扩展名为 <code>'+escapeHtml(ext)+'</code>。','魔数 PE vs 扩展名','T1036.008');
   }
   if(isPE&&file.size>50*1024&&file.size<20*1024*1024&&file.entropy>7.5){
-    push('mid','process','样本疑似加壳','PE 文件熵值 '+(file.entropy||0).toFixed(2)+'，几乎可以确定被加壳。','高熵值 '+file.entropy.toFixed(2));
+    push('mid','process','样本疑似加壳','PE 文件熵值 '+(file.entropy||0).toFixed(2)+'，几乎可以确定被加壳。','高熵值 '+file.entropy.toFixed(2),'T1027.002');
   }
-  if(/ClearEventLog|wevtutil\s+cl|wevtutil\s+clear-log/i.test(text)){
-    push('high','anti','清除系统日志','清除安全/系统事件日志，掩盖入侵痕迹。','wevtutil cl');
+  if(isPE&&file.entropy>7.9&&file.size<1024*1024){
+    push('high','process','高熵值小体积 PE','小体积高熵 PE，疑似压缩壳或加密载荷。','熵值 '+(file.entropy||0).toFixed(2),'T1027.002');
   }
 
+  /* 银狐家族特征签名（扩展） */
+  const FOX_SIGS=[
+    [/WeChatUpdate|wxupdate|WeChatSetup/i,'伪装微信更新'],
+    [/WemeetUpdate|wemeet|腾讯会议/i,'伪装腾讯会议更新'],
+    [/DingTalkUpdate|dingtalk.*update/i,'伪装钉钉更新'],
+    [/WPS.*Update|kingsoft.*update|kso.*update/i,'伪装 WPS 更新'],
+    [/winnt32|filehider|hioffice/i,'银狐家族文件/互斥体'],
+    [/svchost\.exe.*-k\s+netsvcs/i,'伪装 svchost 服务'],
+    [/SilverFox|silverfox/i,'银狐家族标识'],
+    [/IP-guard|IPguard/i,'针对 IP-guard 远控'],
+    [/zhudongfangyu|360tray|360sd|huorong|hrsword/i,'针对国产安全软件']
+  ];
+  FOX_SIGS.forEach(function(pair){
+    if(pair[0].test(text)){
+      push('high','process','银狐家族特征：'+pair[1],'样本命中银狐木马家族的已知特征字符串。','银狐特征字符串匹配','T1036');
+    }
+  });
+
   if(events.length===1){
-    push('low','process','未观察到明显可疑行为','样本执行过程未触发敏感行为，暂未发现明显威胁。','—');
+    push('low','process','未观察到明显可疑行为','样本执行过程未触发敏感行为，暂未发现明显威胁。','—','');
   }
 
   let score=0;
-  events.forEach(e=>{if(e.level==='high')score+=10;else if(e.level==='mid')score+=4;else if(e.level==='low')score+=1});
-  return {events, verdict: score>=10?'danger':score>=4?'warn':'safe', score:score};
+  events.forEach(e=>{
+    if(e.level==='high')score+=10;
+    else if(e.level==='mid')score+=4;
+    else if(e.level==='low')score+=1;
+  });
+  // 反沙箱额外加权
+  if(matchedAnti.size>=3)score+=15;
+  if(matchedAnti.size>=5)score+=15;
+  return {events, verdict: score>=30?'danger':score>=10?'danger':score>=4?'warn':'safe', score:score};
 }
 
 async function traverseEntry(entry,path,collector){if(collector.length>=MAX_FILES)return;if(entry.isFile){await new Promise(resolve=>{entry.file(function(file){if(file.size<=MAX_FILE_SIZE){collector.push({file:file,name:file.name,size:file.size,path:path+file.name})}resolve()},function(){resolve()})})}else if(entry.isDirectory){const reader=entry.createReader();const subEntries=await new Promise(resolve=>{const all=[];function readBatch(){reader.readEntries(function(batch){if(batch.length===0){resolve(all);return}for(const b of batch)all.push(b);if(all.length>=MAX_FILES){resolve(all);return}readBatch()},function(){resolve(all)})}readBatch()});for(const e of subEntries){if(collector.length>=MAX_FILES)break;await traverseEntry(e,path+entry.name+'/',collector)}}}
 function renderFiles(){if(queue.length===0){el.filesSection.hidden=true;el.action.hidden=true;return}el.filesSection.hidden=false;el.action.hidden=false;el.filesCount.textContent=queue.length;el.filesList.innerHTML=queue.map(function(f){const ext=getExt(f.name);let tagClass='safe',tagText='safe';if(EXEC_EXTS.has(ext)){tagClass='exe';tagText='可执行'}else if(ARCHIVE_EXTS.has(ext)){tagClass='archive';tagText='压缩包'}else if(OFFICE_EXTS.has(ext)){tagClass='archive';tagText='文档'}return '<div class="file-item"><span class="fi"><svg class="icon"><use href="#i-file"/></svg></span><span class="fname">'+escapeHtml(f.path)+'</span><span class="ftag '+tagClass+'">'+tagText+'</span><span class="fsize">'+fmtSize(f.size)+'</span></div>'}).join('')}
-function sLog(level,msg){const div=document.createElement('div');div.className='slog-line '+level;const d=new Date();const p=n=>String(n).padStart(2,'0');div.innerHTML='<span class="t">'+p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds())+'</span><span class="m"></span>';div.querySelector('.m').textContent=msg;el.log.appendChild(div);el.log.scrollTop=el.log.scrollHeight;while(el.log.children.length>300){el.log.removeChild(el.log.firstChild)}}
-function renderTimeline(allEvents){
-  const tl=document.getElementById('behaviorTimeline');
-  if(!tl)return;
-  if(allEvents.length===0){tl.innerHTML='<div class="bt-empty">未捕获到任何行为事件</div>';return}
-  tl.innerHTML=allEvents.map(function(ev,i){
-    const catNames={process:'进程',file:'文件',network:'网络',registry:'注册表',memory:'内存',credential:'凭据',driver:'驱动',input:'输入',anti:'反分析',lateral:'横向'};
-    const evid=ev.evidence?'<div class="bt-evidence">证据来源：<b>'+escapeHtml(ev.evidence)+'</b></div>':'';
-    return '<div class="bt-event '+ev.level+'" style="animation-delay:'+(i*0.03)+'s"><div class="bt-head"><span class="bt-time">'+ev.time+'</span><span class="bt-cat '+ev.cat+'">'+(catNames[ev.cat]||ev.cat)+'</span></div><div class="bt-title">'+escapeHtml(ev.title)+'</div><div class="bt-detail">'+ev.detail+'</div>'+evid+'</div>';
-  }).join('');
+
+/* ============ 监控窗口逻辑 ============ */
+function resetMonitor(){
+  if(!el.monitorBody)return;
+  el.monitorBody.innerHTML='<div class="monitor-empty"><svg class="icon"><use href="#i-radar"/></svg>等待沙箱启动 · 扫描过程中会实时记录样本行为</div>';
+  if(el.monitorCount){el.monitorCount.textContent='0 条';el.monitorCount.classList.remove('alert')}
+  monitorCounts={high:0,mid:0,low:0,info:0,total:0};
+}
+function addMonitorRow(ev){
+  if(!el.monitorBody)return;
+  if(monitorCounts.total===0){
+    el.monitorBody.innerHTML='';
+  }
+  monitorCounts.total++;
+  if(ev.level==='high')monitorCounts.high++;
+  else if(ev.level==='mid')monitorCounts.mid++;
+  else if(ev.level==='low')monitorCounts.low++;
+  else monitorCounts.info++;
+  if(el.monitorCount){
+    el.monitorCount.textContent=monitorCounts.total+' 条';
+    if(monitorCounts.high>0)el.monitorCount.classList.add('alert');
+    else el.monitorCount.classList.remove('alert');
+  }
+  const item=document.createElement('div');
+  item.className='monitor-item';
+  item.dataset.level=ev.level;
+  item.dataset.cat=ev.cat;
+  const evid=ev.evidence?'<div class="mr-evidence">证据来源：'+escapeHtml(ev.evidence)+'</div>':'';
+  const tech=ev.tech?'<div class="mr-tech">ATT&CK：'+escapeHtml(ev.tech)+'</div>':'';
+  item.innerHTML='<div class="monitor-row '+ev.level+'"><span class="mr-dot"></span><span class="mr-time">'+ev.time+'</span><span class="mr-cat '+ev.cat+'">'+(CAT_NAMES[ev.cat]||ev.cat)+'</span><span class="mr-title">'+escapeHtml(ev.title)+'</span><svg class="icon mr-chevron"><use href="#i-arrow-right"/></svg></div><div class="mr-detail">'+ev.detail+evid+tech+'</div>';
+  const row=item.querySelector('.monitor-row');
+  if(row)row.addEventListener('click',function(){item.classList.toggle('expanded')});
+  el.monitorBody.appendChild(item);
+  const nearBottom=el.monitorBody.scrollHeight-el.monitorBody.scrollTop-el.monitorBody.clientHeight<100;
+  if(nearBottom)el.monitorBody.scrollTop=el.monitorBody.scrollHeight;
+}
+function bindMonitorFilters(){
+  const filters=document.getElementById('monitorFilters');
+  if(!filters)return;
+  filters.addEventListener('click',function(e){
+    const btn=e.target.closest('.monitor-filter');
+    if(!btn)return;
+    filters.querySelectorAll('.monitor-filter').forEach(function(b){b.classList.remove('active')});
+    btn.classList.add('active');
+    const filter=btn.dataset.filter;
+    const items=el.monitorBody.querySelectorAll('.monitor-item');
+    items.forEach(function(item){
+      const lv=item.dataset.level;
+      const cat=item.dataset.cat;
+      let show=false;
+      if(filter==='all')show=true;
+      else if(filter==='low')show=(lv==='low'||lv==='info');
+      else if(filter==='anti')show=(cat==='antisandbox'||cat==='anti');
+      else show=(lv===filter);
+      item.style.display=show?'':'none';
+    });
+  });
 }
 
 async function startScan(){
@@ -1460,22 +1677,21 @@ async function startScan(){
   scanning=true;
   el.startBtn.disabled=true;
   el.startBtn.innerHTML='<svg class="icon"><use href="#i-refresh"/></svg>分析中...';
-  el.engines.hidden=false;el.logWrap.hidden=false;el.results.hidden=true;el.log.innerHTML='';
+  el.engines.hidden=false;
+  if(el.monitor)el.monitor.hidden=false;
+  el.results.hidden=true;
+  resetMonitor();
   for(const k in engines){const e=engines[k];e.card.classList.remove('done','danger','running');e.bar.style.width='0%';e.num.textContent='0';e.total.textContent=queue.length;e.status.textContent='待命';e.status.className='engine-status'}
-  sLog('info','════ 动态沙箱启动 ════');
-  sLog('info','样本数量：'+queue.length+' 个 · 隔离环境已就绪 · 9 大类行为监控已启动');
   for(const k in engines){const e=engines[k];e.card.classList.add('running');e.status.textContent='运行中';e.status.className='engine-status running'}
   await sleep(300);
 
   const allResults=[];const allEvents=[];
-  const engineCounts={behavior:0,file:0,network:0};
+  const engineCounts={behavior:0,file:0,network:0,anti:0};
 
   for(let i=0;i<queue.length;i++){
     const f=queue[i];
     const data=await readFileData(f.file);
     const info={file:f.file,name:f.name,size:f.size,path:f.path,magic:detectMagic(data.head),entropy:data.entropy,strings:data.strings,head:data.head};
-    const shortName=f.name.length>42?f.name.slice(0,39)+'...':f.name;
-    sLog('info','▶ 执行 '+shortName+' · Magic='+info.magic+' · 熵值='+(info.entropy||0).toFixed(2));
 
     const sim=simulateExecution(info);
 
@@ -1484,9 +1700,10 @@ async function startScan(){
       allEvents.push(ev);
       if(ev.cat==='process'||ev.cat==='memory')engineCounts.behavior++;
       else if(ev.cat==='file'||ev.cat==='registry'||ev.cat==='driver')engineCounts.file++;
+      else if(ev.cat==='anti'||ev.cat==='antisandbox')engineCounts.anti++;
       else engineCounts.network++;
-      sLog(ev.level==='high'?'danger':ev.level==='mid'?'warn':ev.level==='low'?'ok':'info','['+ev.time+']['+ev.cat+'] '+ev.title);
-      await sleep(30+Math.random()*40);
+      addMonitorRow(ev);
+      await sleep(25+Math.random()*35);
     }
 
     const progress=(i+1)/queue.length*100;
@@ -1496,17 +1713,18 @@ async function startScan(){
     engines.file.bar.style.width=progress+'%';
     engines.network.num.textContent=engineCounts.network;
     engines.network.bar.style.width=progress+'%';
+    engines.anti.num.textContent=engineCounts.anti;
+    engines.anti.bar.style.width=progress+'%';
     engines.behavior.total.textContent=allEvents.length;
     engines.file.total.textContent=allEvents.length;
     engines.network.total.textContent=allEvents.length;
+    engines.anti.total.textContent=allEvents.length;
 
     allResults.push({file:info,events:sim.events,verdict:sim.verdict,score:sim.score});
   }
 
   for(const k in engines){const e=engines[k];e.card.classList.remove('running');e.card.classList.add(engineCounts[k]>0?'danger':'done');e.status.textContent=engineCounts[k]>0?'已捕获行为':'无行为';e.status.className='engine-status '+(engineCounts[k]>0?'danger':'done');e.bar.style.width='100%'}
 
-  sLog('ok','════ 动态分析完成 ════');
-  renderTimeline(allEvents);
   renderResults(allResults);
   lastResults=allResults;
   scanning=false;
@@ -1517,12 +1735,18 @@ async function startScan(){
 function renderResults(results){
   el.results.hidden=false;
   let totalHigh=0,totalMid=0,totalLow=0,totalEvents=0;
+  let antiSandboxCount=0,driverCount=0,credentialCount=0,lateralCount=0,injectionCount=0;
   results.forEach(r=>{
     totalEvents+=r.events.length;
     r.events.forEach(e=>{
       if(e.level==='high')totalHigh++;
       else if(e.level==='mid')totalMid++;
       else if(e.level==='low')totalLow++;
+      if(e.cat==='antisandbox')antiSandboxCount++;
+      if(e.cat==='driver')driverCount++;
+      if(e.cat==='credential')credentialCount++;
+      if(e.cat==='lateral')lateralCount++;
+      if(e.title.indexOf('注入')>=0||e.title.indexOf('APC')>=0)injectionCount++;
     });
   });
   let vText='未发现明显威胁',vColor='#c9ffe0',vIcon='#i-shield-check',vClass='safe';
@@ -1532,7 +1756,19 @@ function renderResults(results){
 
   const sum=document.getElementById('resultSummary');
   sum.className='result-summary '+vClass;
-  sum.innerHTML='<div class="verdict" style="color:'+vColor+'"><svg class="icon"><use href="'+vIcon+'"/></svg>'+vText+'</div><div class="details">共捕获 '+totalEvents+' 条行为事件 · 高危 '+totalHigh+' 条 · 中危 '+totalMid+' 条 · 低危 '+totalLow+' 条</div><div class="stat-grid"><div class="stat"><div class="v" style="color:#ffbaba">'+totalHigh+'</div><div class="k">高危行为</div></div><div class="stat"><div class="v" style="color:#ffdfa3">'+totalMid+'</div><div class="k">中危行为</div></div><div class="stat"><div class="v" style="color:#c9ffe0">'+totalLow+'</div><div class="k">低危行为</div></div><div class="stat"><div class="v" style="color:#c9b8ff">'+results.length+'</div><div class="k">分析样本</div></div></div>';
+  let extra='';
+  if(antiSandboxCount>0){
+    extra='<div class="attack-chain"><div class="ac-title">⚠️ 反沙箱保护检测</div><div class="ac-steps"><span class="ac-step">样本包含 '+antiSandboxCount+' 条反沙箱检测行为</span><span class="ac-arrow">→</span><span class="ac-step" style="background:rgba(255,77,77,.2);border-color:rgba(255,77,77,.5);color:#ffbaba">存在规避分析意图</span></div></div>';
+  }
+  if(driverCount>0||credentialCount>0||lateralCount>0){
+    let steps=[];
+    if(driverCount>0)steps.push('驱动加载');
+    if(credentialCount>0)steps.push('凭据窃取');
+    if(lateralCount>0)steps.push('内网横向');
+    if(injectionCount>0)steps.push('代码注入');
+    extra+='<div class="attack-chain"><div class="ac-title">⚔ 攻击链关键节点</div><div class="ac-steps">'+steps.map((s,i)=>'<span class="ac-step">'+s+'</span>'+(i<steps.length-1?'<span class="ac-arrow">→</span>':'')).join('')+'</div></div>';
+  }
+  sum.innerHTML='<div class="verdict" style="color:'+vColor+'"><svg class="icon"><use href="'+vIcon+'"/></svg>'+vText+'</div><div class="details">共捕获 '+totalEvents+' 条行为事件 · 高危 '+totalHigh+' 条 · 中危 '+totalMid+' 条 · 低危 '+totalLow+' 条</div><div class="stat-grid"><div class="stat"><div class="v" style="color:#ffbaba">'+totalHigh+'</div><div class="k">高危行为</div></div><div class="stat"><div class="v" style="color:#ffdfa3">'+totalMid+'</div><div class="k">中危行为</div></div><div class="stat"><div class="v" style="color:#c9ffe0">'+totalLow+'</div><div class="k">低危行为</div></div><div class="stat"><div class="v" style="color:#c9b8ff">'+results.length+'</div><div class="k">分析样本</div></div></div>'+extra;
 
   const FOX_KEYS=['silverfox','winnt32','filehider','wechatupdate','wemeetupdate','dingtalker','kingsoftsafe','hioffice','银狐'];
   let foxHits=0;const foxTags=new Set();
@@ -1560,12 +1796,15 @@ function init(){
   el.filesSection=document.getElementById('sandboxFiles');el.filesList=document.getElementById('filesList');
   el.filesCount=document.getElementById('filesCount');el.clearFilesBtn=document.getElementById('clearFilesBtn');
   el.action=document.getElementById('sandboxAction');el.startBtn=document.getElementById('startScanBtn');
-  el.engines=document.getElementById('sandboxEngines');el.logWrap=document.getElementById('sandboxLogWrap');
-  el.log=document.getElementById('sandboxLog');el.results=document.getElementById('sandboxResults');
+  el.engines=document.getElementById('sandboxEngines');el.results=document.getElementById('sandboxResults');
   el.selectBtn=document.getElementById('sandboxSelectBtn');
+  el.monitor=document.getElementById('sandboxMonitor');
+  el.monitorBody=document.getElementById('monitorBody');
+  el.monitorCount=document.getElementById('monitorCount');
   engines.behavior={card:document.getElementById('engineBehavior'),name:'进程与内存'};
   engines.file={card:document.getElementById('engineFile'),name:'文件/注册表/驱动'};
-  engines.network={card:document.getElementById('engineNetwork'),name:'网络/凭据/输入/反分析'};
+  engines.network={card:document.getElementById('engineNetwork'),name:'网络/凭据/输入/横向'};
+  engines.anti={card:document.getElementById('engineAnti'),name:'反分析/反沙箱'};
   for(const k in engines){const e=engines[k];e.bar=e.card.querySelector('.engine-bar');e.num=e.card.querySelector('.ev-num');e.total=e.card.querySelector('.ev-total');e.status=e.card.querySelector('.engine-status')}
   if(!el.drop)return;
   ['dragenter','dragover'].forEach(function(ev){el.drop.addEventListener(ev,function(e){e.preventDefault();e.stopPropagation();el.drop.classList.add('dragover')})});
@@ -1574,16 +1813,10 @@ function init(){
   el.drop.addEventListener('click',function(e){if(e.target.closest('button'))return;el.fileInput.click()});
   if(el.selectBtn){el.selectBtn.addEventListener('click',function(e){e.stopPropagation();el.fileInput.click()})}
   el.fileInput.addEventListener('change',function(e){const files=e.target.files;if(!files)return;const collector=[];for(let i=0;i<files.length;i++){const f=files[i];if(f.size<=MAX_FILE_SIZE){const relPath=f.webkitRelativePath||f.name;collector.push({file:f,name:f.name,size:f.size,path:relPath})}if(collector.length>=MAX_FILES)break}queue=queue.concat(collector).slice(0,MAX_FILES);renderFiles();e.target.value=''});
-  el.clearFilesBtn.addEventListener('click',function(){queue=[];renderFiles();el.engines.hidden=true;el.logWrap.hidden=true;el.results.hidden=true;document.getElementById('sandboxTimelineWrap').hidden=true});
+  el.clearFilesBtn.addEventListener('click',function(){queue=[];renderFiles();el.engines.hidden=true;el.results.hidden=true;if(el.monitor)el.monitor.hidden=true;resetMonitor()});
   el.startBtn.addEventListener('click',function(){startScan()});
-  document.getElementById('sandboxTimelineWrap').hidden=true;
+  bindMonitorFilters();
 }
-const origStartScan=startScan;
-startScan=async function(){
-  const wrap=document.getElementById('sandboxTimelineWrap');
-  if(wrap)wrap.hidden=false;
-  await origStartScan();
-};
 return{init:init,getLastResults:function(){return lastResults}}
 })();
 
@@ -1625,7 +1858,7 @@ document.querySelectorAll('.copy-btn').forEach(function(btn){btn.addEventListene
 (function integrityGuard(){const chip=document.getElementById('integrityChip');if(!chip)return;let flagged=false;function flag(reason){if(flagged)return;flagged=true;Array.prototype.slice.call(chip.childNodes).forEach(function(n){if(n.nodeType===3)chip.removeChild(n)});chip.appendChild(document.createTextNode('完整性：异常'));chip.classList.remove('ok');chip.classList.add('alert');FW.log('block','完整性告警：'+reason)}if(document.querySelector('base')){flag('检测到 base 标签')}})();
 
 const NewbieMode=(function(){
-const STORAGE_KEY='sec_portal_newbie_mode_v201';
+const STORAGE_KEY='sec_portal_newbie_mode_v202';
 const el={toggle:document.getElementById('newbieToggle'),replay:document.getElementById('replayGuideBtn')};
 let enabled=true;
 function loadState(){try{const raw=localStorage.getItem(STORAGE_KEY);enabled=(raw!=='off')}catch(e){enabled=true}}
@@ -1638,13 +1871,13 @@ return{init:init,isEnabled:isEnabled,setEnabled:setEnabled}
 })();
 
 const Guide=(function(){
-const STORAGE_KEY='sec_portal_guide_seen_v201';
+const STORAGE_KEY='sec_portal_guide_seen_v202';
 const el={highlight:document.getElementById('guideHighlight'),tip:document.getElementById('guideTip'),arrow:document.getElementById('guideArrow'),title:document.getElementById('guideTitle'),desc:document.getElementById('guideDesc'),stepNum:document.getElementById('guideStepNum'),stepTotal:document.getElementById('guideStepTotal'),next:document.getElementById('guideNextBtn'),skip:document.getElementById('guideSkipBtn')};
 let currentStep=0;let active=false;let resizeTimer=null;let scrollTimer=null;
 const steps=[
-{target:null,title:'👋 欢迎使用银狐木马急救工具 2.0.1',desc:'云端网页，专门帮你处理银狐木马。2.0.1 把沙箱加强为 9 大类行为监控，AI 判定升级为攻击链重建 + 家族指纹匹配 + 置信度评估。',placement:'center'},
+{target:null,title:'👋 欢迎使用银狐木马急救工具 2.0.2',desc:'云端网页，专门帮你处理银狐木马。2.0.2 大幅加强了动态沙箱，新增反沙箱保护检测，AI 引擎也做了重试和优化。',placement:'center'},
 {target:'#silverfoxCard',title:'① 银狐木马专杀',desc:'电脑已经中了银狐木马？点这张卡片进入应急页，包含官方急救箱下载、启动器兼容方案，以及新手模式下的 7 步超详细处置指引。',placement:'bottom'},
-{target:'#sandboxCard',title:'② 动态沙箱分析（2.0.1）',desc:'隔离环境模拟执行，实时捕获进程/内存、文件/注册表/驱动、网络/凭据/输入/反分析 9 大类行为。由 GLM5.3 大模型基于完整行为链路做最终判定。',placement:'bottom'},
+{target:'#sandboxCard',title:'② 动态沙箱分析（2.0.2）',desc:'隔离环境模拟执行，实时捕获 10 大类行为，新增反沙箱保护检测。结果整合进紧凑监控窗口，可筛选、可展开、带 ATT&CK 标注。',placement:'bottom'},
 {target:'#newsCard',title:'③ 威胁动态',desc:'看最新的银狐木马变种、攻击手法和防范建议。遇到不确定的情况可以来对照一下。',placement:'bottom'},
 {target:'#deepThinkBar',title:'④ 深度思考模式（点击任意位置切换）',desc:'开启后 AI 会做完整攻击链重建、家族指纹匹配和 IOC 提取。未解锁用户深度思考限 1 次。',placement:'bottom'},
 {target:'#fwToggle',title:'⑤ 网页防火墙',desc:'右下角的盾牌，实时监控页面有没有可疑行为。点开可以看详细日志，还能测试拦截。',placement:'left'},
@@ -1663,10 +1896,27 @@ function init(){if(el.next)el.next.addEventListener('click',next);if(el.skip)el.
 return{init:init,start:start,autoStart:autoStart,hasSeen:hasSeen}
 })();
 
-(function renderChangelog(){const list=document.getElementById('changelogList');if(!list)return;list.innerHTML=CHANGELOG.map(function(item){return '<div class="changelog-item'+(item.current?' current':'')+'"><div class="ver">'+item.ver+'</div><div class="content"><div class="text">'+item.text+(item.current?'<span class="badge">当前</span>':'')+'</div></div></div>'}).join('')})();
+(function renderChangelog(){
+  const list=document.getElementById('changelogList');
+  if(!list)return;
+  list.innerHTML=CHANGELOG.map(function(item){
+    const typeClass=item.major?'major':'patch';
+    const typeLabel=item.major?'主版本':'补丁';
+    const cur=item.current?' current':'';
+    return '<div class="changelog-item '+typeClass+cur+'">'+
+      '<div class="changelog-ver-wrap">'+
+        '<div class="ver">v'+item.ver+'</div>'+
+        (item.date?'<div class="cl-date">'+item.date+'</div>':'')+
+      '</div>'+
+      '<div class="content">'+
+        '<div class="text">'+item.text+(item.current?'<span class="badge">当前</span>':'')+'<span class="cl-type '+typeClass+'">'+typeLabel+'</span></div>'+
+      '</div>'+
+    '</div>';
+  }).join('');
+})();
 
 (function modalFlow(){
-const WELCOME_KEY='sec_portal_welcome_date_v201';const CHANGELOG_KEY='sec_portal_changelog_date_v201';
+const WELCOME_KEY='sec_portal_welcome_date_v202';const CHANGELOG_KEY='sec_portal_changelog_date_v202';
 const welcomeModal=document.getElementById('welcomeModal');const changelogModal=document.getElementById('changelogModal');const welcomeCheck=document.getElementById('dontShowToday');const changelogCheck=document.getElementById('dontShowChangelogToday');const welcomeBtn=document.getElementById('wmConfirm');const changelogBtn=document.getElementById('clConfirm');
 if(!welcomeModal||!changelogModal)return;
 function todayStr(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
@@ -1682,7 +1932,7 @@ if(!hasDismissed(WELCOME_KEY)){setTimeout(function(){openModal(welcomeModal)},55
 })();
 
 /* ============================================================
-   SandboxAI · AI 判定为核心（加强版）
+   SandboxAI · AI 判定为核心（优化版）
    ============================================================ */
 const SandboxAI=(function(){
 const DEFAULT_KEY='f07860254c084cb49262969cabe4a094.k6FyiKihZNtxyURV';
@@ -1690,12 +1940,13 @@ const API_URL='https://open.bigmodel.cn/api/paas/v4/chat/completions';
 const MODEL='glm-4-flash';
 const MODEL_LABEL='GLM5.3flash';
 const UNLOCK_PWD='54188';
-const STORAGE_USER_KEY='sandbox_ai_user_key_v201';
-const TRIAL_STORAGE_KEY='sandbox_ai_trial_used_v201';
-const DEEP_THINK_KEY='sandbox_ai_deep_think_v201';
-const DEEP_TRIAL_STORAGE_KEY='sandbox_ai_deep_trial_used_v201';
+const STORAGE_USER_KEY='sandbox_ai_user_key_v202';
+const TRIAL_STORAGE_KEY='sandbox_ai_trial_used_v202';
+const DEEP_THINK_KEY='sandbox_ai_deep_think_v202';
+const DEEP_TRIAL_STORAGE_KEY='sandbox_ai_deep_trial_used_v202';
 const TRIAL_TOTAL=2;
 const DEEP_TRIAL_TOTAL=1;
+const MAX_RETRIES=2;
 let unlocked=false;let userKey='';let analyzing=false;let autoPopuped=false;
 let trialUsedCount=0;let deepTrialUsed=0;let deepThink=false;
 let toggleLock=false;
@@ -1722,19 +1973,24 @@ function extractFileContent(fileInfo,maxLen){const head=fileInfo.head||new Uint8
 function buildPrompt(results,deep){
   if(!results||results.length===0)return'沙箱未检测到任何文件。';
   const lines=[];
-  lines.push('这是一份**动态沙箱**的执行行为报告。样本在隔离环境中被模拟执行，以下是 9 大类行为监控捕获的完整链路。请你以资深安全分析师 + 恶意代码逆向工程师的双重视角，**基于行为链路做最终判定**。');
+  lines.push('这是一份**动态沙箱**的执行行为报告。样本在隔离环境中被模拟执行，以下是 10 大类行为监控捕获的完整链路。请你以资深安全分析师 + 恶意代码逆向工程师的双重视角，**基于行为链路做最终判定**。');
   lines.push('');
-  lines.push('【9 大类行为监控说明】');
-  lines.push('- process 进程：进程创建 / 命令行 / 注入 / 镂空 / 提权 / 令牌 / 终止 / 服务安装');
+  lines.push('【10 大类行为监控说明】');
+  lines.push('- process 进程：进程创建 / 命令行 / 注入 / 镂空 / 提权 / 令牌 / 终止 / 服务安装 / APC注入 / 线程上下文劫持 / 无文件执行 / LOLBins');
   lines.push('- memory 内存：VirtualAlloc / VirtualProtect / 可执行内存申请');
   lines.push('- file 文件：落盘 / 释放 / 加密 / 删除 / ADS 流 / 时间戳篡改');
-  lines.push('- registry 注册表：Run / RunOnce / Winlogon / IFEO / 计划任务 / WMI 订阅');
-  lines.push('- driver 驱动：驱动加载 / 设备对象 / 符号链接');
-  lines.push('- network 网络：C2 连接 / DNS / 心跳 / 下载 / HTTP 请求');
-  lines.push('- credential 凭据：浏览器凭证库 / LSASS 内存 / SAM 导出');
-  lines.push('- input 输入：全局钩子 / 键盘监听 / 剪贴板 / 屏幕截图');
-  lines.push('- anti 反分析：反调试 / 反虚拟机 / 延时执行 / 日志清除');
-  lines.push('- lateral 横向：SMB / WMI / PsExec / 内网共享枚举');
+  lines.push('- registry 注册表：Run / RunOnce / Winlogon / IFEO / 计划任务 / WMI 订阅 / AppInit_DLLs / COM 劫持');
+  lines.push('- driver 驱动：驱动加载 / 设备对象 / 符号链接 / BYOVD');
+  lines.push('- network 网络：C2 连接 / DNS / 心跳 / 下载 / HTTP / HTTPS / SMTP / 第三方平台');
+  lines.push('- credential 凭据：浏览器凭证库 / LSASS 内存 / SAM 导出 / Windows 凭据管理器');
+  lines.push('- input 输入：全局钩子 / 键盘监听 / 剪贴板 / 屏幕截图 / 原始输入');
+  lines.push('- anti 反分析：反调试 / 反虚拟机 / 延时执行 / 时间检测 / 加壳 / 日志清除');
+  lines.push('- antisandbox 反沙箱：调试器检测 / VM 检测 / 沙箱 DLL 检测 / 硬件指纹 / 用户活动检测 / 在线分析平台检测');
+  lines.push('- lateral 横向：SMB / WMI / PsExec / RDP / 内网共享枚举');
+  lines.push('');
+  lines.push('【反沙箱保护特别关注】');
+  lines.push('反沙箱（antisandbox）类别的事件表明样本具有环境感知和规避分析的能力，是恶意软件的重要特征。');
+  lines.push('如果一个样本同时具备反沙箱 + 进程注入 + 持久化 + C2 外联，基本可以确定为恶意软件。');
   lines.push('');
   if(deep){
     lines.push('【深度思考模式已开启】请额外完成：');
@@ -1765,7 +2021,7 @@ function buildPrompt(results,deep){
     if(r.events.length===0){block.push('  （未捕获到行为）')}
     else{
       r.events.forEach(function(ev,idx){
-        block.push('  ['+(idx+1)+'] '+ev.time+' ['+ev.cat+'] '+ev.title);
+        block.push('  ['+(idx+1)+'] '+ev.time+' ['+ev.cat+'] '+ev.title+(ev.tech?' [ATT&CK: '+ev.tech+']':''));
         block.push('      '+ev.detail.replace(/<[^>]+>/g,'').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&'));
         if(ev.evidence)block.push('      证据: '+ev.evidence);
       });
@@ -1791,7 +2047,7 @@ function buildPrompt(results,deep){
   }else{
     lines.push('1. 综合判定（安全 / 可疑 / 高危）+ 置信度 0-100，并说明核心依据是哪些行为事件；');
     lines.push('2. 关键行为解读：哪几条行为是"决定性证据"；');
-    lines.push('3. 是否存在反沙箱迹象；');
+    lines.push('3. 反沙箱/反分析能力评估；');
     lines.push('4. 如果是银狐/其它已知家族，请指出；');
     lines.push('5. 处置建议。');
   }
@@ -1800,11 +2056,11 @@ function buildPrompt(results,deep){
   return lines.join('\n');
 }
 
-async function callGLM(prompt,deep){
+async function callGLMOnce(prompt,deep){
   const key=getKey();if(!key)throw new Error('未配置 API Key');
   const sysContent=deep
-    ?'你是一位资深的安全分析专家 + 恶意代码逆向工程师。用户给你的是**动态沙箱的 9 大类行为报告**。请基于行为链路做最终判定，重建攻击链，与已知家族做指纹匹配，提取 IOC，给出置信度。每条结论都要引用具体行为事件。注意：KB66666/无害木马等恶作剧样本按低危处理。'
-    :'你是一位资深的安全分析专家。用户给你的是**动态沙箱的行为报告**。请基于行为链路做最终判定，给出置信度。不要只看文件名或静态特征，要抓住"谁创建了进程、往哪写文件、连了谁、改了哪"这些行为证据。注意：KB66666/无害木马等恶作剧样本按低危处理。';
+    ?'你是一位资深的安全分析专家 + 恶意代码逆向工程师。用户给你的是**动态沙箱的 10 大类行为报告**（含反沙箱保护）。请基于行为链路做最终判定，重建攻击链，与已知家族做指纹匹配，提取 IOC，给出置信度。每条结论都要引用具体行为事件。反沙箱行为（antisandbox 类别）是恶意软件的重要特征，应重点关注。注意：KB66666/无害木马等恶作剧样本按低危处理。'
+    :'你是一位资深的安全分析专家。用户给你的是**动态沙箱的行为报告**（含反沙箱保护检测）。请基于行为链路做最终判定，给出置信度。不要只看文件名或静态特征，要抓住"谁创建了进程、往哪写文件、连了谁、改了哪"这些行为证据。反沙箱行为是恶意软件的重要特征，应重点关注。注意：KB66666/无害木马等恶作剧样本按低危处理。';
   const body={model:MODEL,messages:[{role:'system',content:sysContent},{role:'user',content:prompt}],stream:false,temperature:deep?0.4:0.3,max_tokens:deep?4096:2048};
   const res=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},body:JSON.stringify(body)});
   if(!res.ok){let errText='';try{errText=await res.text()}catch(e){}throw new Error('HTTP '+res.status+(errText?('：'+errText.slice(0,200)):''))}
@@ -1814,13 +2070,35 @@ async function callGLM(prompt,deep){
   return typeof content==='string'?content:JSON.stringify(content);
 }
 
+/* 带重试的 API 调用 */
+async function callGLM(prompt,deep){
+  let lastErr=null;
+  for(let attempt=0;attempt<=MAX_RETRIES;attempt++){
+    try{
+      return await callGLMOnce(prompt,deep);
+    }catch(e){
+      lastErr=e;
+      const msg=String(e&&e.message||e);
+      // 不重试：认证/权限/额度类错误
+      if(msg.indexOf('401')>=0||msg.indexOf('403')>=0||msg.indexOf('Key')>=0||msg.indexOf('quota')>=0||msg.indexOf('额度')>=0){
+        throw e;
+      }
+      if(attempt<MAX_RETRIES){
+        const delay=(attempt+1)*1500;
+        await new Promise(function(r){setTimeout(r,delay)});
+      }
+    }
+  }
+  throw lastErr||new Error('API 调用失败');
+}
+
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 function renderMarkdown(text){if(!text)return'';const parts=[];const regex=/```(\w+)?\n?([\s\S]*?)```/g;let last=0,m;while((m=regex.exec(text))!==null){if(m.index>last)parts.push({type:'text',content:text.slice(last,m.index)});parts.push({type:'code',lang:m[1]||'text',content:m[2]});last=m.index+m[0].length}if(last<text.length)parts.push({type:'text',content:text.slice(last)});if(parts.length===0)parts.push({type:'text',content:text});return parts.map(function(p){if(p.type==='code'){return '<div class="ai-code"><div class="ai-code-head"><span>'+esc(p.lang)+'</span></div><pre>'+esc(p.content.replace(/\n$/,''))+'</pre></div>'}return esc(p.content).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+?)`/g,'<code>$1</code>').replace(/\n/g,'<br>')}).join('')}
 
 let progressTimer=null,progressStageTimer=null;
 function startProgressVisual(deep){
   const stages=[
-    {n:'1',t:'收集行为',hint:'正在汇总 9 大类动态行为事件…'},
+    {n:'1',t:'收集行为',hint:'正在汇总 10 大类动态行为事件…'},
     {n:'2',t:'发送请求',hint:'已连接 GLM5.3 接口，正在发送行为链路…'},
     {n:'3',t:'AI 判定',hint:deep?'AI 正在重建攻击链、比对家族指纹、提取 IOC…':'AI 正在基于行为链路做判定…'},
     {n:'4',t:'生成结果',hint:'正在整理结论并准备输出…'}
@@ -1903,7 +2181,7 @@ function bindEvents(){
     },true);
   }
 }
-function init(){initEls();if(!el.zone)return;loadUserKey();loadTrial();loadDeepTrial();loadDeepThink();bindEvents();setUnlockedUI();setDeepThinkUI();FW.log('info','· 动态沙箱 AI 模块 v2.0.1 已就绪（总试用 '+getTrialLeft()+'/'+TRIAL_TOTAL+' 次，深度思考 '+getDeepTrialLeft()+'/'+DEEP_TRIAL_TOTAL+'）')}
+function init(){initEls();if(!el.zone)return;loadUserKey();loadTrial();loadDeepTrial();loadDeepThink();bindEvents();setUnlockedUI();setDeepThinkUI();FW.log('info','· 动态沙箱 AI 模块 v2.0.2 已就绪（总试用 '+getTrialLeft()+'/'+TRIAL_TOTAL+' 次，深度思考 '+getDeepTrialLeft()+'/'+DEEP_TRIAL_TOTAL+'）')}
 return{init:init,onEnter:onEnter}
 })();
 
